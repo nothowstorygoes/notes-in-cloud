@@ -1,0 +1,28 @@
+.load {
+    position: absolute;
+    top:  50%;
+    left:  50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    justify-content: center;
+    font-size:  25px;
+    width:  250px;
+    color: #344966;
+}
+
+/* Styles for the submit button */
+.SignOutButton {
+    width:  100px;
+    padding:  10px;
+    background-color: #344966; /* Match the button color of page.module.css */
+    color: #eff8e2; /* Match the button text color of page.module.css */
+    border: none;
+    border-radius:  10px;
+    cursor: pointer;
+    transition: background-color  0.3s ease; /* Add a transition for hover effect */
+}
+
+/* Styles for the submit button on hover */
+.SignOutButton:hover {
+    background-color: #0d1821; /* Darken the button color on hover */
+}
