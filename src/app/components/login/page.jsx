@@ -40,7 +40,7 @@ const Login = () => {
     <main>
       <section>
         <div className={styles.container}>
-          <p className={styles.title}><a href="/" className={styles.titleLink}>Notes in Cloud</a></p>
+          <p className={styles.title}><a href="/notes-in-cloud/" className={styles.titleLink}>Notes in Cloud</a></p>
           <form className={styles.formContainer} onSubmit={handleLogin}>
             <div>
               <label htmlFor="email-address" className={styles.label}>

@@ -66,7 +66,7 @@ const Signup = () => {
       <section>
         <div className={styles.container}>
           <p className={styles.title}>
-            <a href="/" className={styles.titleLink}>
+            <a href="/notes-in-cloud/" className={styles.titleLink}>
               Notes in Cloud
             </a>
           </p>
