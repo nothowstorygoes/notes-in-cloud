@@ -55,3 +55,35 @@
     margin-bottom: 0;
     color:#344966;
 }
+@media (max-width:  480px) {
+  .container {
+    padding:  4.5rem;
+    height:  90vh;
+  }
+
+  .buttonContainer {
+    flex-direction: row;
+    max-width:  100%;
+  }
+
+  .title {
+    font-size:  2rem;
+    margin-bottom:  5rem;
+  }
+
+  .button {
+    width:  100px;
+    height:  40px;
+    font-size:  15px;
+    padding:  0.25rem  0.5rem;
+  }
+
+  .paragraph {
+    width:  100%;
+    margin-top:  2.5rem;
+  }
+
+  .footer {
+    margin-top:  25px;
+  }
+}

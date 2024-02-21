@@ -9,6 +9,54 @@
   padding:  10px  0;
   z-index:  1000; /* Ensure the navbar is above other content */
 }
+.icons{
+  display: none;
+}
+
+/* Media query for smartphones */
+@media (max-width:   767px) {
+  .navbar {
+    top: auto !important;
+    position: fixed !important;
+    bottom:   0;
+  }
+
+  .logo{
+    display: none;
+  }
+
+  .navbarItem{
+    display: none;
+  }
+
+  .icons{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left:20px;
+    margin-right:20px;
+  }
+}
+
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width:  1200px;
+  margin:  0 auto;
+}
+
+/* Styles for the navbar */
+.navbar {
+  position: fixed;
+  top:  0;
+  left:  0;
+  right:  0;
+  background-color: #344966; /* Background color from profile.module.css */
+  color: #eff8e2; /* Text color from profile.module.css */
+  padding:  10px  0;
+  z-index:  1000; /* Ensure the navbar is above other content */
+}
 
 .navbarContainer {
   display: flex;
