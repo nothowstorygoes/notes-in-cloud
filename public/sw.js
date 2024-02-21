@@ -69,7 +69,7 @@ if (!self.define) {
 }
 define(['./workbox-1e54d6fe'], (function (workbox) { 'use strict';
 
-  importScripts("/nothowstorygoes.dev/fallback-development.js");
+  importScripts("/notes-in-cloud/fallback-development.js");
   self.skipWaiting();
   workbox.clientsClaim();
 
@@ -79,16 +79,16 @@ define(['./workbox-1e54d6fe'], (function (workbox) { 'use strict';
    * See https://goo.gl/S9QRab
    */
   workbox.precacheAndRoute([{
-    "url": "/nothowstorygoes.dev/fallback.webp",
+    "url": "/notes-in-cloud/fallback.webp",
     "revision": "development"
   }, {
-    "url": "/nothowstorygoes.dev/~offline",
+    "url": "/notes-in-cloud/~offline",
     "revision": "development"
   }], {
     "ignoreURLParametersMatching": [/^utm_/, /^fbclid$/, /ts/]
   });
   workbox.cleanupOutdatedCaches();
-  workbox.registerRoute("/nothowstorygoes.dev", new workbox.NetworkFirst({
+  workbox.registerRoute("/notes-in-cloud", new workbox.NetworkFirst({
     "cacheName": "start-url",
     plugins: [{
       cacheWillUpdate: async ({
