@@ -10,95 +10,88 @@
   color: #344966;
 }
 
-.header{
-    display: flex;
-    margin-top: 15px;
-    flex-direction: row;
-    align-items: center;
+.container {
+  padding: 0;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  text-align: center;
+  border-radius: 10px; /* Add a border radius for a softer look */
+}
+
+.header {
+  display: flex;
+  margin-top: 15px;
+  flex-direction: row;
+  align-items: center;
 }
 
 .headerTitle {
-    font-size:  2rem; /* Match the font size of .title in login.module.css */
-    color: #344966; /* Match the color of .title in login.module.css */
-    margin-bottom:  6rem; /* Match the margin-bottom of .title in login.module.css */
-    font-weight: bolder; /* Match the font-weight of .title in login.module.css */
-    letter-spacing:  0.2em; /* Match the letter-spacing of .title in login.module.css */
-    text-align: left;
-    margin-left: 250px;
-    margin-top: 100px;
+  font-size: 2rem; /* Match the font size of .title in login.module.css */
+  color: #344966; /* Match the color of .title in login.module.css */
+  margin-bottom: 6rem; /* Match the margin-bottom of .title in login.module.css */
+  font-weight: bolder; /* Match the font-weight of .title in login.module.css */
+  letter-spacing: 0.2em; /* Match the letter-spacing of .title in login.module.css */
+  text-align: left;
+  margin-top: 100px;
 }
 
 .button {
-  width:  50px;
-  height:  50px;
-  font-size:  40px;
-  margin-left:  50px;
+  width: 50px;
+  height: 50px;
+  font-size: 40px;
+  margin-left: 50px;
   margin-top: 4px;
   padding-top: 4px;
   background-color: #344966;
   color: #eff8e2;
   text-align: center;
   border: none;
-  border-radius:  50%; /* This makes the button round */
+  border-radius: 50%; /* This makes the button round */
 }
 
-.button:hover{
-    background-color: #0d1821;
+.button:hover {
+  background-color: #0d1821;
 }
 
-.submitButton{
-    width:  100px; /* Match the width of .submitButton in login.module.css */
-    padding:  10px; /* Match the padding of .submitButton in login.module.css */
-    background-color: #344966; /* Match the background color of .submitButton in login.module.css */
-    color: #eff8e2; /* Match the text color of .submitButton in login.module.css */
-    border: none; /* Match the border of .submitButton in login.module.css */
-    border-radius:  10px; /* Match the border-radius of .submitButton in login.module.css */
-    margin-left:20px;
+.submitButton {
+  width: 100px; /* Match the width of .submitButton in login.module.css */
+  padding: 10px; /* Match the padding of .submitButton in login.module.css */
+  background-color: #344966; /* Match the background color of .submitButton in login.module.css */
+  color: #eff8e2; /* Match the text color of .submitButton in login.module.css */
+  border: none; /* Match the border of .submitButton in login.module.css */
+  border-radius: 10px; /* Match the border-radius of .submitButton in login.module.css */
+  margin-left: 20px;
 }
 
-.SubmitButton:hover{
-    background-color: #0d1821;
+.SubmitButton:hover {
+  background-color: #0d1821;
 }
 
-
-.submitButtonContainer{
-    margin-left: 50px;
-    animation: slideInFromLeft  0.5s ease-out forwards;
-
+.submitButtonContainer {
+  margin-left: 50px;
+  animation: slideInFromLeft 0.5s ease-out forwards;
 }
 
-
-
-.container {
-  justify-content: center;
-  padding: 0;
-  align-items: center;
-  height: 100vh; /* Full viewport height */
-  text-align: center;
-  margin-left: 150px;
-  background-color: #eff8e2; /* Match the background color of login.module.css */
-  border-radius: 10px; /* Add a border radius for a softer look */
-}
-
-
-.PDFsContainer{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.PDFsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 @keyframes slideInFromLeft {
-   0% {
+  0% {
     transform: translateX(-100%);
-    opacity:  0;
-  }
-
-  50%{
     opacity: 0;
   }
-  
-   100% {
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
     transform: translateX(0);
-    opacity:  1;
+    opacity: 1;
   }
 }

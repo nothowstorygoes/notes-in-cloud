@@ -88,15 +88,15 @@ const Home = () => {
   const handleDelete = async (file) => {
     const auth = getAuth();
     const user = auth.currentUser;
-  
+
     if (user) {
       try {
         // Construct the reference to the file in Firebase Storage
         const storageRef = ref(storage, `PDFs/${user.uid}/${file.name}`);
-  
+
         // Delete the file
         await deleteObject(storageRef);
-  
+
         // Refresh the list of files after deletion
         fetchFiles();
       } catch (error) {
@@ -111,44 +111,49 @@ const Home = () => {
 
   // Render the component
   return (
-    <div id="outer-container">
+    <main>
       <Navbar />
-      <div id="page-wrap" className={styles.container}>
+      <div className={styles.container}>
         <div className={styles.header}>
           <p className={styles.headerTitle}>Your slides</p>
-            {/* Upload PDF button */}
-            <button
-              onClick={() => document.getElementById("fileInput").click()}
-              className={styles.button}
-            >
-              +
-            </button>
-            <input
-              type="file"
-              id="fileInput"
-              accept="application/pdf"
-              style={{ display: "none" }}
-              onChange={handleFileSelect}
-            />
-            {showUploadPopup && (
-              <div className={styles.submitButtonContainer}>
-                <button onClick={handleUpload} className={styles.submitButton}>Upload</button>
-                <button onClick={() => setShowUploadPopup(false)} className={styles.submitButton}>
-                  Cancel
-                </button>
-              </div>
-            )}
-             </div>
-          {/* Display the list of PDF files */}
-          <div className={styles.PDFsContainer}>
-            {files.map((file) => (
-              <div key={file.name}>
-                  <Preview file={file} onDelete={handleDelete}/>
-              </div>
-            ))}
-          </div>
+          {/* Upload PDF button */}
+          <button
+            onClick={() => document.getElementById("fileInput").click()}
+            className={styles.button}
+          >
+            +
+          </button>
+          <input
+            type="file"
+            id="fileInput"
+            accept="application/pdf"
+            style={{ display: "none" }}
+            onChange={handleFileSelect}
+          />
+          {showUploadPopup && (
+            <div className={styles.submitButtonContainer}>
+              <button onClick={handleUpload} className={styles.submitButton}>
+                Upload
+              </button>
+              <button
+                onClick={() => setShowUploadPopup(false)}
+                className={styles.submitButton}
+              >
+                Cancel
+              </button>
+            </div>
+          )}
+        </div>
+        {/* Display the list of PDF files */}
+        <div className={styles.PDFsContainer}>
+          {files.map((file) => (
+            <div key={file.name}>
+              <Preview file={file} onDelete={handleDelete} />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </main>
   );
 };
 

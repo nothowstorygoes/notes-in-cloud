@@ -120,27 +120,19 @@ const ProfilePage = () => {
   }
 
   return (
-    <div id="outer-container">
+    <main>
       <Navbar />
-      <div id="page-wrap" className={styles.container}>
+      <div className={styles.container}>
         <div className={styles.headerContainer}>
           <div className={styles.headerContainerColumn}>
-          <p className={styles.header}>
-            Welcome, <br /> {username}
-          </p>
-          <div className={styles.button}>
-            <SignOutButton className={styles.SignOutButton} />
-          </div>
+            <p className={styles.header}>
+              Welcome, <br /> {username}
+            </p>
+            <div className={styles.button}>
+              <SignOutButton className={styles.SignOutButton} />
+            </div>
           </div>
           <img src={profilePicUrl} alt="Profile" className={styles.propic} />
-        </div>
-        <div className={styles.restPage}>
-        <div className={styles.infoContainer}>
-          <div className={styles.infoLine}>
-            <p className={styles.infoBold}>Email: &nbsp;</p>
-            <p className={styles.info}>{user.email}</p>
-          </div>
-          {/* Add more profile information as needed */}
         </div>
         <div className={styles.formContainer}>
           <div className={styles.formPopup}>
@@ -189,9 +181,8 @@ const ProfilePage = () => {
             </button>
           </div>
         </div>
-        </div>
       </div>
-    </div>
+    </main>
   );
 };
 

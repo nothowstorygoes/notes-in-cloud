@@ -11,8 +11,3 @@ html{
 a{
     color: inherit;
 }
-
-
-#page-wrap{
-    overflow-y: auto;
-}

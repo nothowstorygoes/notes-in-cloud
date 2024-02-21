@@ -12,13 +12,12 @@
 
 /* Styles for the container */
 .container {
-    justify-content: center;
+    display: flex !important;
+    flex-direction: column;
     padding:  0;
     align-items: center;
     height:  100vh; /* Full viewport height */
     text-align: center;
-    margin-left: 150px;
-    background-color: #eff8e2; /* Match the background color of login.module.css */
     border-radius:  10px; /* Add a border radius for a softer look */
 }
 
@@ -34,10 +33,6 @@
     margin-bottom: 0;
 }
 
-.restPage{
-    margin-left:50px;
-}
-
 /* Styles for the header */
 .header {
     font-size:  2rem; /* Match the font size of .title in login.module.css */
@@ -47,30 +42,8 @@
     letter-spacing:  0.2em; /* Match the letter-spacing of .title in login.module.css */
     text-align: left;
     line-height: 180%;
-    margin-left: 200px;
+    margin-left: 0;
     margin-top: 80px;
-}
-
-.infoContainer{
-    display: flex;
-    flex-direction: column;
-    margin-left:200px;
-    margin-bottom: 4rem;
-    text-align: left;
-    color:#344966;
-}
-
-.infoLine{
-    display: flex;
-    flex-direction: row;
-}
-
-.info{
-    font-weight: normal;
-}
-
-.infoBold{
-    font-weight: bolder;
 }
 
 .formPopup{
@@ -86,8 +59,8 @@
 
 .formContainer{
     display: flex;
-    flex-direction: row;   
-    margin-left: 200px;
+    flex-direction: row; 
+    margin-right: 50px;  
     height:90px;
 }
 /* Styles for the profile picture */
@@ -191,7 +164,6 @@
     display: flex;
     flex-direction: column;
     padding-top: 50px;
-    margin-left: 200px;
 }
 
 /* Styles for the submit button on hover */
