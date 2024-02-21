@@ -24,13 +24,13 @@ const LandingPage = () => {
           <p className={styles.title}>Notes in Cloud</p>
           <div className={styles.buttonContainer}>
             <button
-              onClick={() => router.push("notes-in-cloud/components/login")}
+              onClick={() => router.push("/components/login")}
               className={styles.button}
             >
               Login
             </button>
             <button
-              onClick={() => router.push("notes-in-cloud/components/signUp")}
+              onClick={() => router.push("/components/signUp")}
               className={styles.button}
             >
               Sign Up

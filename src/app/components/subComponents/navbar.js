@@ -9,12 +9,12 @@ const Navbar = () => {
         <ul className={styles.navbarMenu}>
         
           <li className={styles.navbarItem}>
-          <a href="notes-in-cloud/components/home" className={styles.navbarLink}>Home</a>
+          <a href="/components/home" className={styles.navbarLink}>Home</a>
           </li>
           
           
           <li className={styles.navbarItem}>
-          <a href="notes-in-cloud/components/profile" className={styles.navbarLink}>Profile</a>
+          <a href="/components/profile" className={styles.navbarLink}>Profile</a>
           </li>
           
           {/* Add more navbar items as needed */}

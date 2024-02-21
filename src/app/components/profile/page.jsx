@@ -13,8 +13,6 @@ import app from "../../firebase"; // Adjust the import path as necessary
 import Navbar from "../subComponents/navbar";
 import styles from "./profile.module.css";
 import SignOutButton from "../subComponents/signOut";
-
-
 const ProfilePage = () => {
   const [user, setUser] = useState(null);
   const [profilePicUrl, setProfilePicUrl] = useState(null);

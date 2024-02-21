@@ -31,7 +31,7 @@ const Signup = () => {
       const user = userCredential.user;
 
       const defaultPicRef = ref(storage, `profilePics/default/${user.uid}`);
-      const defaultPicPath = "notes-in-cloud/icons/blank.png";
+      const defaultPicPath = "/icons/blank.png";
       const defaultPicBlob = new Blob(
         [await (await fetch(defaultPicPath)).blob()],
         { type: "image/png" }
@@ -43,7 +43,7 @@ const Signup = () => {
       const usernameBlob = new Blob([usernameData], { type: 'application/json' });
       await uploadBytes(usernameRef, usernameBlob);
       console.log(user);
-      router.push("notes-in-cloud/components/login");
+      router.push("./login");
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -126,7 +126,7 @@ const Signup = () => {
           </form>
           {error && <div className={styles.errorMessage}>{error}</div>}
           <p className={styles.paragraph}>
-            Already have an account? <Link href="notes-in-cloud/components/login">Sign in</Link>
+            Already have an account? <Link href="./login">Sign in</Link>
           </p>
         </div>
       </section>
