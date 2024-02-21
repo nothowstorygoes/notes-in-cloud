@@ -7,8 +7,9 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
+      <p className={styles.logo}>Notes in Cloud</p>
         <ul className={styles.navbarMenu}>
-        <Image src="/notes-in-cloud/icons/logo/logo.png" alt="Logo" className={styles.navbarLogo} />
+        
           <li className={styles.navbarItem}>
           <a href="/notes-in-cloud/components/home" className={styles.navbarLink}>Home</a>
           </li>

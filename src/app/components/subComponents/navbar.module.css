@@ -18,10 +18,11 @@
   margin:  0 auto;
 }
 
-.navbarLogo {
-  /* Add styles for the logo image */
-  height:  40px; /* Adjust as needed */
-  width: auto;
+.logo {
+  margin:0;
+  padding: 0 10px;
+  font-weight: bold;
+  font-size: larger;
 }
 
 .navbarMenu {

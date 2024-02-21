@@ -1,11 +1,33 @@
 "use client";
 import { useEffect } from "react";
 import styles from "./page.module.css";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase";
 import { useRouter } from "next/navigation";
-import Head from "next/head";
+import { useState } from "react";
 
 const LandingPage = () => {
+  const [user, setUser] = useState(null);
   const router = useRouter();
+
+  useEffect(() => {
+    // Listen for changes in the authentication state
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, update the state
+        setUser(user);
+        // Redirect to the home page
+        router.push("/components/home");
+      } else {
+        // User is signed out, update the state
+        setUser(null);
+      }
+    });
+
+    // Clean up the listener when the component unmounts
+    return () => unsubscribe();
+  }, [router]);
+
 
   useEffect(() => {
     // Apply styles to the body element

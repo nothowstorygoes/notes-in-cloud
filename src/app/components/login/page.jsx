@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase";
 import Link from "next/link";
 import styles from "./login.module.css";
@@ -10,7 +10,26 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
+  const [user, setUser] = useState(null);
   const router = useRouter();
+
+  useEffect(() => {
+    // Listen for changes in the authentication state
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, update the state
+        setUser(user);
+        // Redirect to the home page
+        router.push("/components/home");
+      } else {
+        // User is signed out, update the state
+        setUser(null);
+      }
+    });
+
+    // Clean up the listener when the component unmounts
+    return () => unsubscribe();
+  }, [router]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -40,7 +59,11 @@ const Login = () => {
     <main>
       <section>
         <div className={styles.container}>
-          <p className={styles.title}><a href="/notes-in-cloud/" className={styles.titleLink}>Notes in Cloud</a></p>
+          <p className={styles.title}>
+            <a href="/notes-in-cloud/" className={styles.titleLink}>
+              Notes in Cloud
+            </a>
+          </p>
           <form className={styles.formContainer} onSubmit={handleLogin}>
             <div>
               <label htmlFor="email-address" className={styles.label}>
