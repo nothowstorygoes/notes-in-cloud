@@ -4,9 +4,6 @@ import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
 import Head from "next/head";
 
-
-
-
 const LandingPage = () => {
   const router = useRouter();
 
@@ -21,44 +18,39 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <>
-      <Head>
-        <style>{`
-                    body {
-                        overflow-y: hidden;
-                    }
-                `}</style>
-      </Head>
-      <main>
+    <main>
+      <section>
         <div className={styles.container}>
           <p className={styles.title}>Notes in Cloud</p>
           <div className={styles.buttonContainer}>
             <button
-              onClick={() => router.push("components/login")}
+              onClick={() => router.push("notes-in-cloud/components/login")}
               className={styles.button}
             >
               Login
             </button>
             <button
-              onClick={() => router.push("/components/signUp")}
+              onClick={() => router.push("notes-in-cloud/components/signUp")}
               className={styles.button}
             >
               Sign Up
             </button>
           </div>
           <p className={styles.paragraph}>
-            Notes in Cloud is a PWA that uses Firebase Web API to store your notes
-            in PDFs, letting you bring your classes' notes on every
-            device
-            you need.<br />
+            Notes in Cloud is a PWA that uses Firebase Web API to store your
+            notes in PDFs, letting you bring your classes' notes on every device
+            you need.
+            <br />
           </p>
-          <p className={styles.footer}>Powered by NextJS framework <br /> Made by &nbsp;
-            <a href="https://www.github.com/nothowstorygoes"> 
-            Pio Alessandro Esposito
-            </a></p>
+          <p className={styles.footer}>
+            Powered by NextJS framework <br /> Made by &nbsp;
+            <a href="https://www.github.com/nothowstorygoes">
+              Pio Alessandro Esposito
+            </a>
+          </p>
         </div>
-      </main>
-    </>
+      </section>
+    </main>
   );
 };
 

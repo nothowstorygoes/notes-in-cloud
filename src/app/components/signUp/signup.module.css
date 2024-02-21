@@ -13,7 +13,7 @@
 .title {
     font-size:  4rem;
     color: #344966;
-    margin-bottom:  10rem;
+    margin-bottom:  5rem;
     font-weight: bolder;
     letter-spacing:  0.2em;
 }
@@ -29,7 +29,7 @@
     align-items: center;
     justify-content: center;
     width:  100%;
-    max-width:  350px; /* Adjust as needed */
+    width:  340px; /* Adjust as needed */
     margin:  0 auto;
     padding:  20px;
     background-color: #eff8e2; /* Match the background color of page.module.css */

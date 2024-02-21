@@ -1,0 +1,200 @@
+.load {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    justify-content: center;
+    font-size: 25px;
+    width: 250px;
+    color: #344966;
+  }
+
+/* Styles for the container */
+.container {
+    justify-content: center;
+    padding:  0;
+    align-items: center;
+    height:  100vh; /* Full viewport height */
+    text-align: center;
+    margin-left: 150px;
+    background-color: #eff8e2; /* Match the background color of login.module.css */
+    border-radius:  10px; /* Add a border radius for a softer look */
+}
+
+.headerContainer{
+    display: flex;
+    flex-direction: row;
+    margin: 3rem;
+
+}
+.headerContainerRow{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+
+.restPage{
+    margin-left:50px;
+}
+
+/* Styles for the header */
+.header {
+    font-size:  2rem; /* Match the font size of .title in login.module.css */
+    color: #344966; /* Match the color of .title in login.module.css */
+    margin-bottom:  0rem; /* Match the margin-bottom of .title in login.module.css */
+    font-weight: bolder; /* Match the font-weight of .title in login.module.css */
+    letter-spacing:  0.2em; /* Match the letter-spacing of .title in login.module.css */
+    text-align: left;
+    line-height: 180%;
+    margin-left: 200px;
+    margin-top: 80px;
+}
+
+.infoContainer{
+    display: flex;
+    flex-direction: column;
+    margin-left:200px;
+    margin-bottom: 4rem;
+    text-align: left;
+    color:#344966;
+}
+
+.infoLine{
+    display: flex;
+    flex-direction: row;
+}
+
+.info{
+    font-weight: normal;
+}
+
+.infoBold{
+    font-weight: bolder;
+}
+
+.formPopup{
+    margin-right:80px;
+
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    margin-right: 80px;
+}
+
+.formContainer{
+    display: flex;
+    flex-direction: row;   
+    margin-left: 200px;
+    height:90px;
+}
+/* Styles for the profile picture */
+.propic {
+    width:  200px; /* Set a fixed width for the profile picture */
+    height:  200px; /* Set a fixed height for the profile picture */
+    object-fit: cover; /* Ensure the image covers the area without stretching */
+    border-radius:  50%; /* Make the profile picture circular */
+    margin-left: 150px;
+    margin-top: 51px;
+    margin-bottom:  15px; /* Add some space below the profile picture */
+}
+
+/* Styles for the input fields */
+.inputField {
+    width:  300px; /* Match the width of .inputField in login.module.css */
+    height: 20px;
+    padding:  10px; /* Match the padding of .inputField in login.module.css */
+    margin-bottom:  20px; /* Match the margin-bottom of .inputField in login.module.css */
+    margin-top:  15px; /* Match the margin-top of .inputField in login.module.css */
+    border:  1px solid #344966; /* Match the border color of .inputField in login.module.css */
+    border-radius:  4px; /* Match the border-radius of .inputField in login.module.css */
+    background-color: #eff8e2; /* Match the background color of .inputField in login.module.css */
+    color: #344966; /* Match the text color of .inputField in login.module.css */
+}
+
+/* Styles for the submit buttons */
+.submitButton {
+    width:  200px; /* Match the width of .submitButton in login.module.css */
+    padding:  10px; /* Match the padding of .submitButton in login.module.css */
+    background-color: #344966; /* Match the background color of .submitButton in login.module.css */
+    color: #eff8e2; /* Match the text color of .submitButton in login.module.css */
+    border: none; /* Match the border of .submitButton in login.module.css */
+    border-radius:  10px; /* Match the border-radius of .submitButton in login.module.css */
+    cursor: pointer; /* Match the cursor of .submitButton in login.module.css */
+    margin-bottom:10px;
+    transition: background-color  0.3s ease; /* Match the transition of .submitButton in login.module.css */
+}
+
+/* Styles for the submit button on hover */
+.submitButton:hover {
+    background-color: #0d1821; /* Darken the button color on hover */
+}
+
+/* Styles for the submit buttons */
+.submitButtonUpload {
+    margin-top:16px;
+    width:  200px; /* Match the width of .submitButton in login.module.css */
+    padding:  10px; /* Match the padding of .submitButton in login.module.css */
+    background-color: #344966; /* Match the background color of .submitButton in login.module.css */
+    color: #eff8e2; /* Match the text color of .submitButton in login.module.css */
+    border: none; /* Match the border of .submitButton in login.module.css */
+    border-radius:  10px; /* Match the border-radius of .submitButton in login.module.css */
+    cursor: pointer; /* Match the cursor of .submitButton in login.module.css */
+    transition: background-color  0.3s ease; /* Match the transition of .submitButton in login.module.css */
+}
+
+/* Styles for the submit button on hover */
+.submitButtonUpload:hover {
+    background-color: #0d1821; /* Darken the button color on hover */
+}
+
+.submitButtonContainer {
+    margin-top:15px;
+    display: flex;
+    margin-bottom:10px;
+    flex-direction: column;
+    animation: slideInFromTop  0.5s ease-out forwards;
+}
+
+@keyframes slideInFromTop {
+    0% {
+     transform: translateY(-100%);
+     opacity:  0;
+   }
+ 
+   50%{
+     opacity: 0;
+   }
+   
+    100% {
+     transform: translateY(0);
+     opacity:  1;
+   }
+ }
+
+/* Styles for the submit button */
+.SignOutButton {
+    width:  100px;
+    padding:  10px;
+    background-color: #344966; /* Match the button color of page.module.css */
+    color: #eff8e2; /* Match the button text color of page.module.css */
+    border: none;
+    border-radius:  10px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background-color  0.3s ease; /* Add a transition for hover effect */
+}
+
+.button{
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    margin-left: 200px;
+}
+
+/* Styles for the submit button on hover */
+.SignOutButton:hover {
+    background-color: #0d1821; /* Darken the button color on hover */
+}

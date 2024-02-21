@@ -1,0 +1,47 @@
+/* Styles for the navbar */
+.navbar {
+  position: fixed;
+  top:  0;
+  left:  0;
+  right:  0;
+  background-color: #344966; /* Background color from profile.module.css */
+  color: #eff8e2; /* Text color from profile.module.css */
+  padding:  10px  0;
+  z-index:  1000; /* Ensure the navbar is above other content */
+}
+
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width:  1200px;
+  margin:  0 auto;
+}
+
+.navbarLogo {
+  /* Add styles for the logo image */
+  height:  40px; /* Adjust as needed */
+  width: auto;
+}
+
+.navbarMenu {
+  list-style: none;
+  display: flex;
+  gap:  10px;
+  margin-left: auto; /* Align menu to the right */
+}
+
+.navbarItem {
+  margin:  0;
+}
+
+.navbarLink {
+  color: #eff8e2; /* Text color from profile.module.css */
+  text-decoration: none;
+  padding:  5px  10px;
+  border-radius:  5px;
+}
+
+.navbarLink:hover {
+  background-color: #0d1821; /* Darken the background color on hover */
+}

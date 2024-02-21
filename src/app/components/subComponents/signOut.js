@@ -10,7 +10,7 @@ const SignOutButton = ({ className }) => {
     try {
       await auth.signOut();
       // Redirect to the login page after signing out
-      router.push('/login');
+      router.push('/notes-in-cloud/components/login');
     } catch (error) {
       console.error('Error signing out:', error);
     }
