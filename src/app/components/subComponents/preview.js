@@ -26,7 +26,7 @@ export default function Preview({ file, onDelete }) {
       </Document>
       </a>
       <div className={styles.deleteIcon} onClick={handleDelete}>
-        <img src="/icons/cross.png" className={styles.cross}/>
+        <img src="/notes-in-cloud/icons/cross.png" className={styles.cross}/>
       </div>
     </div>
   );

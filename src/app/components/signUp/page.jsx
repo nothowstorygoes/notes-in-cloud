@@ -31,7 +31,7 @@ const Signup = () => {
       const user = userCredential.user;
 
       const defaultPicRef = ref(storage, `profilePics/default/${user.uid}`);
-      const defaultPicPath = "/icons/blank.png";
+      const defaultPicPath = "notes-in-cloud/icons/blank.png";
       const defaultPicBlob = new Blob(
         [await (await fetch(defaultPicPath)).blob()],
         { type: "image/png" }
