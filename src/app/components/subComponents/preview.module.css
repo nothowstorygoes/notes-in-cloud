@@ -64,3 +64,43 @@
 .documentWrapper:hover .deleteIcon {
   display: block;
 }
+
+/* Media query for smartphones */
+@media (max-width:   767px) {
+  .document {
+    width:   160px; /* Even smaller width */
+    height:   160px; /* Even smaller height */
+    border-radius:   30px; /* Smaller border-radius */
+    margin:   8px; /* Smaller margin */
+  }
+
+  .spinnerContainer {
+    height:   60%; /* Adjust this if needed */
+  }
+
+  .spinner {
+    width:   20px; /* Even smaller width */
+    height:   20px; /* Even smaller height */
+  }
+
+  .page {
+    width:   160px; /* Even smaller width */
+    height:   160px; /* Even smaller height */
+  }
+
+  .documentWrapper {
+    width:   200px; /* Even smaller width */
+    height:   200px; /* Even smaller height */
+  }
+
+  .deleteIcon {
+    top:   1px; /* Even smaller top position */
+    right:   1px; /* Even smaller right position */
+  }
+
+  .cross {
+    height:   30px; /* Even smaller height */
+    width:   30px; /* Even smaller width */
+  }
+}
+

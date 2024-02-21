@@ -95,3 +95,45 @@
     opacity: 1;
   }
 }
+
+/* Existing styles */
+/* ... */
+
+/* Media query for smartphones */
+@media (max-width:   767px) {
+
+  .header {
+    margin-top:   10px; /* Smaller margin-top */
+  }
+
+  .headerTitle {
+    font-size:   1.5rem; /* Smaller font-size */
+    margin-bottom:   3rem; /* Smaller margin-bottom */
+    margin-top:   80px; /* Smaller margin-top */
+  }
+
+  .button {
+    width:   40px; /* Smaller width */
+    height:   40px; /* Smaller height */
+    font-size:   20px; /* Smaller font-size */
+    margin-left:   25px; /* Smaller margin-left */
+    margin-top:   2px; /* Smaller margin-top */
+    padding-top:   2px; /* Smaller padding-top */
+  }
+
+  .submitButton {
+    width:   80px; /* Smaller width */
+    padding:   5px; /* Smaller padding */
+  }
+
+  .submitButtonContainer {
+    margin-left:   25px; /* Smaller margin-left */
+  }
+
+  .PDFsContainer {
+    flex-wrap:    wrap; /* Allow items to wrap if needed */
+    justify-content: center;
+  }
+}
+
+/* ... rest of your CSS ... */
