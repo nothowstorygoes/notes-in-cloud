@@ -6,6 +6,15 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
         <p className={styles.logo}>Notes in Cloud</p>
+        <li className={styles.icons}>
+            <a href="/notes-in-cloud/components/home">
+              <img src="/notes-in-cloud/icons/home.png"/>
+            </a>
+          </li><li className={styles.icons}>
+            <a href="/notes-in-cloud/components/profile">
+              <img src="/notes-in-cloud/icons/profile.png"/>
+            </a>
+          </li>
         <ul className={styles.navbarMenu}>
           <li className={styles.navbarItem}>
             <a
@@ -13,14 +22,6 @@ const Navbar = () => {
               className={styles.navbarLink}
             >
               Home
-            </a>
-          </li>
-          <li className={styles.icons}>
-            <a href="/notes-in-cloud/components/home">
-              <img src="/notes-in/cloud/icons/home.png"/>
-            </a>
-            <a href="/notes-in-cloud/components/profile">
-              <img src="/notes-in/cloud/icons/profile.png"/>
             </a>
           </li>
           <li className={styles.navbarItem}>

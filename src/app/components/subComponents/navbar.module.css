@@ -21,6 +21,10 @@
     bottom:   0;
   }
 
+  .navbarContainer{
+    margin-left: 100px !important;
+  }
+
   .logo{
     display: none;
   }
@@ -36,6 +40,11 @@
     margin-left:20px;
     margin-right:20px;
   }
+
+  .navbarMenu{
+    margin-left: 0 !important;
+   
+   }
 }
 
 .navbarContainer {
@@ -45,6 +54,7 @@
   max-width:  1200px;
   margin:  0 auto;
 }
+
 
 /* Styles for the navbar */
 .navbar {
