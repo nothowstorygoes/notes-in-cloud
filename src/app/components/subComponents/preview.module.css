@@ -4,7 +4,34 @@
   border-radius: 50px;
   overflow: hidden;
   margin: 25px;
+  background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:  100%; /* Adjust this if needed */
+}
+
+.spinner {
+  margin-top:40% ;
+  border:  4px solid rgba(0,  0,  0,  0.1);
+  width:  36px;
+  height:  36px;
+  border-radius:  50%;
+  border-left-color: #000;
+  animation: spin  1s linear infinite;
+}
+
+@keyframes spin {
+   0% {
+    transform: rotate(0deg);
+  }
+   100% {
+    transform: rotate(360deg);
+  }
 }
 
 .page {

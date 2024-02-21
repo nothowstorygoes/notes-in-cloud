@@ -1,6 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import {
+  getAuth,
+  onAuthStateChanged,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 import {
   getStorage,
   uploadBytes,
@@ -119,6 +123,17 @@ const ProfilePage = () => {
     return <div className={styles.load}>Loading...</div>;
   }
 
+  const handlePasswordReset = async (email) => {
+    const auth = getAuth(app);
+    try {
+      await sendPasswordResetEmail(auth, email);
+      alert("Password reset email sent!"); // Inform the user that the email has been sent
+    } catch (error) {
+      console.error("Error sending password reset email:", error);
+      alert("Error sending password reset email:", error.message);
+    }
+  };
+
   return (
     <main>
       <Navbar />
@@ -130,6 +145,9 @@ const ProfilePage = () => {
             </p>
             <div className={styles.button}>
               <SignOutButton className={styles.SignOutButton} />
+              <button onClick={() => handlePasswordReset(user.email)} className={styles.submitButton}>
+              Reset Password
+            </button>
             </div>
           </div>
           <img src={profilePicUrl} alt="Profile" className={styles.propic} />
@@ -181,6 +199,7 @@ const ProfilePage = () => {
             </button>
           </div>
         </div>
+        
       </div>
     </main>
   );
