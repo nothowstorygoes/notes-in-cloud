@@ -17,6 +17,8 @@ import app from "../../firebase"; // Adjust the import path as necessary
 import Navbar from "../subComponents/navbar";
 import styles from "./profile.module.css";
 import SignOutButton from "../subComponents/signOut";
+import ThemeChanger from '../subComponents/darkModeToggle';
+
 const ProfilePage = () => {
   const [user, setUser] = useState(null);
   const [profilePicUrl, setProfilePicUrl] = useState(null);
@@ -135,6 +137,7 @@ const ProfilePage = () => {
   };
 
   return (
+    
     <main>
       <Navbar />
       <div className={styles.container}>
@@ -151,6 +154,7 @@ const ProfilePage = () => {
             </div>
           </div>
           <img src={profilePicUrl} alt="Profile" className={styles.propic} />
+          <ThemeChanger/>
         </div>
         <div className={styles.formContainer}>
           <div className={styles.formPopup}>

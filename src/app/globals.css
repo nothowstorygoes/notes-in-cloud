@@ -11,3 +11,8 @@ html{
 a{
     color: inherit;
 }
+
+  [data-theme='dark'],
+  [data-theme='dark'] body {
+    background-color: #0d1821;
+  }

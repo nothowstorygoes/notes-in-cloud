@@ -1,83 +1,74 @@
-/* Styles for the navbar */
-.navbar {
-  position: fixed;
-  top:  0;
-  left:  0;
-  right:  0;
-  background-color: #344966; /* Background color from profile.module.css */
-  color: #eff8e2; /* Text color from profile.module.css */
-  padding:  10px  0;
-  z-index:  1000; /* Ensure the navbar is above other content */
-}
-.icons{
+.icons {
   display: none;
 }
 
 /* Media query for smartphones */
-@media (max-width:   767px) {
+@media (max-width: 767px) {
   .navbar {
     top: auto !important;
     position: fixed !important;
-    bottom:   0;
+    bottom: 0;
   }
 
-  .navbarContainer{
+  .navbarContainer {
     margin-left: 100px !important;
   }
 
-  .logo{
+  .logo {
     display: none;
   }
 
-  .navbarItem{
+  .navbarItem {
     display: none;
   }
 
-  .icons{
-    display:flex;
+  .icons {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left:20px;
-    margin-right:20px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
-  .navbarMenu{
+  .navbarMenu {
     margin-left: 0 !important;
-   
-   }
+  }
 }
 
 .navbarContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width:  1200px;
-  margin:  0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+[data-theme="dark"] .navbar {
+  color: white;
+}
 
 /* Styles for the navbar */
 .navbar {
   position: fixed;
-  top:  0;
-  left:  0;
-  right:  0;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: #344966; /* Background color from profile.module.css */
   color: #eff8e2; /* Text color from profile.module.css */
-  padding:  10px  0;
-  z-index:  1000; /* Ensure the navbar is above other content */
+  padding: 10px 0;
+  z-index: 1000; /* Ensure the navbar is above other content */
 }
 
 .navbarContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width:  1200px;
-  margin:  0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .logo {
-  margin:0;
+  margin: 0;
   padding: 0 10px;
   font-weight: bold;
   font-size: larger;
@@ -86,19 +77,23 @@
 .navbarMenu {
   list-style: none;
   display: flex;
-  gap:  10px;
+  gap: 10px;
   margin-left: auto; /* Align menu to the right */
 }
 
 .navbarItem {
-  margin:  0;
+  margin: 0;
+}
+
+[data-theme="dark"] .navbarLink {
+  color: white;
 }
 
 .navbarLink {
   color: #eff8e2; /* Text color from profile.module.css */
   text-decoration: none;
-  padding:  5px  10px;
-  border-radius:  5px;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .navbarLink:hover {
