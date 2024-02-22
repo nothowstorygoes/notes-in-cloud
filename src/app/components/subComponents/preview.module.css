@@ -68,8 +68,8 @@
 /* Media query for smartphones */
 @media (max-width:   767px) {
   .document {
-    width:   160px; /* Even smaller width */
-    height:   160px; /* Even smaller height */
+    width:   120px; /* Even smaller width */
+    height:   120px; /* Even smaller height */
     border-radius:   30px; /* Smaller border-radius */
     margin:   8px; /* Smaller margin */
   }
@@ -84,13 +84,13 @@
   }
 
   .page {
-    width:   160px; /* Even smaller width */
-    height:   160px; /* Even smaller height */
+    width:   120px; /* Even smaller width */
+    height:   120px; /* Even smaller height */
   }
 
   .documentWrapper {
-    width:   200px; /* Even smaller width */
-    height:   200px; /* Even smaller height */
+    width:   150px; /* Even smaller width */
+    height:   150px; /* Even smaller height */
   }
 
   .deleteIcon {

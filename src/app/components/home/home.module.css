@@ -104,12 +104,13 @@
 
   .header {
     margin-top:   10px; /* Smaller margin-top */
+    margin-bottom:20px;
   }
 
   .headerTitle {
     font-size:   1.5rem; /* Smaller font-size */
     margin-bottom:   3rem; /* Smaller margin-bottom */
-    margin-top:   80px; /* Smaller margin-top */
+    margin-top:   50px; /* Smaller margin-top */
   }
 
   .button {
@@ -117,6 +118,7 @@
     height:   40px; /* Smaller height */
     font-size:   20px; /* Smaller font-size */
     margin-left:   25px; /* Smaller margin-left */
+    border-radius: 50%;
     margin-top:   2px; /* Smaller margin-top */
     padding-top:   2px; /* Smaller padding-top */
   }
@@ -132,7 +134,7 @@
 
   .PDFsContainer {
     flex-wrap:    wrap; /* Allow items to wrap if needed */
-    justify-content: center;
+    margin-left: 15%;
   }
 }
 
