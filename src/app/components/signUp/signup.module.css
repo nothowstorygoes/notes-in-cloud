@@ -64,6 +64,10 @@
     background-color: #0d1821; /* Darken the button color on hover */
 }
 
+[data-theme='dark'] .submitButton {
+  border: 2px solid #344966;
+}
+
 /* Styles for the error message */
 .errorMessage {
     color: red;
@@ -119,4 +123,12 @@
       width:   100%;
       margin-top:   2.5rem;
     }
+  }
+
+  [data-theme='dark'] .title {
+    color:white;
+  }
+
+  [data-theme='dark'] .paragraph {
+    color:white;
   }

@@ -1,0 +1,71 @@
+.settings{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:0;
+    align-items: center;
+    height:  100vh; /* Full viewport height */
+    text-align: center;
+}
+
+.title {
+    font-size:  4rem;
+    color: #344966;
+    margin-bottom:  5rem;
+    font-weight: bolder;
+    letter-spacing:  0.2em;
+}
+
+[data-theme='dark'] .title {
+    color:white;
+  }
+
+/* Styles for the submit button */
+.button {
+    margin: 20px;
+    width:  200px;
+    padding:  10px;
+    background-color: red; /* Match the button color of page.module.css */
+    color: white; /* Match the button text color of page.module.css */
+    border: 2px solid red;
+    border-radius:  10px;
+    cursor: pointer;
+    transition: background-color  0.3s ease; /* Add a transition for hover effect */
+}
+
+/* Styles for the submit button on hover */
+.button:hover {
+    background-color: rgb(103, 14, 14); /* Darken the button color on hover */
+}
+
+[data-theme='dark'] .button {
+    border: 2px solid red;
+  }
+
+
+.buttonContainer{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.text{
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    margin: 40px;
+}
+
+.deleteContainer{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
+    background-color: rgba(103, 14, 14, 0.8);
+    border: 4px solid red;
+    border-radius: 15px;
+}
+
+[data-theme='dark'] .deleteContainer{
+    background-color: rgba(103, 14, 14, 0.3);
+}

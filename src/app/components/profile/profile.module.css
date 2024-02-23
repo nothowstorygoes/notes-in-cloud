@@ -10,11 +10,16 @@
     color: #344966;
   }
 
+  [data-theme='dark'] .load{
+    color:white;
+  }
+
 /* Styles for the container */
 .container {
     display: flex !important;
     flex-direction: column;
     padding:  0;
+    margin-top:4vh;
     align-items: center;
     height:  100vh; /* Full viewport height */
     text-align: center;
@@ -44,6 +49,10 @@
     line-height: 180%;
     margin-left: 0;
     margin-top: 80px;
+}
+
+[data-theme='dark'] .header {
+    color: white;
 }
 
 .formPopup{
@@ -76,15 +85,19 @@
 
 /* Styles for the input fields */
 .inputField {
-    width:  300px; /* Match the width of .inputField in login.module.css */
-    height: 20px;
-    padding:  10px; /* Match the padding of .inputField in login.module.css */
-    margin-bottom:  20px; /* Match the margin-bottom of .inputField in login.module.css */
-    margin-top:  15px; /* Match the margin-top of .inputField in login.module.css */
-    border:  1px solid #344966; /* Match the border color of .inputField in login.module.css */
-    border-radius:  4px; /* Match the border-radius of .inputField in login.module.css */
-    background-color: #eff8e2; /* Match the background color of .inputField in login.module.css */
-    color: #344966; /* Match the text color of .inputField in login.module.css */
+    width:  300px;
+    padding:  10px;
+    margin-bottom:  25px;
+    margin-top:15px;
+    border:  1px solid #344966; /* Match the border color of page.module.css */
+    border-radius:  4px;
+    background-color: #eff8e2; /* Match the background color of page.module.css */
+    color: #344966; /* Match the text color of page.module.css */
+}
+
+[data-theme='dark'] .inputField{
+    background-color: rgba(70, 90, 126, 0.4) !important;
+    color: fieldtext !important;
 }
 
 /* Styles for the submit buttons */
@@ -170,4 +183,8 @@
 /* Styles for the submit button on hover */
 .SignOutButton:hover {
     background-color: #0d1821; /* Darken the button color on hover */
+}
+
+[data-theme='dark'] .submitButton, .submitButtonUpload, .SignOutButton {
+    border: 2px solid #344966;
 }

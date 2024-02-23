@@ -1,10 +1,11 @@
-"use client";
-// Import necessary hooks and components
-import { useState, useEffect } from "react";
+'use client'
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import useAuth from "../auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import app from '../../firebase'; // Adjust the import path as necessary
 import styles from "./home.module.css";
 import Navbar from "../subComponents/navbar";
+import Preview from "../subComponents/preview";
 import {
   getStorage,
   ref,
@@ -13,26 +14,36 @@ import {
   uploadBytesResumable,
   deleteObject,
 } from "firebase/storage";
-import { getAuth } from "firebase/auth";
-import Preview from "../subComponents/preview";
 
 const Home = () => {
   const router = useRouter();
-  const { user, loading } = useAuth();
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
   const [files, setFiles] = useState([]);
   const [showUploadPopup, setShowUploadPopup] = useState(false);
   const [uploadingFile, setUploadingFile] = useState(null);
   const storage = getStorage();
 
-  // Redirect unauthenticated users to the login page
   useEffect(() => {
-    if (!loading && !user) {
-      router.push("notes-in-cloud/components/login"); // Replace '/login' with the path to your login page
-    }
-  }, [loading, user, router]);
+    const auth = getAuth(app);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        // Fetch files after user is authenticated
+      } else {
+        setUser(null);
+        router.push("./login"); // Adjust the path to your login page as necessary
+      }
+      setLoading(false);
+    });
 
-  // Function to fetch all PDF files from the storage
+    // Clean up the subscription on unmount
+    return () => unsubscribe();
+  }, [router]);
+
   const fetchFiles = async () => {
+    if (!user) return;
+
     const storageRef = ref(storage, `PDFs/${user.uid}/`);
     const res = await listAll(storageRef);
     const fileUrls = await Promise.all(
@@ -44,13 +55,8 @@ const Home = () => {
     setFiles(fileUrls);
   };
 
-  // Fetch all PDF files from the storage when the component mounts
-  useEffect(() => {
-    if (!loading && user) {
-      fetchFiles();
-    }
-  }, [loading, user, storage]);
-
+    fetchFiles();
+    
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -59,10 +65,10 @@ const Home = () => {
     }
   };
 
-  // Function to handle file upload
   const handleUpload = async (event) => {
     event.preventDefault();
-    // Upload the new file
+    if (!user || !uploadingFile) return;
+
     const storageRef = ref(storage, `PDFs/${user.uid}/${uploadingFile.name}`);
     const uploadTask = uploadBytesResumable(storageRef, uploadingFile);
     uploadTask.on(
@@ -86,37 +92,28 @@ const Home = () => {
   };
 
   const handleDelete = async (file) => {
-    const auth = getAuth();
-    const user = auth.currentUser;
+    if (!user) return;
 
-    if (user) {
-      try {
-        // Construct the reference to the file in Firebase Storage
-        const storageRef = ref(storage, `PDFs/${user.uid}/${file.name}`);
-
-        // Delete the file
-        await deleteObject(storageRef);
-
-        // Refresh the list of files after deletion
-        fetchFiles();
-      } catch (error) {
-        console.error("Error deleting file:", error);
-        // Handle any errors that occur during the deletion process
-      }
-    } else {
-      console.error("User is not authenticated");
-      // Handle the case where the user is not authenticated
+    const storageRef = ref(storage, `PDFs/${user.uid}/${file.name}`);
+    try {
+      await deleteObject(storageRef);
+      // Refresh the list of files after deletion
+      fetchFiles();
+    } catch (error) {
+      console.error("Error deleting file:", error);
     }
   };
 
-  // Render the component
+  if (loading) {
+    return <div className={styles.load}>Loading...</div>; // Or any loading indicator you prefer
+  }
+
   return (
     <main>
       <Navbar />
       <div className={styles.container}>
         <div className={styles.header}>
           <p className={styles.headerTitle}>Your slides</p>
-          {/* Upload PDF button */}
           <button
             onClick={() => document.getElementById("fileInput").click()}
             className={styles.button}
@@ -144,7 +141,6 @@ const Home = () => {
             </div>
           )}
         </div>
-        {/* Display the list of PDF files */}
         <div className={styles.PDFsContainer}>
           {files.map((file) => (
             <div key={file.name}>
@@ -158,3 +154,4 @@ const Home = () => {
 };
 
 export default Home;
+

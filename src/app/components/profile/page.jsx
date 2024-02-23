@@ -17,13 +17,15 @@ import app from "../../firebase"; // Adjust the import path as necessary
 import Navbar from "../subComponents/navbar";
 import styles from "./profile.module.css";
 import SignOutButton from "../subComponents/signOut";
-import ThemeChanger from '../subComponents/darkModeToggle';
+import { useRouter } from "next/navigation";
 
 const ProfilePage = () => {
   const [user, setUser] = useState(null);
   const [profilePicUrl, setProfilePicUrl] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [username, setUsername] = useState("");
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const auth = getAuth(app);
@@ -58,10 +60,12 @@ const ProfilePage = () => {
             .then((response) => response.json())
             .then((data) => {
               setUsername(data.username);
+              setIsDataLoaded(true);
             });
         });
       } else {
         setUser(null);
+        router.push("./login");
       }
     });
 
@@ -71,6 +75,8 @@ const ProfilePage = () => {
       document.body.style.overflowY = "";
     };
   }, []);
+
+
 
   const [showUploadPopup, setShowUploadPopup] = useState(false);
 
@@ -121,6 +127,11 @@ const ProfilePage = () => {
     }
   };
 
+  if(!isDataLoaded) 
+  {
+    return <div className={styles.load}>Loading...</div>;
+  }
+
   if (!user) {
     return <div className={styles.load}>Loading...</div>;
   }
@@ -137,7 +148,6 @@ const ProfilePage = () => {
   };
 
   return (
-    
     <main>
       <Navbar />
       <div className={styles.container}>
@@ -148,13 +158,15 @@ const ProfilePage = () => {
             </p>
             <div className={styles.button}>
               <SignOutButton className={styles.SignOutButton} />
-              <button onClick={() => handlePasswordReset(user.email)} className={styles.submitButton}>
-              Reset Password
-            </button>
+              <button
+                onClick={() => handlePasswordReset(user.email)}
+                className={styles.submitButton}
+              >
+                Reset Password
+              </button>
             </div>
           </div>
           <img src={profilePicUrl} alt="Profile" className={styles.propic} />
-          <ThemeChanger/>
         </div>
         <div className={styles.formContainer}>
           <div className={styles.formPopup}>
@@ -189,6 +201,9 @@ const ProfilePage = () => {
           </div>
           <div className={styles.form}>
             <input
+              id="username"
+              name="username"
+              required
               type="text"
               value={username}
               onChange={handleUsernameChange}
@@ -203,7 +218,6 @@ const ProfilePage = () => {
             </button>
           </div>
         </div>
-        
       </div>
     </main>
   );

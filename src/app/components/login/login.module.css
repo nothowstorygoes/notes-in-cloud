@@ -18,6 +18,10 @@
     letter-spacing:  0.2em;
 }
 
+[data-theme='dark'] .title {
+  color:white;
+}
+
 .titleLink{
     text-decoration: none !important;
 }
@@ -64,6 +68,10 @@
     background-color: #0d1821; /* Darken the button color on hover */
 }
 
+[data-theme='dark'] .submitButton {
+  border: 2px solid #344966;
+}
+
 /* Styles for the error message */
 .errorMessage {
     color: red;
@@ -78,6 +86,10 @@
     line-height:  180%;
     color: #344966;
     margin-top:  5rem;
+}
+
+[data-theme='dark'] .paragraph {
+  color:white;
 }
 
 @media (max-width:   480px) {

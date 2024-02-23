@@ -32,6 +32,14 @@ const Navbar = () => {
               Profile
             </a>
           </li>
+          <li className={styles.navbarItem}>
+            <a
+              href="/notes-in-cloud/components/settings"
+              className={styles.navbarLink}
+            >
+              Settings
+            </a>
+          </li>
 
           {/* Add more navbar items as needed */}
         </ul>

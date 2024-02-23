@@ -14,6 +14,7 @@
     border-left-color: #000;
     animation: spin  1s linear infinite;
   }
+
   
   @keyframes spin {
      0% {

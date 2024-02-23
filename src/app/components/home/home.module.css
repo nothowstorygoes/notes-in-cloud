@@ -10,6 +10,10 @@
   color: #344966;
 }
 
+[data-theme="dark"] .load {
+  color: white;
+}
+
 .container {
   padding: 0;
   display: flex !important;
@@ -37,17 +41,19 @@
   margin-top: 100px;
 }
 
+[data-theme="dark"] .headerTitle {
+  color: white;
+}
+
 .button {
   width: 50px;
   height: 50px;
   font-size: 40px;
   margin-left: 50px;
-  margin-top: 4px;
-  padding-top: 4px;
   background-color: #344966;
   color: #eff8e2;
   text-align: center;
-  border: none;
+  border:none;
   border-radius: 50%; /* This makes the button round */
 }
 
@@ -65,7 +71,7 @@
   margin-left: 20px;
 }
 
-.SubmitButton:hover {
+.submitButton:hover {
   background-color: #0d1821;
 }
 
@@ -96,48 +102,49 @@
   }
 }
 
-/* Existing styles */
-/* ... */
-
 /* Media query for smartphones */
-@media (max-width:   767px) {
-
+@media (max-width: 767px) {
   .header {
-    margin-top:   10px; /* Smaller margin-top */
-    margin-bottom:20px;
+    margin-top: 10px; /* Smaller margin-top */
+    margin-bottom: 20px;
   }
 
   .headerTitle {
-    font-size:   1.5rem; /* Smaller font-size */
-    margin-bottom:   3rem; /* Smaller margin-bottom */
-    margin-top:   50px; /* Smaller margin-top */
+    font-size: 1.5rem; /* Smaller font-size */
+    margin-bottom: 3rem; /* Smaller margin-bottom */
+    margin-top: 50px; /* Smaller margin-top */
   }
-    .button {
-      width:  40px; /* Smaller width */
-      height:  40px; /* Smaller height */
-      font-size:  20px; /* Smaller font-size */
-      margin-left:  25px; /* Smaller margin-left */
-      border-radius:  50%;
-      margin-top:  0; /* Adjusted margin-top */
-      padding-top:  0; /* Adjusted padding-top */
-      display: flex; /* Use flexbox */
-      align-items: center; /* Center vertically */
-      justify-content: center; /* Center horizontally */
-    }
+  .button {
+    width: 40px; /* Smaller width */
+    height: 40px; /* Smaller height */
+    font-size: 20px; /* Smaller font-size */
+    margin-left: 25px; /* Smaller margin-left */
+    border-radius: 50%;
+    margin-top: 0; /* Adjusted margin-top */
+    padding-top: 0; /* Adjusted padding-top */
+    display: flex; /* Use flexbox */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+  }
 
   .submitButton {
-    width:   80px; /* Smaller width */
-    padding:   5px; /* Smaller padding */
+    width: 80px; /* Smaller width */
+    padding: 5px; /* Smaller padding */
   }
 
   .submitButtonContainer {
-    margin-left:   25px; /* Smaller margin-left */
+    margin-left: 25px; /* Smaller margin-left */
   }
 
   .PDFsContainer {
-    flex-wrap:    wrap; /* Allow items to wrap if needed */
+    flex-wrap: wrap; /* Allow items to wrap if needed */
     margin-left: 15%;
   }
+}
+
+[data-theme="dark"] .button,
+.submitButton {
+  border: 2px solid #344966;
 }
 
 /* ... rest of your CSS ... */

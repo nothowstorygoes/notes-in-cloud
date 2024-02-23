@@ -1,15 +1,21 @@
-import { useTheme } from 'next-themes'
+import { useTheme } from "next-themes";
+import styles from "./darkModeToggle.module.css";
 
 const ThemeChanger = () => {
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme } = useTheme();
 
   return (
     <div>
-      The current theme is: {theme}
-      <button onClick={() => setTheme('light')}>Light Mode</button>
-      <button onClick={() => setTheme('dark')}>Dark Mode</button>
+      <div className={styles.container}>
+        <button onClick={() => setTheme("light")} className={styles.button}>
+          Light Mode
+        </button>
+        <button onClick={() => setTheme("dark")} className={styles.button}>
+          Dark Mode
+        </button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default ThemeChanger;

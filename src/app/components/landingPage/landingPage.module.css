@@ -23,6 +23,10 @@
     letter-spacing: 0.2em;
 }
 
+[data-theme='dark'] .title {
+  color:white;
+}
+
 .button {
     background-color: #344966;
     color: #eff8e2;
@@ -48,12 +52,20 @@
     margin-top: 5rem;
 }
 
+[data-theme='dark'] .paragraph {
+  color:white;
+}
+
 .footer{
     text-align: center;
     margin-top: 50px;
     line-height: 180%;
     margin-bottom: 0;
     color:#344966;
+}
+
+[data-theme='dark'] .footer {
+  color:white;
 }
 
 @media (max-width:  480px) {
