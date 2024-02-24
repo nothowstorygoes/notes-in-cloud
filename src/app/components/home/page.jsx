@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import app from "../../firebase"; // Adjust the import path as necessary
 import styles from "./home.module.css";
+import Sidebar from "../subComponents/sidebar";
 import Navbar from "../subComponents/navbar";
 import Preview from "../subComponents/preview";
 import {
@@ -102,9 +103,17 @@ const Home = () => {
         matchJson.push({ pdf: uploadingFile.name, cover: "null" });
 
         // Upload the updated match.json file
-        const updatedMatchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
-        const updatedMatchJsonBlob = new Blob([JSON.stringify(matchJson)], { type: 'application/json' });
-        const uploadTask2 = uploadBytesResumable(updatedMatchJsonRef, updatedMatchJsonBlob);
+        const updatedMatchJsonRef = ref(
+          storage,
+          `Userdata/${user.uid}/match.json`
+        );
+        const updatedMatchJsonBlob = new Blob([JSON.stringify(matchJson)], {
+          type: "application/json",
+        });
+        const uploadTask2 = uploadBytesResumable(
+          updatedMatchJsonRef,
+          updatedMatchJsonBlob
+        );
 
         uploadTask2.on(
           "state_changed",
@@ -147,52 +156,39 @@ const Home = () => {
   return (
     <main>
       <Navbar />
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <p className={styles.headerTitle}>Your slides</p>
-          <button
-            onClick={() => document.getElementById("fileInput").click()}
-            className={styles.button}
-          >
-            +
-          </button>
-          <input
-            type="file"
-            id="fileInput"
-            accept="application/pdf"
-            style={{ display: "none" }}
-            onChange={handleFileSelect}
-          />
-          <button
-            onClick={() => setShowEditOverlay(!showEditOverlay)}
-            className={styles.buttonEdit}
-          >
-            Edit
-          </button>
-          {showUploadPopup && (
-            <div className={styles.submitButtonContainer}>
-              <button onClick={handleUpload} className={styles.submitButton}>
-                Upload
-              </button>
-              <button
-                onClick={() => setShowUploadPopup(false)}
-                className={styles.submitButton}
-              >
-                Cancel
-              </button>
-            </div>
-          )}
-        </div>
-        <div className={styles.PDFsContainer}>
-          {files.map((file) => (
-            <div key={file.name}>
-              <Preview
-                file={file}
-                onDelete={handleDelete}
-                showEditOverlay={showEditOverlay}
+      <div id="outer-container">
+        <Sidebar
+          onUpload={() => document.getElementById("fileInput").click()}
+          onEditToggle={() => setShowEditOverlay(!showEditOverlay)}
+          showEditOverlay={showEditOverlay}
+          showUploadPopup={showUploadPopup}
+          handleUpload={handleUpload}
+          handleCancelUpload={() => setShowUploadPopup(false)}
+        />
+        <div id="page-wrap">
+          <div className={styles.container}>
+            <div className={styles.header}>
+              <p className={styles.headerTitle}>Your slides</p>
+              <input
+                type="file"
+                id="fileInput"
+                accept="application/pdf"
+                style={{ display: "none" }}
+                onChange={handleFileSelect}
               />
             </div>
-          ))}
+            <div className={styles.PDFsContainer}>
+              {files.map((file) => (
+                <div key={file.name}>
+                  <Preview
+                    file={file}
+                    onDelete={handleDelete}
+                    showEditOverlay={showEditOverlay}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </main>

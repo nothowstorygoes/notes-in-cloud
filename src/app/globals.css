@@ -6,10 +6,20 @@ body{
 
 html{
     height: 100%;
-    margin :0}
+    margin :0
+  }
 
 a{
     color: inherit;
+}
+
+#page-wrap{
+  overflow: auto;
+}
+
+
+.bm-menu-wrap{
+  top:80px;
 }
 
   [data-theme='dark'],
