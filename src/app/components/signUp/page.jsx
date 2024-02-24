@@ -7,7 +7,7 @@ import { auth } from "../../firebase";
 import { useRouter } from "next/navigation";
 import app from "../../firebase";
 import { useEffect } from "react";
-import { getStorage, ref, uploadBytes, uploadString } from "firebase/storage";
+import { deleteObject, getStorage, ref, uploadBytes, uploadString } from "firebase/storage";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -39,9 +39,22 @@ const Signup = () => {
       await uploadBytes(defaultPicRef, defaultPicBlob);
       const userUsername = username || `user${user.uid}`;
       const usernameRef = ref(storage, `Userdata/${user.uid}/${user.uid}.json`);
-      const usernameData = JSON.stringify({username: userUsername});
-      const usernameBlob = new Blob([usernameData], { type: 'application/json' });
+      const usernameData = JSON.stringify({ username: userUsername });
+      const usernameBlob = new Blob([usernameData], {
+        type: "application/json",
+      });
       await uploadBytes(usernameRef, usernameBlob);
+
+      const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
+      const matchJsonData = JSON.stringify({}); // Blank JSON object
+      const matchJsonBlob = new Blob([matchJsonData], {
+        type: "application/json",
+      });
+      await uploadBytes(matchJsonRef, matchJsonBlob);
+
+      const coversRef = ref(storage, `PDFs/${user.uid}/covers/placeholder.txt`);
+      await uploadString(coversRef, ""); // Upload an empty string to create the directory
+
       console.log(user);
       router.push("./login");
     } catch (error) {
@@ -95,6 +108,7 @@ const Signup = () => {
                 id="username"
                 name="username"
                 type="text"
+                required
                 placeholder="Username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}

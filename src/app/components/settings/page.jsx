@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { getAuth, deleteUser, onAuthStateChanged } from "firebase/auth";
+import { getAuth, deleteUser, onAuthStateChanged, reauthenticateWithCredential, EmailAuthCredential, EmailAuthProvider } from "firebase/auth";
 import { getStorage, ref, listAll, deleteObject } from "firebase/storage";
 import app from "../../firebase";
 import ThemeChanger from "../subComponents/darkModeToggle";
@@ -30,13 +30,57 @@ const SettingsPage = () => {
     res.items.forEach(async (itemRef) => {
       await deleteObject(itemRef);
     });
+  }
+
+  const [showDeleteAccountPopup, setShowDeleteAccountPopup] = useState(false);
+
+  const handleCredentialSubmission = (email, password) =>
+  {
+    deleteAccount (email,password);
+    setShowDeleteAccountPopup(false);
+  }
+
+
+  const DeleteAccountPopup = ({ onSubmit, onClose }) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+  
+    const handleSubmit = () => {
+      onSubmit(email, password);
+      onClose(); // Close the popup after submission
+    };
+  
+    return (
+      <div className={styles.modalBackdrop}>
+        <div className={styles.modalContent}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            className={styles.inputField}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            className={styles.inputField}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div className={styles.buttonContainerDelete}>
+          <button onClick={onClose} className={styles.buttonClose}>Cancel</button>
+          <button onClick={handleSubmit} className={styles.buttonDelete}>Delete Account</button>
+          </div>
+        </div>
+      </div>
+    );
   };
 
-  const deleteAccount = async () => {
+  const deleteAccount = async (email,password) => {
     const auth = getAuth();
     const storage = getStorage();
     const currentUser = auth.currentUser;
-
+    
     if (!currentUser) {
       console.error("No user is currently signed in.");
       return;
@@ -45,8 +89,8 @@ const SettingsPage = () => {
     const userId = currentUser.uid;
 
     // Delete all files in /PDFs/{userId}/
+    await deleteAllFiles(`/PDFs/${userId}/covers`);
     await deleteAllFiles(`/PDFs/${userId}/`);
-
     await deleteAllFiles(`/Userdata/${userId}/`);
 
     // Attempt to delete the profile picture from the default location
@@ -66,37 +110,42 @@ const SettingsPage = () => {
         console.error("Failed to delete user-specific profile picture:", error);
       }
     }
+      const credential= EmailAuthProvider.credential(email,password);
+      reauthenticateWithCredential(currentUser, credential).then(() => {
+        return deleteUser(currentUser);
+  })
+      router.push("./landingPage");
+  }
 
-    // Delete user's account
-    await deleteUser(currentUser);
-
-    // Redirect to landing page
-    router.push("./landingPage");
-  };
-
-  return (
-    <main>
-      <Navbar />
-      <div className={styles.settings}>
-        <p className={styles.title}>Settings</p>
-        <ThemeChanger />
-        <div className={styles.deleteContainer}>
-          <p className={styles.text}>Beware of <br />using these <br /> buttons!</p>
-          <div className={styles.buttonContainer}>
-            <button
-              onClick={() => deleteAllFiles(`/PDFs/${user.uid}/`)}
-              className={styles.button}
-            >
-              Delete All Files
-            </button>
-            <button onClick={deleteAccount} className={styles.button}>
-              Delete Account
-            </button>
+    return (
+      <main>
+        <Navbar />
+        <div className={styles.settings}>
+          <p className={styles.title}>Settings</p>
+          <ThemeChanger />
+          <div className={styles.deleteContainer}>
+            <p className={styles.text}>
+              Beware of <br />
+              using these <br /> buttons!
+            </p>
+            <div className={styles.buttonContainer}>
+              <button
+                onClick={() => deleteAllFiles(`/PDFs/${user.uid}/`)}
+                className={styles.button}
+              >
+                Delete All Files
+              </button>
+              <button onClick={() => setShowDeleteAccountPopup(true)} className={styles.button}>
+                Delete Account
+              </button>
+              {showDeleteAccountPopup && (
+                <DeleteAccountPopup onSubmit={handleCredentialSubmission} onClose={() => setShowDeleteAccountPopup(false)}/>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </main>
-  );
+      </main>
+    );
 };
 
 export default SettingsPage;

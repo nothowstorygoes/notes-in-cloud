@@ -69,3 +69,90 @@
 [data-theme='dark'] .deleteContainer{
     background-color: rgba(103, 14, 14, 0.3);
 }
+
+
+.modalBackdrop {
+  position: fixed;
+  top:  0;
+  left:  0;
+  width:  100%;
+  height:  100%;
+  background-color: rgba(0,  0,  0,  0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index:  1000;
+}
+
+.modalContent {
+  background-color: #eff8e2;
+  padding:  20px;
+  border: 3px solid #344966;
+  border-radius:  15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:  300px;
+  max-width:  90%;
+  box-shadow:  0  4px  6px rgba(0,  0,  0,  0.1);
+}
+
+[data-theme='dark'] .modalContent{
+    background-color: #0d1821;
+}
+
+.buttonClose
+{
+    margin: 20px;
+    width:  200px;
+    padding:  7px;
+    background-color: #344966; /* Match the button color of page.module.css */
+    color: white; /* Match the button text color of page.module.css */
+    border: 2px solid #344966 ;
+    border-radius:  10px;
+    cursor: pointer;
+    transition: background-color  0.3s ease; /* Add a transition for hover effect */
+}
+
+/* Styles for the submit button on hover */
+.buttonClose:hover {
+    background-color: #0d1821; /* Darken the button color on hover */
+}
+
+.buttonDelete {
+    margin: 20px;
+    width:  200px;
+    padding:  7px;
+    background-color: red; /* Match the button color of page.module.css */
+    color: white; /* Match the button text color of page.module.css */
+    border: 2px solid red;
+    border-radius:  10px;
+    cursor: pointer;
+    transition: background-color  0.3s ease; /* Add a transition for hover effect */
+}
+
+/* Styles for the submit button on hover */
+.buttonDelete:hover {
+    background-color: rgb(103, 14, 14); /* Darken the button color on hover */
+}
+
+[data-theme='dark'] .buttonDelete {
+    border: 2px solid red;
+  }
+
+.buttonContainerDelete{
+    display: flex;
+    flex-direction: row;
+}
+
+.inputField {
+    width:  250px;
+    padding:10px;
+    margin-right:15px;
+    margin:10px;
+    border:  1px solid #344966; /* Match the border color of page.module.css */
+    border-radius:  4px;
+    background-color: #eff8e2; /* Match the background color of page.module.css */
+    color: #344966; /* Match the text color of page.module.css */
+}

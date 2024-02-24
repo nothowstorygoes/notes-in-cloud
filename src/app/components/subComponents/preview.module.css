@@ -8,6 +8,27 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
+.load {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  justify-content: center;
+  font-size: 25px;
+  width: 250px;
+  color: #344966;
+}
+
+[data-theme="dark"] .load {
+  color: white;
+}
+
+.buttonContainer{
+  display: flex;
+  flex-direction: column;
+}
+
 .spinnerContainer {
   display: flex;
   justify-content: center;
@@ -61,10 +82,6 @@
   width: 70px;
 }
 
-.documentWrapper:hover .deleteIcon {
-  display: block;
-}
-
 /* Media query for smartphones */
 @media (max-width:   767px) {
   .document {
@@ -102,5 +119,45 @@
     height:   30px; /* Even smaller height */
     width:   30px; /* Even smaller width */
   }
+}
+
+.showDeleteIcon {
+  display: block !important;
+  z-index:15;
+}
+
+.overlay {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50px;
+  overflow: hidden;
+  margin: 25px;
+  top:  0;
+  left:  0;
+  right:  0;
+  bottom:  0;
+  background-color: rgba(255,  255,  255,  0.8); /* Adjust opacity as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index:  10; /* Ensure this is higher than the preview image's z-index */
+}
+
+.button {
+  width:  150px;
+  margin-bottom:15px;
+  padding:  10px;
+  background-color: #344966; /* Match the button color of page.module.css */
+  color: #eff8e2; /* Match the button text color of page.module.css */
+  border: 2px solid #344966;
+  border-radius:  10px;
+  cursor: pointer;
+  transition: background-color  0.3s ease; /* Add a transition for hover effect */
+}
+
+/* Styles for the submit button on hover */
+.button:hover {
+  background-color: #0d1821; /* Darken the button color on hover */
 }
 

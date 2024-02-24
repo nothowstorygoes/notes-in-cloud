@@ -57,6 +57,8 @@
 
 .formPopup{
     margin-right:80px;
+    display: flex;
+    flex-direction: column;
 
 }
 

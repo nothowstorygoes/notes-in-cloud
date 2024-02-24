@@ -1,8 +1,8 @@
-'use client'
+"use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import app from '../../firebase'; // Adjust the import path as necessary
+import app from "../../firebase"; // Adjust the import path as necessary
 import styles from "./home.module.css";
 import Navbar from "../subComponents/navbar";
 import Preview from "../subComponents/preview";
@@ -23,6 +23,7 @@ const Home = () => {
   const [showUploadPopup, setShowUploadPopup] = useState(false);
   const [uploadingFile, setUploadingFile] = useState(null);
   const storage = getStorage();
+  const [showEditOverlay, setShowEditOverlay] = useState(false);
 
   useEffect(() => {
     const auth = getAuth(app);
@@ -55,8 +56,10 @@ const Home = () => {
     setFiles(fileUrls);
   };
 
+  useEffect(() => {
     fetchFiles();
-    
+  }, [user]); // Depend on the 'user' state to re-fetch files when the user changes
+
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -83,8 +86,41 @@ const Home = () => {
         // Handle successful uploads on complete
         const downloadURL = await getDownloadURL(storageRef);
         console.log("File available at", downloadURL);
-        // Refresh the list of files
-        fetchFiles();
+
+        // Download the match.json file
+        const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
+        const matchJsonURL = await getDownloadURL(matchJsonRef);
+        const response = await fetch(matchJsonURL);
+        let matchJson = await response.json();
+
+        // Ensure matchJson is an array
+        if (!Array.isArray(matchJson)) {
+          matchJson = [];
+        }
+
+        // Add the new object to the JSON content
+        matchJson.push({ pdf: uploadingFile.name, cover: "null" });
+
+        // Upload the updated match.json file
+        const updatedMatchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
+        const updatedMatchJsonBlob = new Blob([JSON.stringify(matchJson)], { type: 'application/json' });
+        const uploadTask2 = uploadBytesResumable(updatedMatchJsonRef, updatedMatchJsonBlob);
+
+        uploadTask2.on(
+          "state_changed",
+          (snapshot) => {
+            // Handle the upload progress here
+          },
+          (error) => {
+            // Handle unsuccessful uploads here
+          },
+          async () => {
+            // Handle successful uploads on complete
+            console.log("match.json updated successfully");
+            // Refresh the list of files
+            fetchFiles();
+          }
+        );
       }
     );
     setUploadingFile(null);
@@ -127,6 +163,12 @@ const Home = () => {
             style={{ display: "none" }}
             onChange={handleFileSelect}
           />
+          <button
+            onClick={() => setShowEditOverlay(!showEditOverlay)}
+            className={styles.buttonEdit}
+          >
+            Edit
+          </button>
           {showUploadPopup && (
             <div className={styles.submitButtonContainer}>
               <button onClick={handleUpload} className={styles.submitButton}>
@@ -144,7 +186,11 @@ const Home = () => {
         <div className={styles.PDFsContainer}>
           {files.map((file) => (
             <div key={file.name}>
-              <Preview file={file} onDelete={handleDelete} />
+              <Preview
+                file={file}
+                onDelete={handleDelete}
+                showEditOverlay={showEditOverlay}
+              />
             </div>
           ))}
         </div>
@@ -154,4 +200,3 @@ const Home = () => {
 };
 
 export default Home;
-

@@ -61,6 +61,23 @@
   background-color: #0d1821;
 }
 
+.buttonEdit {
+  width: 80px;
+  height: 40px;
+  font-size: 25px;
+  margin-left: 50px;
+  background-color: #344966;
+  color: #eff8e2;
+  text-align: center;
+  border:2px solid #344966;
+  border-radius: 15px; /* This makes the button round */
+}
+
+.buttonEdit:hover {
+  background-color: #0d1821;
+}
+
+
 .submitButton {
   width: 100px; /* Match the width of .submitButton in login.module.css */
   padding: 10px; /* Match the padding of .submitButton in login.module.css */

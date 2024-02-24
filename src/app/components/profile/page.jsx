@@ -113,20 +113,6 @@ const ProfilePage = () => {
     setShowUploadPopup(false);
   };
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const handleUsernameUpdate = async () => {
-    if (user) {
-      const storageRef = ref(storage, `Userdata/${user.uid}/${user.uid}.json`);
-      const usernameData = JSON.stringify({ username });
-      await uploadString(storageRef, usernameData, "application/json");
-      // Optionally, you can update the local state with the new username
-      setUsername(username);
-    }
-  };
-
   if(!isDataLoaded) 
   {
     return <div className={styles.load}>Loading...</div>;
@@ -164,12 +150,7 @@ const ProfilePage = () => {
               >
                 Reset Password
               </button>
-            </div>
-          </div>
-          <img src={profilePicUrl} alt="Profile" className={styles.propic} />
-        </div>
-        <div className={styles.formContainer}>
-          <div className={styles.formPopup}>
+              <div className={styles.formPopup}>
             <button
               onClick={() =>
                 document.getElementById("profile-picture-upload").click()
@@ -199,24 +180,12 @@ const ProfilePage = () => {
               </div>
             )}
           </div>
-          <div className={styles.form}>
-            <input
-              id="username"
-              name="username"
-              required
-              type="text"
-              value={username}
-              onChange={handleUsernameChange}
-              placeholder="Edit Username"
-              className={styles.inputField}
-            />
-            <button
-              onClick={handleUsernameUpdate}
-              className={styles.submitButton}
-            >
-              Update Username
-            </button>
+            </div>
           </div>
+          <img src={profilePicUrl} alt="Profile" className={styles.propic} />
+        </div>
+        <div className={styles.formContainer}>
+          
         </div>
       </div>
     </main>
