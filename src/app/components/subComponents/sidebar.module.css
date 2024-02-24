@@ -10,6 +10,7 @@
 @media screen and (max-width: 600px) {
   .burgerButton {
     left: 30px;
+    top: 55px;
   }
 }
 
@@ -24,82 +25,91 @@
   background: #ffff;
 }
 
-
-  
-  /*
+/*
   Sidebar wrapper styles
   Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
   */
-  .menuWrap {
-    position: fixed;
-    height: 100%;
-    left: 0;
-    top:80px !important;
-    z-index: 900 !important;
-    top: 80px;
-  }
-  
-  /* General sidebar styles */
+.menuWrap {
+  position: fixed;
+  height: 100%;
+  left: 0;
+  top: 80px !important;
+  z-index: 900 !important;
+  top: 80px;
+}
+
+/* General sidebar styles */
+.menu {
+  background: rgba(0, 0, 0, 0);
+  padding: 2.5em 1.5em 0;
+  right: 0;
+  top: 80px;
+  font-size: 1.15em;
+  position: relative;
+  overflow-y: hidden !important;
+}
+@media (max-width: 767px) {
   .menu {
-    background: rgba(0, 0, 0, 0);
-    padding: 2.5em 1.5em 0;
-    right: 0;
-    top:80px;
-    font-size: 1.15em;
-    position: relative;
-    overflow-y: hidden !important;
+    top: 0;
   }
-  
-  /* Morph shape necessary with bubble or elastic */
-  .morphShape {
-    fill: #373a47;
-  }
-  
-  /* Wrapper for item list */
-  .itemList {
-    color: #ffff;
-    padding: 0.8em;
-  }
-  
-  /* Individual item */
+}
+/* Morph shape necessary with bubble or elastic */
+.morphShape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.itemList {
+  color: #ffff;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.item {
+  display: inline-block;
+  font-weight: lighter;
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 600px) {
   .item {
-    display: inline-block;
     font-weight: lighter;
-    font-size: 30px;
-    
+    font-size: 20px;
   }
-  
-  @media only screen and (max-width: 600px) {
-    .item {
-      font-weight: lighter;
-      font-size: 20px;
-    }
+}
+
+/* Media query for tablets */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .item {
+    font-weight: lighter;
+    font-size: 25px;
   }
-  
-  /* Media query for tablets */
-  @media only screen and (min-width: 601px) and (max-width: 1024px) {
-    .item {
-      font-weight: lighter;
-      font-size: 25px;
-    }
-  }
-  
-  /* Styling of overlay */
+}
+
+/* Styling of overlay */
+.overlay {
+  background: rgba(18, 12, 33, 0);
+  top: 80px;
+  right: 0;
+}
+
+@media (max-width: 767px) {
   .overlay {
-    background: rgba(18, 12, 33, 0);
-    top: 80px;
-    right: 0;
+    top: 0;
+    bottom:80px;
+    height: auto !important;
   }
-  
-.clickableText{
+}
+
+.clickableText {
   text-decoration: none;
   color: #344966;
   margin-top: 40px;
-  font-weight:300;
+  font-weight: 300;
   margin-bottom: 40px;
 }
 
-[data-theme='dark'] .clickableText{
+[data-theme="dark"] .clickableText {
   color: white;
 }
 
