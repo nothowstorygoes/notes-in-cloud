@@ -5,7 +5,7 @@ import React from "react";
 import styles from "./navbar.module.css";
 
 const Navbar = () => {
-  const currentPath = window.location.pathname;
+  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
 
   return (
     <nav className={styles.navbar}>
