@@ -177,6 +177,7 @@ const Home = () => {
                 onChange={handleFileSelect}
               />
             </div>
+            <div className={styles.outerPDFs}>
             <div className={styles.PDFsContainer}>
               {files.map((file) => (
                 <div key={file.name}>
@@ -187,6 +188,7 @@ const Home = () => {
                   />
                 </div>
               ))}
+            </div>
             </div>
           </div>
         </div>

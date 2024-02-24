@@ -82,45 +82,6 @@
   width: 70px;
 }
 
-/* Media query for smartphones */
-@media (max-width:   767px) {
-  .document {
-    width:   120px; /* Even smaller width */
-    height:   120px; /* Even smaller height */
-    border-radius:   30px; /* Smaller border-radius */
-    margin:   8px; /* Smaller margin */
-  }
-
-  .spinnerContainer {
-    height:   60%; /* Adjust this if needed */
-  }
-
-  .spinner {
-    width:   20px; /* Even smaller width */
-    height:   20px; /* Even smaller height */
-  }
-
-  .page {
-    width:   120px; /* Even smaller width */
-    height:   120px; /* Even smaller height */
-  }
-
-  .documentWrapper {
-    width:   150px; /* Even smaller width */
-    height:   150px; /* Even smaller height */
-  }
-
-  .deleteIcon {
-    top:   1px; /* Even smaller top position */
-    right:   1px; /* Even smaller right position */
-  }
-
-  .cross {
-    height:   30px; /* Even smaller height */
-    width:   30px; /* Even smaller width */
-  }
-}
-
 .showDeleteIcon {
   display: block !important;
   z-index:15;
@@ -144,6 +105,7 @@
   z-index:  10; /* Ensure this is higher than the preview image's z-index */
 }
 
+
 .button {
   width:  150px;
   margin-bottom:15px;
@@ -161,3 +123,78 @@
   background-color: #0d1821; /* Darken the button color on hover */
 }
 
+
+/* Smartphone styles */
+@media (max-width:   480px) {
+  .document {
+    width:   120px;
+    height:   120px;
+    border-radius: 30px;
+  }
+
+  .page {
+    width:   120px;
+    height:   120px;
+  }
+
+  .documentWrapper {
+    width:   150px;
+    height:   150px;
+  }
+
+  .spinner {
+    width:   24px;
+    height:   24px;
+  }
+
+  .button {
+    width:   100px;
+    margin-bottom:   10px;
+    padding:   5px;
+  }
+
+  .overlay {
+    width:   120px;
+    height:   120px;
+    border-radius: 30px;
+  }
+
+  .cross{
+    height: 50px;
+    width: 50px;
+  }
+}
+
+/* Tablet styles */
+@media (min-width:   481px) and (max-width:   1240) {
+  .document {
+    width:   150px;
+    height:   150px;
+  }
+
+  .page {
+    width:   150px;
+    height:   150px;
+  }
+
+  .documentWrapper {
+    width:   180px;
+    height:   180px;
+  }
+
+  .spinner {
+    width:   30px;
+    height:   30px;
+  }
+
+  .button {
+    width:   120px;
+    margin-bottom:   12px;
+    padding:   6px;
+  }
+
+  .overlay {
+    width:   150px;
+    height:   10px;
+  }
+}

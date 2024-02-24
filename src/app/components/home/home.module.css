@@ -103,6 +103,12 @@
   flex-wrap: wrap;
 }
 
+.outerPDFs{
+  width: 1500px;
+  display: flex;
+  justify-content: center;
+}
+
 @keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);
@@ -155,8 +161,26 @@
 
   .PDFsContainer {
     flex-wrap: wrap; /* Allow items to wrap if needed */
-    margin-left: 15%;
+    }
+
+  .outerPDFs{
+    width: 300px;
   }
+}
+
+@media (min-width:   481px) and (max-width:   900px) {
+
+    .outerPDFs{
+      width: 600px;
+    }
+}
+
+@media (min-width:   901px) and (max-width:   1240px) {
+
+    .outerPDFs{
+      width: 900px;
+    }
+
 }
 
 [data-theme="dark"] .button,

@@ -69,6 +69,13 @@
   font-size: larger;
 }
 
+@media (min-width:   481px) and (max-width:   1240px) 
+{
+  .logo{
+    padding: 0 160px;
+  }
+}
+
 .navbarMenu {
   list-style: none;
   display: flex;
