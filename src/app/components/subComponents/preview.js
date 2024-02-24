@@ -30,9 +30,6 @@ export default function Preview({
   const [coverImageURL, setCoverImageURL] = useState(null);
   const [isLoading, setIsLoading] = useState(true); // Add a loading state
 
-  const handleDelete = () => {
-    onDelete(file);
-  };
 
   useEffect(() => {
     const checkForCoverImage = async () => {
@@ -85,6 +82,45 @@ export default function Preview({
        return prevFile;
      });
    }};
+
+   const handleDelete = async () => {
+     onDelete(file);
+     const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
+     const matchJsonURL = await getDownloadURL(matchJsonRef);
+     const response = await fetch(matchJsonURL);
+     let matchJson = await response.json();
+
+     // Find the index of the matching object
+     const matchIndex = matchJson.findIndex((item) => item.pdf === file.name);
+     if (matchIndex !== -1) {
+       // Remove the matching object from the matchJson array
+       matchJson.splice(matchIndex,  1);
+
+       // Upload the updated match.json file
+       const updatedMatchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
+       const updatedMatchJsonBlob = new Blob([JSON.stringify(matchJson)], {
+         type: "application/json",
+       });
+       const uploadTask = uploadBytesResumable(updatedMatchJsonRef, updatedMatchJsonBlob);
+       uploadTask.on(
+         "state_changed",
+         (snapshot) => {
+           // Handle the upload progress here
+         },
+         (error) => {
+           // Handle unsuccessful uploads here
+         },
+         async () => {
+           // Handle successful uploads on complete
+           console.log("Deleted match and updated match.json successfully");
+           // Refresh the component to render the <Document>
+           fetchFile(file.name);
+         }
+       );
+     } else {
+       console.log("No match found for deletion.");
+     }
+   };
 
   const deleteCover = async () => {
     // Find the matching object in match.json
