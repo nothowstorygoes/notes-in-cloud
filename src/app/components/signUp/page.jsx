@@ -84,7 +84,7 @@ const Signup = () => {
             </a>
           </p>
           <form className={styles.formContainer} onSubmit={onSubmit}>
-            <div>
+            <div className={styles.formComplete}>
               <label htmlFor="email-address" className={styles.label}>
                 Email address
               </label>
@@ -100,7 +100,7 @@ const Signup = () => {
               />
             </div>
 
-            <div>
+            <div className={styles.formComplete}>
               <label htmlFor="username" className={styles.label}>
                 Username
               </label>
@@ -116,7 +116,7 @@ const Signup = () => {
               />
             </div>
 
-            <div>
+            <div className={styles.formComplete}>
               <label htmlFor="password" className={styles.label}>
                 Password
               </label>

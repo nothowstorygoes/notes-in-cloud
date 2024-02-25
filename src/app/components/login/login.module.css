@@ -51,6 +51,11 @@
     color: #344966; /* Match the text color of page.module.css */
 }
 
+.formComplete{
+  display: flex;
+  flex-direction: column;
+}
+
 /* Styles for the submit button */
 .submitButton {
     width:  200px;
@@ -93,6 +98,47 @@
 }
 
 @media (max-width:   480px) {
+  .container {
+    padding:   0.5rem;
+    height:   90vh;
+  }
+
+  .label{
+    font-size:1.2rem;
+  }
+
+  .title {
+    font-size:   3rem;
+    margin-bottom:   2rem;
+  }
+
+  .formContainer {
+    width:   100%;
+    max-width:   300px;
+    padding:   10px;
+  }
+
+  .inputField {
+    padding:   13px;
+    margin-bottom:   15px;
+    margin-top:   7.5px;
+  }
+
+  .submitButton {
+    font-size:   0.9rem;
+  }
+
+  .errorMessage {
+    font-size:   0.8rem;
+  }
+
+  .paragraph {
+    width:   100%;
+    margin-top:   2.5rem;
+  }
+}
+
+@media (min-width:   480px ) and (max-width:1240px) {
   .container {
     padding:   0.5rem;
     height:   90vh;

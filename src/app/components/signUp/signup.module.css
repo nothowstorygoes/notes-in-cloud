@@ -59,6 +59,12 @@
     transition: background-color  0.3s ease; /* Add a transition for hover effect */
 }
 
+.formComplete{
+  display: flex;
+  flex-direction: column;
+}
+
+
 /* Styles for the submit button on hover */
 .submitButton:hover {
     background-color: #0d1821; /* Darken the button color on hover */

@@ -65,7 +65,7 @@ const Login = () => {
             </a>
           </p>
           <form className={styles.formContainer} onSubmit={handleLogin}>
-            <div>
+            <div className={styles.formComplete}>
               <label htmlFor="email-address" className={styles.label}>
                 Email address
               </label>
@@ -81,7 +81,7 @@ const Login = () => {
               />
             </div>
 
-            <div>
+            <div className={styles.formComplete}>
               <label htmlFor="password" className={styles.label}>
                 Password
               </label>
