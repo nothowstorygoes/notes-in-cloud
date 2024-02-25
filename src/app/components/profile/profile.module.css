@@ -190,3 +190,63 @@
 [data-theme='dark'] .submitButton, .submitButtonUpload, .SignOutButton {
     border: 2px solid #344966;
 }
+
+@media (max-width:  768px) {
+    .button{
+        align-items: center;
+    }
+    .load {
+        font-size:  20px;
+        width:  200px;
+    }
+
+    .container {
+        padding:  0;
+        margin-top:  2vh;
+        height:  90vh;
+    }
+
+    .headerContainer {
+        margin:  2rem;
+        flex-direction: column-reverse;
+    }
+
+    .header {
+        font-size:  1.5rem;
+        margin-top:  40px;
+        text-align: center;
+    }
+
+    .formPopup, .form {
+        margin-right:  0 !important;
+    }
+
+    .formContainer {
+        height:  70px;
+        margin-right:  25px;
+    }
+
+    .propic {
+        width:  150px;
+        height:  150px;
+        margin-left:  75px;
+        margin-top:  26px;
+    }
+
+    .inputField {
+        width:  250px;
+        padding:  5px;
+        margin-bottom:  15px;
+        margin-top:  7.5px;
+    }
+
+    .submitButton, .submitButtonUpload, .SignOutButton {
+        width:  150px;
+        padding:  5px;
+        margin-bottom:  5px;
+    }
+
+    .submitButtonContainer {
+        margin-top:  10px;
+    }
+}

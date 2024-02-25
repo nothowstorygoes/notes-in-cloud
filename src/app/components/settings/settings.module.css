@@ -156,3 +156,56 @@
     background-color: #eff8e2; /* Match the background color of page.module.css */
     color: #344966; /* Match the text color of page.module.css */
 }
+
+@media (max-width:  768px) {
+    .settings {
+        padding:  10px;
+    }
+
+    .title {
+        font-size:  2rem;
+    }
+
+    .button {
+        width:  150px;
+        padding:  5px;
+    }
+
+    .button:hover {
+        background-color: rgb(103,  14,  14);
+    }
+
+    .buttonContainer {
+        flex-direction: column;
+    }
+
+    .text {
+        font-size:  16px;
+        margin:  20px;
+    }
+
+    .deleteContainer {
+        flex-direction: column;
+        border-radius:  10px;
+    }
+
+    .modalContent {
+        width:  250px;
+        padding:  10px;
+    }
+
+    .buttonClose {
+        width:  150px;
+        padding:  5px;
+    }
+
+    .buttonDelete {
+        width:  150px;
+        padding:  5px;
+    }
+
+    .inputField {
+        width:  200px;
+        padding:  5px;
+    }
+}

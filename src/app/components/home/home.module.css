@@ -127,6 +127,10 @@
 
 /* Media query for smartphones */
 @media (max-width: 767px) {
+.container{
+  margin-bottom: 30vh;
+}
+
   .header {
     margin-top: 10px; /* Smaller margin-top */
     margin-bottom: 20px;
