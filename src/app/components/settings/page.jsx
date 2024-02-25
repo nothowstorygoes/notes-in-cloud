@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getAuth, deleteUser, onAuthStateChanged, reauthenticateWithCredential, EmailAuthCredential, EmailAuthProvider } from "firebase/auth";
@@ -11,16 +11,22 @@ import styles from "./settings.module.css";
 const SettingsPage = () => {
   const router = useRouter();
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const auth = getAuth(app);
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+        setLoading(false); // Set loading to false after user is authenticated
       } else {
-        router.push("./login");
+        setUser(null);
+        router.push("./login"); // Redirect to login if user is not authenticated
       }
     });
+
+    // Clean up the subscription on unmount
+    return () => unsubscribe();
   }, [router]);
 
   const deleteAllFiles = async (folderPath) => {

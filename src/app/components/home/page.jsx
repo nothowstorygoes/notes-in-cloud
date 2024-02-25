@@ -31,12 +31,11 @@ const Home = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        // Fetch files after user is authenticated
+        setLoading(false); // Set loading to false after user is authenticated
       } else {
         setUser(null);
-        router.push("./login"); // Adjust the path to your login page as necessary
+        router.push("./login"); // Redirect to login if user is not authenticated
       }
-      setLoading(false);
     });
 
     // Clean up the subscription on unmount
