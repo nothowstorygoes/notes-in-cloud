@@ -3,6 +3,7 @@ import React from "react";
 import { push as Menu } from "react-burger-menu";
 import styles from "./sidebar.module.css";
 import { useState } from "react";
+import ShowNotification from '../subComponents/notification'
 
 const Sidebar = ({
   onUpload,
@@ -10,6 +11,7 @@ const Sidebar = ({
   showEditOverlay,
   showUploadPopup,
   handleUpload,
+  uploadDone,
   handleCancelUpload,
 }) => {
   // Initialize isOpen state
@@ -45,6 +47,7 @@ const Sidebar = ({
             Upload
           </a>
           <br />
+          {uploadDone && <ShowNotification/>}
           <br />
           <a
             href="#"

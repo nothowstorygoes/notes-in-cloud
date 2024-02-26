@@ -15,7 +15,7 @@ function useAskNotificationPermission() {
     
 }  
 
-function useShowNotification(title, bodyText, img, silent, sound){
+function ShowNotification(title, bodyText, img, silent, sound){
     useEffect(() => {
         if (!('Notification' in window)) {
             return {result:'This browser does not support notifications.'}
@@ -68,7 +68,7 @@ function clearNotificationCount (){
 
 
 module.exports = {
-    useShowNotification,
+    ShowNotification,
     setNotificationCount,
     clearNotificationCount,
     useAskNotificationPermission

@@ -27,6 +27,7 @@ const Home = () => {
   const [uploadingFile, setUploadingFile] = useState(null);
   const storage = getStorage();
   const [showEditOverlay, setShowEditOverlay] = useState(false);
+  const [uploadDone, setUploadDone] = useState(false);
   useAskNotificationPermission();
   useEffect(() => {
     const auth = getAuth(app);
@@ -127,13 +128,13 @@ const Home = () => {
           async () => {
             // Handle successful uploads on complete
             console.log("match.json updated successfully");
+            setUploadDone(true);
             // Refresh the list of files
             fetchFiles();
           }
         );
       }
     );
-    useShowNotification('Slide uploaded!');
     setUploadingFile(null);
     setShowUploadPopup(false);
   };
@@ -166,6 +167,7 @@ const Home = () => {
           showUploadPopup={showUploadPopup}
           handleUpload={handleUpload}
           handleCancelUpload={() => setShowUploadPopup(false)}
+          uploadDone={uploadDone}
         />
         <div id="page-wrap">
           <div className={styles.container}>
