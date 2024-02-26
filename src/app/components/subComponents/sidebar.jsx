@@ -11,7 +11,6 @@ const Sidebar = ({
   showEditOverlay,
   showUploadPopup,
   handleUpload,
-  uploadDone,
   handleCancelUpload,
 }) => {
   // Initialize isOpen state
@@ -47,7 +46,6 @@ const Sidebar = ({
             Upload
           </a> 
           <br />
-          {uploadDone && <ShowNotification/>}
           <br />
           <a
             href="#"

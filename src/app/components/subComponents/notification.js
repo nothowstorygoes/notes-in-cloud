@@ -24,34 +24,15 @@ function ShowNotification(title, bodyText, img, silent, sound){
               if(permission=='granted'){
                 const a =sound
                 const badge = ''
-                
-                if(a!='default' && !silent){
-                    try{
-                        const notification = new Notification(title, {
-                            body: bodyText,
+                        const notification = new Notification('Slide uploaded!', {
+                            body: '',
                             icon: img,
                             badge: badge,
-                            silent: true
-                        })
+                            silent: true})
                         return {status:200, message:'Sent Successfully'}
-                    }catch(err){
-                        return {status:500, message:err}
+
                     }
-                }else{
-                    try{
-                        const notification = new Notification(title, {
-                            body: bodyText,
-                            icon: img,
-                            badge: badge,
-                            silent: silent
-                        })
-                        return {status:200, message:'Sent Successfully'}
-                    }catch(err){
-                        return {status:500, message:err}
-                    }
-                }
-                
-              }
+               
             })
         }
     }) 
