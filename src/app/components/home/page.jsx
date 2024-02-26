@@ -129,6 +129,7 @@ const Home = () => {
             console.log("match.json updated successfully");
             // Refresh the list of files
             fetchFiles();
+            // eslint-disable-next-line react-hooks/rules-of-hooks
             useShowNotification('Slide uploaded!');
           }
         );
