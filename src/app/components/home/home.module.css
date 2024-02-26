@@ -132,13 +132,20 @@
 }
 
   .header {
-    margin-top: 10px; /* Smaller margin-top */
+    padding: 80px;
     margin-bottom: 20px;
+    width: 100%;
+    margin-top: 0;
+    justify-content: center;
+    position: fixed;
+    background-color: #0d1821;
+    z-index: 1000;
   }
 
   .headerTitle {
     font-size: 1.5rem; /* Smaller font-size */
-    margin-bottom: 3rem; /* Smaller margin-bottom */
+    position:fixed;
+    margin-bottom: 4rem; /* Smaller margin-bottom */
     margin-top: 50px; /* Smaller margin-top */
   }
   .button {
@@ -169,6 +176,7 @@
 
   .outerPDFs{
     width: 300px;
+    margin-top: 15vh;
   }
 }
 
