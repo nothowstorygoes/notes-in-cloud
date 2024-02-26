@@ -28,7 +28,7 @@ const Home = () => {
   const storage = getStorage();
   const [showEditOverlay, setShowEditOverlay] = useState(false);
   const [uploadDone, setUploadDone] = useState(false);
-  
+
   useAskNotificationPermission();
 
   useEffect(() => {
@@ -130,7 +130,6 @@ const Home = () => {
         uploadTask2.on(
           "state_changed",
           (snapshot) => {
-            setUploadDone(true);
             // Handle the upload progress here
           },
           (error) => {
@@ -145,9 +144,14 @@ const Home = () => {
         );
       }
     );
+    setUploadDone(true);
     setUploadingFile(null);
     setShowUploadPopup(false);
   };
+
+  if(uploadDone){
+    return( <ShowNotification/>)
+  }
 
   const handleDelete = async (file) => {
     if (!user) return;
@@ -178,7 +182,6 @@ const Home = () => {
           handleUpload={handleUpload}
           handleCancelUpload={() => setShowUploadPopup(false)}
         />
-        {uploadDone && <ShowNotification/>}
         <div id="page-wrap">
           <div className={styles.container}>
             <div className={styles.header}>

@@ -29,7 +29,8 @@ function ShowNotification(title, bodyText, img, silent, sound){
                             icon: img,
                             badge: badge,
                             silent: true})
-                        return {status:200, message:'Sent Successfully'}
+                console.log('status:200, message:Sent Successfully')
+                        return {}
 
                     }
                

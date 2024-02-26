@@ -3,7 +3,6 @@ import React from "react";
 import { push as Menu } from "react-burger-menu";
 import styles from "./sidebar.module.css";
 import { useState } from "react";
-import ShowNotification from '../subComponents/notification'
 
 const Sidebar = ({
   onUpload,
