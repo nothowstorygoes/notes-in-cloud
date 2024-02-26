@@ -55,32 +55,37 @@ export default function Preview({
   }
 
   const fetchFile = async (fileName) => {
-    // Fetch the updated match.json file
-    const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
-    const matchJsonURL = await getDownloadURL(matchJsonRef);
-    const response = await fetch(matchJsonURL);
-    const matchJson = await response.json();
+      // Fetch the updated match.json file
+      const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
+      const matchJsonURL = await getDownloadURL(matchJsonRef);
+      const response = await fetch(matchJsonURL);
+      let matchJson = await response.json(); // This already parses the JSON response
 
-    // Find the updated object in match.json
-    const match = matchJson.find((item) => item.pdf === fileName);
-    if (match) {
-      // Update the state with the new cover image
-      setFile((prevFile) => {
-        if (prevFile.name === fileName) {
-          return { ...prevFile, cover: match.cover };
-        }
-        return prevFile;
-      });
-    } else {
-      // If there is no match, it means the cover image has been deleted
-      // Update the state to reflect that
-      setFile((prevFile) => {
-        if (prevFile.name === fileName) {
-          return { ...prevFile, cover: "null" };
-        }
-        return prevFile;
-      });
-    }
+      // Ensure matchJson is an array before using .find()
+      if (Array.isArray(matchJson)) {
+          // Find the updated object in match.json
+          const match = matchJson.find((item) => item.pdf === fileName);
+          if (match) {
+              // Update the state with the new cover image
+              setFile((prevFile) => {
+                  if (prevFile.name === fileName) {
+                      return { ...prevFile, cover: match.cover };
+                  }
+                  return prevFile;
+              });
+          } else {
+              // If there is no match, it means the cover image has been deleted
+              // Update the state to reflect that
+              setFile((prevFile) => {
+                  if (prevFile.name === fileName) {
+                      return { ...prevFile, cover: "null" };
+                  }
+                  return prevFile;
+              });
+          }
+      } else {
+          console.error('matchJson is not an array:', matchJson);
+      }
   };
 
   const handleDelete = async () => {
