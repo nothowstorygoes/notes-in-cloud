@@ -7,7 +7,7 @@ import styles from "./home.module.css";
 import Sidebar from "../subComponents/sidebar";
 import Navbar from "../subComponents/navbar";
 import Preview from "../subComponents/preview";
-import {showNotification, askNotificationPermission} from 'gost-next-pwa-notification'
+import {showNotification, askNotificationPermission} from '../subComponents/notification';
 
 import {
   getStorage,
