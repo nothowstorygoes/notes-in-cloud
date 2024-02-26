@@ -2,7 +2,7 @@
 import {useEffect} from 'react';
 
 
-function askNotificationPermission() {
+function useAskNotificationPermission() {
     useEffect(() => {
         if (!('Notification' in window)) {
             return {result:'This browser does not support notifications.'}
@@ -15,7 +15,7 @@ function askNotificationPermission() {
     
 }  
 
-function showNotification(title, bodyText, img, silent, sound){
+function useShowNotification(title, bodyText, img, silent, sound){
     useEffect(() => {
         if (!('Notification' in window)) {
             return {result:'This browser does not support notifications.'}
@@ -54,7 +54,7 @@ function showNotification(title, bodyText, img, silent, sound){
               }
             })
         }
-    }, []) 
+    }) 
 }
 
 
@@ -68,8 +68,8 @@ function clearNotificationCount (){
 
 
 module.exports = {
-    showNotification,
+    useShowNotification,
     setNotificationCount,
     clearNotificationCount,
-    askNotificationPermission
+    useAskNotificationPermission
 }
