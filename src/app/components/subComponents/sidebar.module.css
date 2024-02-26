@@ -11,7 +11,6 @@
   .burgerButton {
     left: 30px;
     top: 55px;
-    z-index: 1040 !important;
   }
 }
 
@@ -91,6 +90,7 @@
 .overlay {
   background: rgba(18, 12, 33, 0);
   top: 80px;
+  z-index: 800 !important;
   right: 0;
 }
 

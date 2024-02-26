@@ -7,6 +7,8 @@ import styles from "./home.module.css";
 import Sidebar from "../subComponents/sidebar";
 import Navbar from "../subComponents/navbar";
 import Preview from "../subComponents/preview";
+import {showNotification, setNotificationCount, clearNotificationCount, askNotificationPermission} from 'gost-next-pwa-notification'
+
 import {
   getStorage,
   ref,
@@ -25,7 +27,7 @@ const Home = () => {
   const [uploadingFile, setUploadingFile] = useState(null);
   const storage = getStorage();
   const [showEditOverlay, setShowEditOverlay] = useState(false);
-
+  askNotificationPermission();
   useEffect(() => {
     const auth = getAuth(app);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -127,6 +129,7 @@ const Home = () => {
             console.log("match.json updated successfully");
             // Refresh the list of files
             fetchFiles();
+            showNotification('Slide uploaded!');
           }
         );
       }
