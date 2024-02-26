@@ -138,7 +138,6 @@
 
   .headerTitle {
     font-size: 1.5rem; /* Smaller font-size */
-    position:fixed;
     margin-bottom: 3rem; /* Smaller margin-bottom */
     margin-top: 50px; /* Smaller margin-top */
   }
@@ -170,6 +169,7 @@
 
   .outerPDFs{
     width: 300px;
+    margin-top: 20vh;
   }
 }
 

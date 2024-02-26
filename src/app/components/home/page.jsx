@@ -7,9 +7,7 @@ import styles from "./home.module.css";
 import Sidebar from "../subComponents/sidebar";
 import Navbar from "../subComponents/navbar";
 import Preview from "../subComponents/preview";
-import dynamic from "next/dynamic";
-const askNotificationPermission = dynamic(() => import ('gost-next-pwa-notification').then(mod => mod.askNotificationPermission), {ssr: false});
-const showNotification = dynamic(() => import ('gost-next-pwa-notification').then(mod => mod.showNotification), {ssr: false});
+import {showNotification, askNotificationPermission} from 'gost-next-pwa-notification'
 
 import {
   getStorage,
