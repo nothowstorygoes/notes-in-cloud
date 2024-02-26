@@ -45,7 +45,7 @@ const Sidebar = ({
         <div className={styles.submitButtonContainer}>
           <a href="#" onClick={handleUpload} className={styles.clickableText}>
             Upload
-          </a>
+          </a> 
           <br />
           {uploadDone && <ShowNotification/>}
           <br />
