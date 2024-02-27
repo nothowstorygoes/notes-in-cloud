@@ -11,6 +11,7 @@
   .burgerButton {
     left: 30px;
     top: 55px;
+    z-index: 3000 !important;
   }
 }
 

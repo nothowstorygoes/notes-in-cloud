@@ -7,7 +7,10 @@ import styles from "./home.module.css";
 import Sidebar from "../subComponents/sidebar";
 import Navbar from "../subComponents/navbar";
 import Preview from "../subComponents/preview";
-import {ShowNotification, useAskNotificationPermission} from '../subComponents/notification';
+import {
+  ShowNotification,
+  useAskNotificationPermission,
+} from "../subComponents/notification";
 
 import {
   getStorage,
@@ -35,7 +38,7 @@ const Home = () => {
     if (uploadDone) {
       setTimeout(() => {
         setUploadDone(false);
-      },  1000); // Adjust the delay as needed
+      }, 1000); // Adjust the delay as needed
     }
   }, [uploadDone]);
 
@@ -149,8 +152,8 @@ const Home = () => {
     setShowUploadPopup(false);
   };
 
-  if(uploadDone){
-    return( <ShowNotification/>)
+  if (uploadDone) {
+    return <ShowNotification />;
   }
 
   const handleDelete = async (file) => {
@@ -183,6 +186,9 @@ const Home = () => {
           handleCancelUpload={() => setShowUploadPopup(false)}
         />
         <div id="page-wrap">
+          <div className={styles.headerSmartphone}>
+            <p className={styles.headerTitleSmartphone}>Your slides</p>
+          </div>
           <div className={styles.container}>
             <div className={styles.header}>
               <p className={styles.headerTitle}>Your slides</p>
@@ -195,17 +201,17 @@ const Home = () => {
               />
             </div>
             <div className={styles.outerPDFs}>
-            <div className={styles.PDFsContainer}>
-              {files.map((file) => (
-                <div key={file.name}>
-                  <Preview
-                    file={file}
-                    onDelete={handleDelete}
-                    showEditOverlay={showEditOverlay}
-                  />
-                </div>
-              ))}
-            </div>
+              <div className={styles.PDFsContainer}>
+                {files.map((file) => (
+                  <div key={file.name}>
+                    <Preview
+                      file={file}
+                      onDelete={handleDelete}
+                      showEditOverlay={showEditOverlay}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
