@@ -17,6 +17,7 @@
     top: auto !important;
     position: fixed !important;
     bottom: 0;
+    z-index: 3000 !important;
   }
 
   .navbarContainer {
@@ -32,6 +33,7 @@
   }
 
   .icons {
+    z-index: 3000 !important;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

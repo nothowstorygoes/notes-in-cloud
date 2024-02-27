@@ -138,7 +138,7 @@
 .container{
   margin-top: 20dvh;
   padding-top:80px;
-  margin-bottom: 30dvh;
+  margin-bottom: 2dvh;
   z-index: 1000 !important;
 }
 
@@ -157,10 +157,13 @@
 
   .headerTitleSmartphone {
     display: block;
+    padding-left: 5px;
     z-index: 1200 !important;
+    letter-spacing: 0.5em;
     font-size: 1.5rem; /* Smaller font-size */
+    margin-left: 50px;
     margin-bottom: 3rem; /* Smaller margin-bottom */
-    margin-top: 50px; /* Smaller margin-top */
+    margin-top: 57px; /* Smaller margin-top */
     text-align: center;
   }
   .button {

@@ -192,28 +192,28 @@
 }
 
 @media (max-width:  768px) {
-    .button{
+    .button {
         align-items: center;
     }
     .load {
-        font-size:  20px;
-        width:  200px;
+        font-size:  22px; /* Increased font size */
+        width:  220px; /* Increased width */
     }
 
     .container {
         padding:  0;
-        margin-top:  2dvh;
-        height:  90dvh;
+        margin-top:  3dvh; /* Increased margin-top */
+        height:  95dvh; /* Increased height */
     }
 
     .headerContainer {
-        margin:  2rem;
+        margin:  2.5rem; /* Increased margin */
         flex-direction: column-reverse;
     }
 
     .header {
-        font-size:  1.5rem;
-        margin-top:  40px;
+        font-size:  1.7rem; /* Increased font size */
+        margin-top:  45px; /* Increased margin-top */
         text-align: center;
     }
 
@@ -222,31 +222,31 @@
     }
 
     .formContainer {
-        height:  70px;
-        margin-right:  25px;
+        height:  80px; /* Increased height */
+        margin-right:  30px; /* Increased margin-right */
     }
 
     .propic {
-        width:  150px;
-        height:  150px;
-        margin-left:  75px;
-        margin-top:  26px;
+        width:  170px; /* Increased width */
+        height:  170px; /* Increased height */
+        margin-left:  85px; /* Increased margin-left */
+        margin-top:  30px; /* Increased margin-top */
     }
 
     .inputField {
-        width:  250px;
-        padding:  5px;
-        margin-bottom:  15px;
-        margin-top:  7.5px;
+        width:  270px; /* Increased width */
+        padding:  7px; /* Increased padding */
+        margin-bottom:  20px; /* Increased margin-bottom */
+        margin-top:  10px; /* Increased margin-top */
     }
 
     .submitButton, .submitButtonUpload, .SignOutButton {
-        width:  150px;
-        padding:  5px;
-        margin-bottom:  5px;
+        width:  170px; /* Increased width */
+        padding:  7px; /* Increased padding */
+        margin-bottom:  7px; /* Increased margin-bottom */
     }
 
     .submitButtonContainer {
-        margin-top:  10px;
+        margin-top:  15px; /* Increased margin-top */
     }
 }

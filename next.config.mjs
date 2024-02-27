@@ -3,15 +3,15 @@ import withPWAInit from "@ducanh2912/next-pwa";
 const withPWA = withPWAInit({
   dest: "public",
   register:true,
-  cacheOnFrontEndNav:true,
-  fallbacks:
-  {
-    document: "/~offline",
-    image: "fallback.webp",
+
+  fallbacks: {
+    document: "/~offline"
   }
 });
-
+      
 export default withPWA({
+  // Your Next.js config
+
     webpack: (config) => {
       config.resolve.alias.canvas = false;
    
@@ -41,4 +41,5 @@ export default withPWA({
   images: {
     unoptimized: true,
   },
+
 });

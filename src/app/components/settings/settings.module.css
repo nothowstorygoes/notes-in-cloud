@@ -157,22 +157,23 @@
     color: #344966; /* Match the text color of page.module.css */
 }
 
-@media (max-width:  768px) {
+@media (max-width:   768px) {
     .settings {
-        padding:  10px;
+        padding:   20px; /* Increased padding */
+        height: auto;
     }
 
     .title {
-        font-size:  2rem;
+        font-size:   3rem; /* Increased font size */
     }
 
     .button {
-        width:  150px;
-        padding:  5px;
+        width:   180px; /* Increased width */
+        padding:   12px; /* Increased padding */
     }
 
     .button:hover {
-        background-color: rgb(103,  14,  14);
+        background-color: rgb(103,   14,   14);
     }
 
     .buttonContainer {
@@ -180,32 +181,32 @@
     }
 
     .text {
-        font-size:  16px;
-        margin:  20px;
+        font-size:   18px; /* Increased font size */
+        margin:   30px; /* Increased margin */
     }
 
     .deleteContainer {
         flex-direction: column;
-        border-radius:  10px;
+        border-radius:   15px; /* Increased border-radius */
     }
 
     .modalContent {
-        width:  250px;
-        padding:  10px;
+        width:   300px; /* Increased width */
+        padding:   20px; /* Increased padding */
     }
 
     .buttonClose {
-        width:  150px;
-        padding:  5px;
+        width:   180px; /* Increased width */
+        padding:   12px; /* Increased padding */
     }
 
     .buttonDelete {
-        width:  150px;
-        padding:  5px;
+        width:   180px; /* Increased width */
+        padding:   12px; /* Increased padding */
     }
 
     .inputField {
-        width:  200px;
-        padding:  5px;
+        width:   220px; /* Increased width */
+        padding:   10px; /* Increased padding */
     }
 }

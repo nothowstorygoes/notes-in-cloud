@@ -79,9 +79,6 @@ define(['./workbox-1e54d6fe'], (function (workbox) { 'use strict';
    * See https://goo.gl/S9QRab
    */
   workbox.precacheAndRoute([{
-    "url": "/notes-in-cloud/fallback.webp",
-    "revision": "development"
-  }, {
     "url": "/notes-in-cloud/~offline",
     "revision": "development"
   }], {

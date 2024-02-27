@@ -7,10 +7,7 @@ import styles from "./home.module.css";
 import Sidebar from "../subComponents/sidebar";
 import Navbar from "../subComponents/navbar";
 import Preview from "../subComponents/preview";
-import {
-  ShowNotification,
-  useAskNotificationPermission,
-} from "../subComponents/notification";
+import useNotificationPermission from '../subComponents/notification'
 
 import {
   getStorage,
@@ -30,17 +27,8 @@ const Home = () => {
   const [uploadingFile, setUploadingFile] = useState(null);
   const storage = getStorage();
   const [showEditOverlay, setShowEditOverlay] = useState(false);
-  const [uploadDone, setUploadDone] = useState(false);
 
-  useAskNotificationPermission();
-
-  useEffect(() => {
-    if (uploadDone) {
-      setTimeout(() => {
-        setUploadDone(false);
-      }, 1000); // Adjust the delay as needed
-    }
-  }, [uploadDone]);
+  useNotificationPermission();
 
   useEffect(() => {
     const auth = getAuth(app);
@@ -140,21 +128,29 @@ const Home = () => {
           },
           async () => {
             // Handle successful uploads on complete
-            console.log("match.json updated successfully");
-            // Refresh the list of files
             fetchFiles();
+            console.log("match.json updated successfully");
+            const registration = await navigator.serviceWorker.ready;
+            registration.active.postMessage({
+              type: 'NOTIFICATION',
+              payload: {
+                title: 'Operation Completed',
+                options: {
+                  body: 'Your operation has been completed successfully.',
+                  // Add any other notification options here
+                },
+              },
+            });
+            // Refresh the list of files
+            
           }
         );
       }
     );
-    setUploadDone(true);
     setUploadingFile(null);
     setShowUploadPopup(false);
   };
 
-  if (uploadDone) {
-    return <ShowNotification />;
-  }
 
   const handleDelete = async (file) => {
     if (!user) return;

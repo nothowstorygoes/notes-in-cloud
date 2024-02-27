@@ -1,57 +1,23 @@
-'use client'
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 
-
-function useAskNotificationPermission() {
-    useEffect(() => {
-        if (!('Notification' in window)) {
-            return {result:'This browser does not support notifications.'}
-        } else {
-          Notification.requestPermission().then(permission => {
-            return {result:permission}
-          })
+function useNotificationPermission() {
+  useEffect(() => {
+    // Check if the browser supports notifications
+    if (!("Notification" in window)) {
+      console.log("This browser does not support desktop notification");
+    } else if (Notification.permission === "granted") {
+      // If permission is already granted
+      console.log("Permission to receive notifications has been granted");
+    } else if (Notification.permission !== "denied") {
+      // Otherwise, we need to ask the user for permission
+      Notification.requestPermission().then(function (permission) {
+        // If the user accepts, let's create a notification
+        if (permission === "granted") {
+          console.log("Permission to receive notifications has been granted");
         }
-    }, [])
-    
-}  
-
-function ShowNotification(title, bodyText, img, silent, sound){
-    useEffect(() => {
-        if (!('Notification' in window)) {
-            return {result:'This browser does not support notifications.'}
-        } else {
-            Notification.requestPermission().then(permission => {
-              if(permission=='granted'){
-                const a =sound
-                const badge = ''
-                        const notification = new Notification('Slide uploaded!', {
-                            body: '',
-                            icon: img,
-                            badge: badge,
-                            silent: true})
-                console.log('status:200, message:Sent Successfully')
-                        return {}
-
-                    }
-               
-            })
-        }
-    }) 
+      });
+    }
+  }, []); // Empty dependency array ensures this runs once on mount
 }
 
-
-function setNotificationCount (count){
-    navigator.setAppBadge(count)
-}
-
-function clearNotificationCount (){
-    navigator.clearAppBadge()
-}
-
-
-module.exports = {
-    ShowNotification,
-    setNotificationCount,
-    clearNotificationCount,
-    useAskNotificationPermission
-}
+export default useNotificationPermission;
