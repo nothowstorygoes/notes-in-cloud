@@ -3,7 +3,7 @@ export default function Offline() {
     <main>
         <div>
             <p>
-                Looks like you're offline...
+                Looks like you &apos re offline...
             </p>
         </div>
     </main>
