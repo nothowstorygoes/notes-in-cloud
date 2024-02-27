@@ -19,9 +19,9 @@
     display: flex !important;
     flex-direction: column;
     padding:  0;
-    margin-top:4vh;
+    margin-top:4dvh;
     align-items: center;
-    height:  100vh; /* Full viewport height */
+    height:  100dvh; /* Full viewport height */
     text-align: center;
     border-radius:  10px; /* Add a border radius for a softer look */
 }
@@ -202,8 +202,8 @@
 
     .container {
         padding:  0;
-        margin-top:  2vh;
-        height:  90vh;
+        margin-top:  2dvh;
+        height:  90dvh;
     }
 
     .headerContainer {
