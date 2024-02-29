@@ -3,7 +3,9 @@ import withPWAInit from "@ducanh2912/next-pwa";
 const withPWA = withPWAInit({
   dest: "public",
   register:true,
-
+  workboxOptions:{
+    swSrc:'/public/worker/index.js'
+  },
   fallbacks: {
     document: "/~offline"
   }
