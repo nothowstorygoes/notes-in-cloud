@@ -1,4 +1,4 @@
-import styles from './offline.module.css'
+import styles from '../components/subComponents/offline.module.css'
 import Image from 'next/image';
 
 export default function Offline() {

@@ -1,10 +1,3 @@
-// sw.js
-// Import Workbox
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.1.5/workbox-sw.js');
-
-// Use Workbox to precache assets
-workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
-
 // Additional service worker code...
 
 self.addEventListener('push', (event) => {
