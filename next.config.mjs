@@ -7,7 +7,8 @@ const withPWA = withPWAInit({
     swSrc:'/public/worker/index.js'
   },
   fallbacks: {
-    document: "/~offline"
+    document: "/~offline",
+    image:"/fallback.png"
   }
 });
       

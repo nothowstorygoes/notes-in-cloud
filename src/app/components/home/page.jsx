@@ -134,9 +134,9 @@ const Home = () => {
             registration.active.postMessage({
               type: 'NOTIFICATION',
               payload: {
-                title: 'Operation Completed',
+                title: 'Slide uploaded!',
                 options: {
-                  body: 'Your operation has been completed successfully.',
+                  body: 'Your upload has been completed successfully. Yay!',
                   // Add any other notification options here
                 },
               },

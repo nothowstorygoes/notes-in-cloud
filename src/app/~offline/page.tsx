@@ -1,10 +1,14 @@
+import styles from './offline.module.css'
+import Image from 'next/image';
+
 export default function Offline() {
   return (
     <main>
-        <div>
-            <p>
-                Looks like you &apos re offline...
+        <div className={styles.offline}>
+            <p className={styles.offlineText}>
+                Looks like you are offline...
             </p>
+            <Image src="/notes-in-cloud/fallback.png"className={styles.offlineImg} alt="" width={100} height={100}/>
         </div>
     </main>
   );

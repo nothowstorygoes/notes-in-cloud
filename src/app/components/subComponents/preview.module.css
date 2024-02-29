@@ -1,6 +1,7 @@
 .document {
   width: 250px;
   height: 250px;
+  object-fit: cover;
   border-radius: 50px;
   overflow: hidden;
   margin: 25px;
