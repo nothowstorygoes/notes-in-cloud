@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import app from "../../firebase"; // Adjust the import path as necessary
 import styles from "./home.module.css";
-import Sidebar from "../subComponents/sidebar";
 import Navbar from "../subComponents/navbar";
+import Image from "next/image";
 import Preview from "../subComponents/preview";
 import useNotificationPermission from '../subComponents/notification'
 
@@ -25,6 +25,7 @@ const Home = () => {
   const [files, setFiles] = useState([]);
   const [showUploadPopup, setShowUploadPopup] = useState(false);
   const [uploadingFile, setUploadingFile] = useState(null);
+  const [fileName,setFileName] = useState('');
   const storage = getStorage();
   const [showEditOverlay, setShowEditOverlay] = useState(false);
 
@@ -68,6 +69,7 @@ const Home = () => {
     const file = event.target.files[0];
     if (file) {
       setUploadingFile(file);
+      setFileName(file.name);
       setShowUploadPopup(true);
     }
   };
@@ -165,6 +167,30 @@ const Home = () => {
     }
   };
 
+  const Modal = () => {
+    if (!showUploadPopup) return null;
+    return(
+    <div className={styles.modalBackdrop}>
+        <div className={styles.modalContent}>
+          <div className={styles.fileName}>
+              {fileName}
+          </div>
+        <div className={styles.buttonContainerUpload}>
+          <button onClick={()=> setShowUploadPopup(false)} className={styles.buttonUpload}>Cancel</button>
+          <button onClick={handleUpload} className={styles.buttonUpload}>Confirm Upload</button>
+          </div>
+        </div> 
+       </div>  
+  )}
+
+  const onClickShowEditOverlay = () =>{
+    setShowEditOverlay(!showEditOverlay);
+  }
+
+  const onUploadButton = () => {
+    document.getElementById("fileInput").click();
+  }
+
   if (loading) {
     return <div className={styles.load}>Loading...</div>; // Or any loading indicator you prefer
   }
@@ -172,22 +198,19 @@ const Home = () => {
   return (
     <main>
       <Navbar />
-      <div id="outer-container">
-        <Sidebar
-          onUpload={() => document.getElementById("fileInput").click()}
-          onEditToggle={() => setShowEditOverlay(!showEditOverlay)}
-          showEditOverlay={showEditOverlay}
-          showUploadPopup={showUploadPopup}
-          handleUpload={handleUpload}
-          handleCancelUpload={() => setShowUploadPopup(false)}
-        />
-        <div id="page-wrap">
           <div className={styles.headerSmartphone}>
             <p className={styles.headerTitleSmartphone}>Your slides</p>
+            <a href="#" onClick={onClickShowEditOverlay} className={styles.editButtonSmartphone}>
+                <img src="/notes-in-cloud/icons/edit.svg" alt="Edit" className={styles.editImgSmartphone} />
+              </a>
           </div>
+          
           <div className={styles.container}>
             <div className={styles.header}>
               <p className={styles.headerTitle}>Your slides</p>
+              <a href="#" onClick={onClickShowEditOverlay} className={styles.editButton}>
+                <img src="/notes-in-cloud/icons/edit.svg" alt="Edit" className={styles.editImg} />
+              </a>
               <input
                 type="file"
                 id="fileInput"
@@ -196,8 +219,23 @@ const Home = () => {
                 onChange={handleFileSelect}
               />
             </div>
+            {showEditOverlay && (
+              <div className={styles.editDisclaimer}>
+                Edit mode - Enabled
+              </div>
+            )}
             <div className={styles.outerPDFs}>
               <div className={styles.PDFsContainer}>
+                 {showEditOverlay && (
+                  <div>
+                  <a href="#" onClick={onUploadButton} className={styles.addAnchorTag}>
+                 <div className={styles.addSlideBlank}>
+                  <p className={styles.plusBlank}>+</p>
+                </div>
+                
+                </a>
+                {showUploadPopup && (<Modal/>)}
+                </div>)}
                 {files.map((file) => (
                   <div key={file.name}>
                     <Preview
@@ -210,8 +248,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
     </main>
   );
 };

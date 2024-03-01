@@ -53,30 +53,13 @@
   background-color: #344966;
   color: #eff8e2;
   text-align: center;
-  border:none;
+  border: none;
   border-radius: 50%; /* This makes the button round */
 }
 
 .button:hover {
   background-color: #0d1821;
 }
-
-.buttonEdit {
-  width: 80px;
-  height: 40px;
-  font-size: 25px;
-  margin-left: 50px;
-  background-color: #344966;
-  color: #eff8e2;
-  text-align: center;
-  border:2px solid #344966;
-  border-radius: 15px; /* This makes the button round */
-}
-
-.buttonEdit:hover {
-  background-color: #0d1821;
-}
-
 
 .submitButton {
   width: 100px; /* Match the width of .submitButton in login.module.css */
@@ -103,7 +86,7 @@
   flex-wrap: wrap;
 }
 
-.outerPDFs{
+.outerPDFs {
   width: 1500px;
   display: flex;
   justify-content: center;
@@ -125,33 +108,172 @@
   }
 }
 
-.headerSmartphone{
+.headerSmartphone {
   display: none;
 }
 
-.headerTitleSmartphone{
+.headerTitleSmartphone {
   display: none;
+}
+
+.editButton {
+  background-color: #eff8e2;
+  border: 3px solid #344966;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.editImg {
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.editDisclaimer {
+  letter-spacing: 0.3rem;
+  display: flex;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.editButtonSmartphone {
+  display: none;
+}
+
+.editImgSmartphone {
+  display: none;
+}
+
+.editButton:hover {
+  background-color: #0d1821 !important;
+  transition: background-color 0.3s ease-in-out;
+}
+
+[data-theme="dark"] .editButton {
+  background-color: #344966;
+}
+
+[data-theme="dark"] .editButtonSmartphone {
+  background-color: #344966;
+}
+
+.fileName {
+  margin-top: 15px;
+  line-height: 180%;
+}
+
+.addSlideBlank {
+  width: 245px; /* Adjust the size as needed */
+  height: 245px; /* Adjust the size as needed */
+  border: 3px dashed #fff; /* Traced border */
+  border-radius: 50px; /* Rounded corners */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px; /* Space around the square */
+}
+
+.addAnchorTag {
+  text-decoration: none;
+}
+
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.buttonUpload {
+  margin: 20px;
+  width: 200px;
+  padding: 7px;
+  background-color: #344966; /* Match the button color of page.module.css */
+  color: white; /* Match the button text color of page.module.css */
+  border: 2px solid #344966;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add a transition for hover effect */
+}
+
+/* Styles for the submit button on hover */
+.buttonUpload:hover {
+  background-color: #0d1821; /* Darken the button color on hover */
+}
+
+.buttonContainerUpload {
+  display: flex;
+  flex-direction: row;
+}
+
+.modalContent {
+  background-color: #eff8e2;
+  padding: 20px;
+  border: 3px solid #344966;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  max-width: 90%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .modalContent {
+  background-color: #0d1821;
+}
+
+.addSlideBlank:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease-in-out; /* Smooth transition */
+}
+
+.plusBlank {
+  font-size: 48px; /* Adjust the size of the "+" as needed */
+  z-index: 1000;
+  font-weight: normal;
 }
 
 /* Media query for smartphones */
 @media (max-width: 767px) {
-.container{
-  margin-top: 20dvh;
-  padding-top:80px;
-  margin-bottom: 2dvh;
-  z-index: 1000 !important;
-}
+  .container {
+    margin-top: 3dvh;
+    margin-bottom: 2dvh;
+    z-index: 1000 !important;
+  }
+
+  .addSlideBlank{
+    width:115px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top:25px;
+    height: 115px;
+    border-radius: 30px;
+  }
 
   .header {
     display: none;
   }
 
-  .headerSmartphone{
-    top:0;
-    display: block;
+  .headerSmartphone {
+    top: 0;
+    display: flex;
     background-color: #0d1821;
     z-index: 1200 !important;
-    position: fixed;
     width: 100%;
   }
 
@@ -165,6 +287,27 @@
     margin-bottom: 3rem; /* Smaller margin-bottom */
     margin-top: 57px; /* Smaller margin-top */
     text-align: center;
+  }
+
+  .editButtonSmartphone {
+    display: flex;
+    justify-content: center;
+    background-color: #eff8e2;
+    border: 3px solid #344966;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 50px;
+    margin-left: 20px;
+  }
+
+  .editImgSmartphone {
+    display: block;
+    margin-top: 10px;
+    width: 15px;
+    height: 15px;
   }
   .button {
     width: 40px; /* Smaller width */
@@ -191,27 +334,24 @@
   .PDFsContainer {
     flex-wrap: wrap; /* Allow items to wrap if needed */
     z-index: 1000 !important;
-    }
+  }
 
-  .outerPDFs{
+  .outerPDFs {
     width: 300px;
     z-index: 1000 !important;
   }
 }
 
-@media (min-width:   481px) and (max-width:   900px) {
-
-    .outerPDFs{
-      width: 600px;
-    }
+@media (min-width: 481px) and (max-width: 900px) {
+  .outerPDFs {
+    width: 600px;
+  }
 }
 
-@media (min-width:   901px) and (max-width:   1240px) {
-
-    .outerPDFs{
-      width: 900px;
-    }
-
+@media (min-width: 901px) and (max-width: 1240px) {
+  .outerPDFs {
+    width: 900px;
+  }
 }
 
 [data-theme="dark"] .button,
