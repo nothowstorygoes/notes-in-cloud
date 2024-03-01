@@ -184,7 +184,7 @@
   .addSlideBlank {
      width: 115px; /* Smaller size for smartphones */
      height: 115px; /* Smaller size for smartphones */
-     border-radius: 30px; /* Adjusted for rounded corners */
+     border-radius: 50px; /* Adjusted for rounded corners */
      margin: 25px; /* Adjusted for spacing */
      margin-right: 0;
   }
@@ -193,10 +193,11 @@
  /* Media query for tablets */
  @media (min-width: 481px) and (max-width: 1240px) {
   .addSlideBlank {
-     width: 150px; /* Medium size for tablets */
-     height: 150px; /* Medium size for tablets */
-     border-radius: 30px; /* Adjusted for rounded corners */
+     width: 245px; /* Medium size for tablets */
+     height: 245px; /* Medium size for tablets */
+     border-radius: 50px; /* Adjusted for rounded corners */
      margin: 25px; /* Adjusted for spacing */
+
   }
  }
 
