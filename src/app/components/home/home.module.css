@@ -197,6 +197,7 @@
      height: 245px; /* Medium size for tablets */
      border-radius: 50px; /* Adjusted for rounded corners */
      margin: 25px; /* Adjusted for spacing */
+     margin-right: 24px;
 
   }
  }
