@@ -47,6 +47,37 @@
   animation: spin  1s linear infinite;
 }
 
+.deleteContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.deleteContainerRow{
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonDelete {
+  width:  150px;
+  margin-bottom:15px;
+  padding:  10px;
+  border-radius:  10px;
+  background-color: red; /* Match the button color of page.module.css */
+  color: white; /* Match the button text color of page.module.css */
+  border: 2px solid red;
+  cursor: pointer;
+  transition: background-color  0.3s ease; /* Add a transition for hover effect */
+}
+
+/* Styles for the submit button on hover */
+.buttonDelete:hover {
+  background-color: rgb(103, 14, 14); /* Darken the button color on hover */
+}
+
+[data-theme='dark'] .buttonDelete {
+  border: 2px solid red;
+}
+
 @keyframes spin {
    0% {
     transform: rotate(0deg);

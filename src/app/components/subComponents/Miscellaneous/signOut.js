@@ -1,6 +1,6 @@
 // components/SignOutButton.js
 import React, { useEffect, useState } from 'react';
-import { auth } from '../../firebase'; // Make sure the path is correct
+import { auth } from '../../../firebase'; // Make sure the path is correct
 import { useRouter } from 'next/navigation';
 
 const SignOutButton = ({ className }) => {

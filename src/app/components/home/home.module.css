@@ -168,6 +168,27 @@
   line-height: 180%;
 }
 
+.buttonDelete {
+    margin: 20px;
+    width:  200px;
+    padding:  7px;
+    background-color: red; /* Match the button color of page.module.css */
+    color: white; /* Match the button text color of page.module.css */
+    border: 2px solid red;
+    border-radius:  10px;
+    cursor: pointer;
+    transition: background-color  0.3s ease; /* Add a transition for hover effect */
+}
+
+/* Styles for the submit button on hover */
+.buttonDelete:hover {
+    background-color: rgb(103, 14, 14); /* Darken the button color on hover */
+}
+
+[data-theme='dark'] .buttonDelete {
+    border: 2px solid red;
+  }
+
 .addSlideBlank {
   width: 245px; /* Standard size */
   height: 245px; /* Standard size */

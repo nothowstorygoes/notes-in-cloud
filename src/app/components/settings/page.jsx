@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 import { getAuth, deleteUser, onAuthStateChanged, reauthenticateWithCredential, EmailAuthCredential, EmailAuthProvider } from "firebase/auth";
 import { getStorage, ref, listAll, deleteObject } from "firebase/storage";
 import app from "../../firebase";
-import ThemeChanger from "../subComponents/darkModeToggle";
-import Navbar from "../subComponents/navbar";
+import ThemeChanger from "../subComponents/Dark Mode/darkModeToggle";
+import Navbar from "../subComponents/Navbar/navbar";
 import styles from "./settings.module.css";
 
 const SettingsPage = () => {

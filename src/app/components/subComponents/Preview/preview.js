@@ -12,7 +12,7 @@ import {
   deleteObject,
 } from "firebase/storage";
 import { getAuth } from "firebase/auth";
-import app from "../../firebase";
+import app from "../../../firebase";
 import { useRef, useEffect } from "react";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
@@ -28,6 +28,7 @@ export default function Preview({
   const user = auth.currentUser;
   const fileInputRef = useRef(null); // Add a ref to the file input
   const [coverImageURL, setCoverImageURL] = useState(null);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [isLoading, setIsLoading] = useState(true); // Add a loading state
 
   useEffect(() => {
@@ -55,37 +56,37 @@ export default function Preview({
   }
 
   const fetchFile = async (fileName) => {
-      // Fetch the updated match.json file
-      const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
-      const matchJsonURL = await getDownloadURL(matchJsonRef);
-      const response = await fetch(matchJsonURL);
-      let matchJson = await response.json(); // This already parses the JSON response
+    // Fetch the updated match.json file
+    const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
+    const matchJsonURL = await getDownloadURL(matchJsonRef);
+    const response = await fetch(matchJsonURL);
+    let matchJson = await response.json(); // This already parses the JSON response
 
-      // Ensure matchJson is an array before using .find()
-      if (Array.isArray(matchJson)) {
-          // Find the updated object in match.json
-          const match = matchJson.find((item) => item.pdf === fileName);
-          if (match) {
-              // Update the state with the new cover image
-              setFile((prevFile) => {
-                  if (prevFile.name === fileName) {
-                      return { ...prevFile, cover: match.cover };
-                  }
-                  return prevFile;
-              });
-          } else {
-              // If there is no match, it means the cover image has been deleted
-              // Update the state to reflect that
-              setFile((prevFile) => {
-                  if (prevFile.name === fileName) {
-                      return { ...prevFile, cover: "null" };
-                  }
-                  return prevFile;
-              });
+    // Ensure matchJson is an array before using .find()
+    if (Array.isArray(matchJson)) {
+      // Find the updated object in match.json
+      const match = matchJson.find((item) => item.pdf === fileName);
+      if (match) {
+        // Update the state with the new cover image
+        setFile((prevFile) => {
+          if (prevFile.name === fileName) {
+            return { ...prevFile, cover: match.cover };
           }
+          return prevFile;
+        });
       } else {
-          console.error('matchJson is not an array:', matchJson);
+        // If there is no match, it means the cover image has been deleted
+        // Update the state to reflect that
+        setFile((prevFile) => {
+          if (prevFile.name === fileName) {
+            return { ...prevFile, cover: "null" };
+          }
+          return prevFile;
+        });
       }
+    } else {
+      console.error("matchJson is not an array:", matchJson);
+    }
   };
 
   const handleDelete = async () => {
@@ -286,11 +287,31 @@ export default function Preview({
                 onChange={handleCoverUpload}
               />
             </button>
-            {coverImageURL && (
-              <button className={styles.button} onClick={deleteCover}>
-                Delete Cover
-              </button>
-            )}
+            <div className={styles.deleteContainer}>
+              {showDeleteConfirm && (
+                <div className={styles.deleteContainerRow}>
+                  <button
+                    className={styles.buttonDelete}
+                    onClick={handleDelete}
+                  >
+                    Delete Slide
+                  </button>
+                  <button
+                    className={styles.button}
+                    onClick={() => {
+                      setShowDeleteConfirm(false);
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              )}
+              {coverImageURL && (
+                <button className={styles.button} onClick={deleteCover}>
+                  Delete Cover
+                </button>
+              )}
+            </div>
           </div>
         </div>
       )}
@@ -313,7 +334,9 @@ export default function Preview({
         className={`${styles.deleteIcon} ${
           showEditOverlay ? styles.showDeleteIcon : ""
         }`}
-        onClick={handleDelete}
+        onClick={() => {
+          setShowDeleteConfirm(true);
+        }}
       >
         <img src="/notes-in-cloud/icons/cross.png" className={styles.cross} />
       </div>
