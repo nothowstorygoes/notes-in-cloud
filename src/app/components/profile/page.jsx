@@ -14,9 +14,9 @@ import {
   ref,
 } from "firebase/storage";
 import app from "../../firebase"; // Adjust the import path as necessary
-import Navbar from "../subComponents/navbar";
+import Navbar from "../subComponents/Navbar/navbar";
 import styles from "./profile.module.css";
-import SignOutButton from "../subComponents/signOut";
+import SignOutButton from "../subComponents/Miscellaneous/signOut";
 import { useRouter } from "next/navigation";
 
 const ProfilePage = () => {

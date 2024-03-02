@@ -185,6 +185,12 @@
     padding:   5px;
   }
 
+  .buttonDelete{
+    width: 100px;
+    margin-bottom: 10px;
+    padding:5px;
+  }
+
   .overlay {
     width:   120px;
     height:   120px;
@@ -225,6 +231,11 @@
     padding:   6px;
   }
 
+  .buttonDelete{
+    width: 120px;
+    margin-bottom: 12px;
+    padding: 6px;
+  }
   .overlay {
     width:   150px;
     height:   10px;
