@@ -10,6 +10,33 @@
   color: #344966;
 }
 
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:  100%; /* Adjust this if needed */
+}
+
+.spinner {
+  margin-top: 2px;
+  border:  4px solid rgba(255,  255,  255,  0.8);
+  width:  20px;
+  height:  20px;
+  border-radius:  50%;
+  border-left-color: #000;
+  animation: spin  1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+   transform: rotate(0deg);
+ }
+  100% {
+   transform: rotate(360deg);
+ }
+}
+
+
 [data-theme="dark"] .load {
   color: white;
 }

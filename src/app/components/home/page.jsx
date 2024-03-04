@@ -26,6 +26,7 @@ const Home = () => {
   const [uploadingFile, setUploadingFile] = useState(null);
   const [fileName, setFileName] = useState("");
   const storage = getStorage();
+  const [uploadProgress, setUploadProgress] = useState(0);
   const [showEditOverlay, setShowEditOverlay] = useState(false);
 
   useNotificationPermission();
@@ -77,6 +78,8 @@ const Home = () => {
     event.preventDefault();
     if (!user || !uploadingFile) return;
 
+    setUploadProgress(true)
+
     const storageRef = ref(storage, `PDFs/${user.uid}/${uploadingFile.name}`);
     const uploadTask = uploadBytesResumable(storageRef, uploadingFile);
     uploadTask.on(
@@ -122,12 +125,13 @@ const Home = () => {
         uploadTask2.on(
           "state_changed",
           (snapshot) => {
-            // Handle the upload progress here
+
           },
           (error) => {
             // Handle unsuccessful uploads here
           },
           async () => {
+            setUploadProgress(false);
             // Handle successful uploads on complete
             fetchFiles();
             console.log("match.json updated successfully");
@@ -142,13 +146,13 @@ const Home = () => {
                 },
               },
             });
+            setShowUploadPopup(false);
             // Refresh the list of files
           }
         );
       }
     );
     setUploadingFile(null);
-    setShowUploadPopup(false);
   };
 
   const onDelete = async (file) => {
@@ -170,6 +174,13 @@ const Home = () => {
       <div className={styles.modalBackdrop}>
         <div className={styles.modalContent}>
           <div className={styles.fileName}>{fileName}</div>
+          {uploadProgress && (
+            <div className={styles.spinnerContainer}>
+            <div className={styles.spinner}>
+              <div />
+            </div>
+          </div>
+          )}
           <div className={styles.buttonContainerUpload}>
             <button
               onClick={() => setShowUploadPopup(false)}
@@ -254,7 +265,7 @@ const Home = () => {
                     <p className={styles.plusBlank}>+</p>
                   </div>
                 </a>
-                {showUploadPopup && <Modal />}
+                {showUploadPopup && <Modal uploadProgess={uploadProgress} />}
               </div>
             )}
             {files.map((file) => (
