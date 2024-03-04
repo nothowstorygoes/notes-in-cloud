@@ -77,14 +77,14 @@
   margin: 0;
   padding: 0 10px;
   font-weight: bold;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.5rem;
   font-size: larger;
 }
 
 @media (min-width:   481px) and (max-width:   1240px) 
 {
   .logo{
-    padding: 0 160px;
+    padding: 0 40px;
   }
 }
 
