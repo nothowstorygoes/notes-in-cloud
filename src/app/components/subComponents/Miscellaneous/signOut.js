@@ -1,6 +1,6 @@
-// components/SignOutButton.js
+
 import React, { useEffect, useState } from 'react';
-import { auth } from '../../../firebase'; // Make sure the path is correct
+import { auth } from '../../../firebase'; 
 import { useRouter } from 'next/navigation';
 
 const SignOutButton = ({ className }) => {
@@ -9,7 +9,7 @@ const SignOutButton = ({ className }) => {
   const handleSignOut = async () => {
     try {
       await auth.signOut();
-      // Redirect to the login page after signing out
+      
       router.push('/components/login');
     } catch (error) {
       console.error('Error signing out:', error);

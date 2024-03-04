@@ -34,7 +34,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height:  100%; /* Adjust this if needed */
+  height:  100%;
 }
 
 .spinner {
@@ -62,16 +62,16 @@
   margin-bottom:15px;
   padding:  10px;
   border-radius:  10px;
-  background-color: red; /* Match the button color of page.module.css */
-  color: white; /* Match the button text color of page.module.css */
+  background-color: red;
+  color: white;
   border: 2px solid red;
   cursor: pointer;
-  transition: background-color  0.3s ease; /* Add a transition for hover effect */
+  transition: background-color  0.3s ease;
 }
 
-/* Styles for the submit button on hover */
+
 .buttonDelete:hover {
-  background-color: rgb(103, 14, 14); /* Darken the button color on hover */
+  background-color: rgb(103, 14, 14);
 }
 
 [data-theme='dark'] .buttonDelete {
@@ -130,11 +130,11 @@
   left:  0;
   right:  0;
   bottom:  0;
-  background-color: rgba(255,  255,  255,  0.8); /* Adjust opacity as needed */
+  background-color: rgba(255,  255,  255,  0.8);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index:  10; /* Ensure this is higher than the preview image's z-index */
+  z-index:  10;
 }
 
 
@@ -142,21 +142,21 @@
   width:  150px;
   margin-bottom:15px;
   padding:  10px;
-  background-color: #344966; /* Match the button color of page.module.css */
-  color: #eff8e2; /* Match the button text color of page.module.css */
+  background-color: #344966;
+  color: #eff8e2;
   border: 2px solid #344966;
   border-radius:  10px;
   cursor: pointer;
-  transition: background-color  0.3s ease; /* Add a transition for hover effect */
+  transition: background-color  0.3s ease;
 }
 
-/* Styles for the submit button on hover */
+
 .button:hover {
-  background-color: #0d1821; /* Darken the button color on hover */
+  background-color: #0d1821;
 }
 
 
-/* Smartphone styles */
+
 @media (max-width:   480px) {
   .document {
     width:   120px;
@@ -203,7 +203,7 @@
   }
 }
 
-/* Tablet styles */
+
 @media (min-width:   481px) and (max-width:   1240) {
   .document {
     width:   150px;

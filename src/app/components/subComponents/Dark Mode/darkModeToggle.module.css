@@ -1,26 +1,26 @@
-/* Styles for the submit button */
+
 .button {
   width: 200px;
   padding: 10px;
-  background-color: #344966; /* Match the button color of page.module.css */
-  color: #eff8e2; /* Match the button text color of page.module.css */
+  background-color: #344966;
+  color: #eff8e2;
   border: 2px solid #344966;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Add a transition for hover effect */
+  transition: background-color 0.3s ease;
   margin: 20px;
 }
 
-/* Styles for the submit button on hover */
+
 .button:hover {
-  background-color: #0d1821; /* Darken the button color on hover */
+  background-color: #0d1821;
 }
 
 [data-theme="dark"] .button {
   border: 2px solid #344966;
 }
 
-/* Styles for the paragraph */
+
 .paragraph {
   text-align: center;
   width: 350px;

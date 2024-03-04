@@ -13,22 +13,26 @@ const SettingsPage = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+
+//check for user auth
   useEffect(() => {
     const auth = getAuth(app);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        setLoading(false); // Set loading to false after user is authenticated
+        setLoading(false); 
       } else {
         setUser(null);
-        router.push("./login"); // Redirect to login if user is not authenticated
+        router.push("./login"); 
       }
     });
 
-    // Clean up the subscription on unmount
+    
     return () => unsubscribe();
   }, [router]);
 
+
+  // functiont that deletes all file present in storage
   const deleteAllFiles = async (folderPath) => {
     const storage = getStorage();
     const storageRef = ref(storage, folderPath);
@@ -53,7 +57,7 @@ const SettingsPage = () => {
   
     const handleSubmit = () => {
       onSubmit(email, password);
-      onClose(); // Close the popup after submission
+      onClose(); 
     };
   
     return (
@@ -82,6 +86,8 @@ const SettingsPage = () => {
     );
   };
 
+
+  //function that deletes all files and account from firebase auth and cloud storage
   const deleteAccount = async (email,password) => {
     const auth = getAuth();
     const storage = getStorage();
@@ -94,12 +100,12 @@ const SettingsPage = () => {
 
     const userId = currentUser.uid;
 
-    // Delete all files in /PDFs/{userId}/
+    
     await deleteAllFiles(`/PDFs/${userId}/covers`);
     await deleteAllFiles(`/PDFs/${userId}/`);
     await deleteAllFiles(`/Userdata/${userId}/`);
 
-    // Attempt to delete the profile picture from the default location
+    
     try {
       const defaultProfilePictureRef = ref(
         storage,
@@ -108,7 +114,7 @@ const SettingsPage = () => {
       await deleteObject(defaultProfilePictureRef);
     } catch (error) {
       console.error("Failed to delete default profile picture:", error);
-      // If the default profile picture deletion fails, attempt to delete from the user-specific location
+      
       try {
         const userProfilePictureRef = ref(storage, `/profilePics/${userId}`);
         await deleteObject(userProfilePictureRef);

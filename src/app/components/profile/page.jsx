@@ -13,7 +13,7 @@ import {
   deleteObject,
   ref,
 } from "firebase/storage";
-import app from "../../firebase"; // Adjust the import path as necessary
+import app from "../../firebase"; 
 import Navbar from "../subComponents/Navbar/navbar";
 import styles from "./profile.module.css";
 import SignOutButton from "../subComponents/Miscellaneous/signOut";
@@ -27,6 +27,8 @@ const ProfilePage = () => {
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const router = useRouter();
 
+//check for user auth state and if logged in loads the user's username and propic
+
   useEffect(() => {
     const auth = getAuth(app);
     const storage = getStorage(app);
@@ -34,14 +36,14 @@ const ProfilePage = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        // Get the profile picture URL
+        
         const profilePicRef = ref(storage, `profilePics/${user.uid}`);
         getDownloadURL(profilePicRef)
           .then((url) => {
             setProfilePicUrl(url);
           })
           .catch(() => {
-            // If the user does not have a profile picture, use the default one
+            
             const defaultPicRef = ref(
               storage,
               `profilePics/default/${user.uid}`
@@ -50,7 +52,7 @@ const ProfilePage = () => {
               setProfilePicUrl(url);
             });
           });
-        // Get the username from the JSON file in Firebase Storage
+        
         const usernameRef = ref(
           storage,
           `Userdata/${user.uid}/${user.uid}.json`
@@ -69,7 +71,7 @@ const ProfilePage = () => {
       }
     });
 
-    // Clean up the subscription on unmount
+    
     return () => {
       unsubscribe();
       document.body.style.overflowY = "";
@@ -83,10 +85,11 @@ const ProfilePage = () => {
   const handleFileChange = (e) => {
     if (e.target.files[0]) {
       setSelectedFile(e.target.files[0]);
-      setShowUploadPopup(true); // Show the popup when a file is selected
+      setShowUploadPopup(true); 
     }
   };
 
+//function to handle the upload of a profile picture, and if present deletes the default one
   const handleUpload = async () => {
     const storage = getStorage(app);
     if (!selectedFile) {
@@ -97,17 +100,17 @@ const ProfilePage = () => {
     await uploadBytes(storageRef, selectedFile);
     setProfilePicUrl(await getDownloadURL(storageRef));
 
-    // Delete the default profile picture
+    
     const defaultPicRef = ref(storage, `profilePics/default/${user.uid}`);
     try {
-      // Attempt to get the download URL of the default picture
+      
       await getDownloadURL(defaultPicRef);
-      // If the above line does not throw an error, the default picture exists
-      // and we can proceed to delete it
+      
+      
       await deleteObject(defaultPicRef);
     } catch (error) {
-      // If an error is thrown, the default picture does not exist, so we do nothing
-      // and the error is caught silently
+      
+      
     }
 
     setShowUploadPopup(false);
@@ -122,11 +125,13 @@ const ProfilePage = () => {
     return <div className={styles.load}>Loading...</div>;
   }
 
+
+  //sends user email to reset password using firebase auth
   const handlePasswordReset = async (email) => {
     const auth = getAuth(app);
     try {
       await sendPasswordResetEmail(auth, email);
-      alert("Password reset email sent!"); // Inform the user that the email has been sent
+      alert("Password reset email sent!"); 
     } catch (error) {
       console.error("Error sending password reset email:", error);
       alert("Error sending password reset email:", error.message);

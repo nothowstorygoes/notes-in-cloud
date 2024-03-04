@@ -11,7 +11,7 @@
   margin-right: 20px;
 }
 
-/* Media query for smartphones */
+
 @media (max-width: 767px) {
   .navbar {
     top: auto !important;
@@ -52,16 +52,16 @@
   background-color: #2A3A51;
 }
 
-/* Styles for the navbar */
+
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background-color: #344966; /* Background color from profile.module.css */
-  color: #eff8e2; /* Text color from profile.module.css */
+  background-color: #344966;
+  color: #eff8e2;
   padding: 10px 0;
-  z-index: 1000; /* Ensure the navbar is above other content */
+  z-index: 1000;
 }
 
 .navbarContainer {
@@ -91,11 +91,11 @@
 .navbarMenu {
   list-style: none;
   display: flex;
-  margin-left: auto; /* Align menu to the right */
+  margin-left: auto;
 }
 
 .active {
-  background-color: #0d1821; /* Darken the background color on hover */
+  background-color: #0d1821;
   color: white;
 }
 
@@ -112,12 +112,12 @@
 }
 
 .navbarLink {
-  color: #eff8e2; /* Text color from profile.module.css */
+  color: #eff8e2;
   text-decoration: none;
   padding: 100%;
 }
 
 .navbarItem:hover {
-  background-color: #0d1821; /* Darken the background color on hover */
+  background-color: #0d1821;
   color: white;
 }

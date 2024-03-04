@@ -1,6 +1,6 @@
-// useAuth.js
+
 import { useState, useEffect } from 'react';
-import { auth } from '../firebase'; // Make sure the path is correct
+import { auth } from '../firebase'; 
 
 const useAuth = () => {
   const [user, setUser] = useState(null);
@@ -12,7 +12,7 @@ const useAuth = () => {
       setLoading(false);
     });
 
-    // Cleanup subscription on unmount
+    
     return () => unsubscribe();
   }, []);
 

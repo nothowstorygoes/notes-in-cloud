@@ -13,24 +13,28 @@ const Login = () => {
   const [user, setUser] = useState(null);
   const router = useRouter();
 
+
+// if logged in pushes to home
   useEffect(() => {
-    // Listen for changes in the authentication state
+    
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // User is signed in, update the state
+        
         setUser(user);
-        // Redirect to the home page
+        
         router.push("/components/home");
       } else {
-        // User is signed out, update the state
+        
         setUser(null);
       }
     });
 
-    // Clean up the listener when the component unmounts
+    
     return () => unsubscribe();
   }, [router]);
 
+
+  //login function
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -46,10 +50,10 @@ const Login = () => {
   };
 
   useEffect(() => {
-    // Apply styles to the body element
+    
     document.body.style.overflowY = "hidden";
 
-    // Clean up the style when the component unmounts
+    
     return () => {
       document.body.style.overflowY = "";
     };

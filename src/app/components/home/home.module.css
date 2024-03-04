@@ -14,7 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height:  100%; /* Adjust this if needed */
+  height:  100%; 
 }
 
 .spinner {
@@ -46,9 +46,9 @@
   display: flex !important;
   flex-direction: column;
   align-items: center;
-  height: 100dvh; /* Full viewport height */
+  height: 100dvh; 
   text-align: center;
-  border-radius: 10px; /* Add a border radius for a softer look */
+  border-radius: 10px; 
 }
 
 .header {
@@ -59,11 +59,11 @@
 }
 
 .headerTitle {
-  font-size: 2rem; /* Match the font size of .title in login.module.css */
-  color: #344966; /* Match the color of .title in login.module.css */
-  margin-bottom: 6rem; /* Match the margin-bottom of .title in login.module.css */
-  font-weight: bolder; /* Match the font-weight of .title in login.module.css */
-  letter-spacing: 0.2em; /* Match the letter-spacing of .title in login.module.css */
+  font-size: 2rem; 
+  color: #344966; 
+  margin-bottom: 6rem; 
+  font-weight: bolder; 
+  letter-spacing: 0.2em; 
   text-align: left;
   margin-top: 100px;
 }
@@ -81,7 +81,7 @@
   color: #eff8e2;
   text-align: center;
   border: none;
-  border-radius: 50%; /* This makes the button round */
+  border-radius: 50%; 
 }
 
 .button:hover {
@@ -89,12 +89,12 @@
 }
 
 .submitButton {
-  width: 100px; /* Match the width of .submitButton in login.module.css */
-  padding: 10px; /* Match the padding of .submitButton in login.module.css */
-  background-color: #344966; /* Match the background color of .submitButton in login.module.css */
-  color: #eff8e2; /* Match the text color of .submitButton in login.module.css */
-  border: none; /* Match the border of .submitButton in login.module.css */
-  border-radius: 10px; /* Match the border-radius of .submitButton in login.module.css */
+  width: 100px; 
+  padding: 10px; 
+  background-color: #344966; 
+  color: #eff8e2; 
+  border: none;
+  border-radius: 10px; 
   margin-left: 20px;
 }
 
@@ -199,17 +199,17 @@
     margin: 20px;
     width:  200px;
     padding:  7px;
-    background-color: red; /* Match the button color of page.module.css */
-    color: white; /* Match the button text color of page.module.css */
+    background-color: red;
+    color: white;
     border: 2px solid red;
     border-radius:  10px;
     cursor: pointer;
-    transition: background-color  0.3s ease; /* Add a transition for hover effect */
+    transition: background-color  0.3s ease;
 }
 
-/* Styles for the submit button on hover */
+
 .buttonDelete:hover {
-    background-color: rgb(103, 14, 14); /* Darken the button color on hover */
+    background-color: rgb(103, 14, 14);
 }
 
 [data-theme='dark'] .buttonDelete {
@@ -217,34 +217,34 @@
   }
 
 .addSlideBlank {
-  width: 245px; /* Standard size */
-  height: 245px; /* Standard size */
-  border: 3px dashed #fff; /* Traced border */
-  border-radius: 50px; /* Rounded corners */
+  width: 245px;
+  height: 245px;
+  border: 3px dashed #fff;
+  border-radius: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 25px; /* Space around the square */
+  margin: 25px;
  }
  
- /* Media query for smartphones */
+
  @media (max-width: 480px) {
   .addSlideBlank {
-     width: 115px; /* Smaller size for smartphones */
-     height: 115px; /* Smaller size for smartphones */
-     border-radius: 50px; /* Adjusted for rounded corners */
-     margin: 25px; /* Adjusted for spacing */
+     width: 115px;
+     height: 115px;
+     border-radius: 50px;
+     margin: 25px;
      margin-right: 0;
   }
  }
  
- /* Media query for tablets */
+
  @media (min-width: 481px) and (max-width: 1240px) {
   .addSlideBlank {
-     width: 245px; /* Medium size for tablets */
-     height: 245px; /* Medium size for tablets */
-     border-radius: 50px; /* Adjusted for rounded corners */
-     margin: 25px; /* Adjusted for spacing */
+     width: 245px;
+     height: 245px;
+     border-radius: 50px;
+     margin: 25px;
      margin-right: 24px;
 
   }
@@ -272,17 +272,17 @@
   margin: 20px;
   width: 200px;
   padding: 7px;
-  background-color: #344966; /* Match the button color of page.module.css */
-  color: white; /* Match the button text color of page.module.css */
+  background-color: #344966;
+  color: white;
   border: 2px solid #344966;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Add a transition for hover effect */
+  transition: background-color 0.3s ease;
 }
 
-/* Styles for the submit button on hover */
+
 .buttonUpload:hover {
-  background-color: #0d1821; /* Darken the button color on hover */
+  background-color: #0d1821;
 }
 
 .buttonContainerUpload {
@@ -309,16 +309,16 @@
 
 .addSlideBlank:hover {
   background-color: rgba(0, 0, 0, 0.4);
-  transition: background-color 0.3s ease-in-out; /* Smooth transition */
+  transition: background-color 0.3s ease-in-out;
 }
 
 .plusBlank {
-  font-size: 48px; /* Adjust the size of the "+" as needed */
+  font-size: 48px;
   z-index: 1000;
   font-weight: normal;
 }
 
-/* Media query for smartphones */
+
 @media (max-width: 767px) {
   .container {
     margin-top: 3dvh;
@@ -343,10 +343,10 @@
     padding-left: 5px;
     z-index: 1200 !important;
     letter-spacing: 0.5em;
-    font-size: 1.5rem; /* Smaller font-size */
+    font-size: 1.5rem;
     margin-left: 50px;
-    margin-bottom: 3rem; /* Smaller margin-bottom */
-    margin-top: 57px; /* Smaller margin-top */
+    margin-bottom: 3rem;
+    margin-top: 57px;
     text-align: center;
   }
 
@@ -371,29 +371,29 @@
     height: 15px;
   }
   .button {
-    width: 40px; /* Smaller width */
-    height: 40px; /* Smaller height */
-    font-size: 20px; /* Smaller font-size */
-    margin-left: 25px; /* Smaller margin-left */
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    margin-left: 25px;
     border-radius: 50%;
-    margin-top: 0; /* Adjusted margin-top */
-    padding-top: 0; /* Adjusted padding-top */
-    display: flex; /* Use flexbox */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
+    margin-top: 0;
+    padding-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .submitButton {
-    width: 80px; /* Smaller width */
-    padding: 5px; /* Smaller padding */
+    width: 80px;
+    padding: 5px;
   }
 
   .submitButtonContainer {
-    margin-left: 25px; /* Smaller margin-left */
+    margin-left: 25px;
   }
 
   .PDFsContainer {
-    flex-wrap: wrap; /* Allow items to wrap if needed */
+    flex-wrap: wrap;
     z-index: 1000 !important;
   }
 
@@ -420,4 +420,4 @@
   border: 2px solid #344966;
 }
 
-/* ... rest of your CSS ... */
+

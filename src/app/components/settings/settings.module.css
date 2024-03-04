@@ -4,7 +4,7 @@
     justify-content: center;
     padding:0;
     align-items: center;
-    height:  100vh; /* Full viewport height */
+    height:  100vh;
     text-align: center;
 }
 
@@ -20,22 +20,22 @@
     color:white;
   }
 
-/* Styles for the submit button */
+
 .button {
     margin: 20px;
     width:  200px;
     padding:  10px;
-    background-color: red; /* Match the button color of page.module.css */
-    color: white; /* Match the button text color of page.module.css */
+    background-color: red;
+    color: white;
     border: 2px solid red;
     border-radius:  10px;
     cursor: pointer;
-    transition: background-color  0.3s ease; /* Add a transition for hover effect */
+    transition: background-color  0.3s ease;
 }
 
-/* Styles for the submit button on hover */
+
 .button:hover {
-    background-color: rgb(103, 14, 14); /* Darken the button color on hover */
+    background-color: rgb(103, 14, 14);
 }
 
 [data-theme='dark'] .button {
@@ -107,34 +107,34 @@
     margin: 20px;
     width:  200px;
     padding:  7px;
-    background-color: #344966; /* Match the button color of page.module.css */
-    color: white; /* Match the button text color of page.module.css */
+    background-color: #344966;
+    color: white;
     border: 2px solid #344966 ;
     border-radius:  10px;
     cursor: pointer;
-    transition: background-color  0.3s ease; /* Add a transition for hover effect */
+    transition: background-color  0.3s ease;
 }
 
-/* Styles for the submit button on hover */
+
 .buttonClose:hover {
-    background-color: #0d1821; /* Darken the button color on hover */
+    background-color: #0d1821;
 }
 
 .buttonDelete {
     margin: 20px;
     width:  200px;
     padding:  7px;
-    background-color: red; /* Match the button color of page.module.css */
-    color: white; /* Match the button text color of page.module.css */
+    background-color: red;
+    color: white;
     border: 2px solid red;
     border-radius:  10px;
     cursor: pointer;
-    transition: background-color  0.3s ease; /* Add a transition for hover effect */
+    transition: background-color  0.3s ease;
 }
 
-/* Styles for the submit button on hover */
+
 .buttonDelete:hover {
-    background-color: rgb(103, 14, 14); /* Darken the button color on hover */
+    background-color: rgb(103, 14, 14);
 }
 
 [data-theme='dark'] .buttonDelete {
@@ -151,25 +151,25 @@
     padding:10px;
     margin-right:15px;
     margin:10px;
-    border:  1px solid #344966; /* Match the border color of page.module.css */
+    border:  1px solid #344966;
     border-radius:  4px;
-    background-color: #eff8e2; /* Match the background color of page.module.css */
-    color: #344966; /* Match the text color of page.module.css */
+    background-color: #eff8e2;
+    color: #344966;
 }
 
 @media (max-width:   768px) {
     .settings {
-        padding:   20px; /* Increased padding */
+        padding:   20px;
         height: auto;
     }
 
     .title {
-        font-size:   3rem; /* Increased font size */
+        font-size:   3rem;
     }
 
     .button {
-        width:   180px; /* Increased width */
-        padding:   12px; /* Increased padding */
+        width:   180px;
+        padding:   12px;
     }
 
     .button:hover {
@@ -181,32 +181,32 @@
     }
 
     .text {
-        font-size:   18px; /* Increased font size */
-        margin:   30px; /* Increased margin */
+        font-size:   18px;
+        margin:   30px;
     }
 
     .deleteContainer {
         flex-direction: column;
-        border-radius:   15px; /* Increased border-radius */
+        border-radius:   15px;
     }
 
     .modalContent {
-        width:   300px; /* Increased width */
-        padding:   20px; /* Increased padding */
+        width:   300px;
+        padding:   20px;
     }
 
     .buttonClose {
-        width:   180px; /* Increased width */
-        padding:   12px; /* Increased padding */
+        width:   180px;
+        padding:   12px;
     }
 
     .buttonDelete {
-        width:   180px; /* Increased width */
-        padding:   12px; /* Increased padding */
+        width:   180px;
+        padding:   12px;
     }
 
     .inputField {
-        width:   220px; /* Increased width */
-        padding:   10px; /* Increased padding */
+        width:   220px;
+        padding:   10px;
     }
 }

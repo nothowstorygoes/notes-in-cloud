@@ -3,8 +3,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh; /* Ensure the body takes up the full viewport height */
-    margin: 0; /* Remove default margin */
+    height: 100vh;
+    margin: 0;
 }
 
 .offlineText{

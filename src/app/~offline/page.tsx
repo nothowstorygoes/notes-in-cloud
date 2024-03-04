@@ -1,6 +1,8 @@
 import styles from '../components/subComponents/Miscellaneous/offline.module.css'
 import Image from 'next/image';
 
+//Fallback component
+
 export default function Offline() {
   return (
     <main>

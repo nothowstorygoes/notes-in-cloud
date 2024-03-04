@@ -14,16 +14,16 @@
     color:white;
   }
 
-/* Styles for the container */
+
 .container {
     display: flex !important;
     flex-direction: column;
     padding:  0;
     margin-top:4dvh;
     align-items: center;
-    height:  100dvh; /* Full viewport height */
+    height:  100dvh;
     text-align: center;
-    border-radius:  10px; /* Add a border radius for a softer look */
+    border-radius:  10px;
 }
 
 .headerContainer{
@@ -38,13 +38,13 @@
     margin-bottom: 0;
 }
 
-/* Styles for the header */
+
 .header {
-    font-size:  2rem; /* Match the font size of .title in login.module.css */
-    color: #344966; /* Match the color of .title in login.module.css */
-    margin-bottom:  0rem; /* Match the margin-bottom of .title in login.module.css */
-    font-weight: bolder; /* Match the font-weight of .title in login.module.css */
-    letter-spacing:  0.2em; /* Match the letter-spacing of .title in login.module.css */
+    font-size:  2rem;
+    color: #344966;
+    margin-bottom:  0rem;
+    font-weight: bolder;
+    letter-spacing:  0.2em;
     text-align: left;
     line-height: 180%;
     margin-left: 0;
@@ -75,27 +75,27 @@
     margin-right: 50px;  
     height:90px;
 }
-/* Styles for the profile picture */
+
 .propic {
-    width:  200px; /* Set a fixed width for the profile picture */
-    height:  200px; /* Set a fixed height for the profile picture */
-    object-fit: cover; /* Ensure the image covers the area without stretching */
-    border-radius:  50%; /* Make the profile picture circular */
+    width:  200px;
+    height:  200px;
+    object-fit: cover;
+    border-radius:  50%;
     margin-left: 150px;
     margin-top: 51px;
-    margin-bottom:  15px; /* Add some space below the profile picture */
+    margin-bottom:  15px;
 }
 
-/* Styles for the input fields */
+
 .inputField {
     width:  300px;
     padding:  10px;
     margin-bottom:  25px;
     margin-top:15px;
-    border:  1px solid #344966; /* Match the border color of page.module.css */
+    border:  1px solid #344966;
     border-radius:  4px;
-    background-color: #eff8e2; /* Match the background color of page.module.css */
-    color: #344966; /* Match the text color of page.module.css */
+    background-color: #eff8e2;
+    color: #344966;
 }
 
 [data-theme='dark'] .inputField{
@@ -103,39 +103,39 @@
     color: fieldtext !important;
 }
 
-/* Styles for the submit buttons */
+
 .submitButton {
-    width:  200px; /* Match the width of .submitButton in login.module.css */
-    padding:  10px; /* Match the padding of .submitButton in login.module.css */
-    background-color: #344966; /* Match the background color of .submitButton in login.module.css */
-    color: #eff8e2; /* Match the text color of .submitButton in login.module.css */
-    border: none; /* Match the border of .submitButton in login.module.css */
-    border-radius:  10px; /* Match the border-radius of .submitButton in login.module.css */
-    cursor: pointer; /* Match the cursor of .submitButton in login.module.css */
+    width:  200px;
+    padding:  10px;
+    background-color: #344966;
+    color: #eff8e2;
+    border: none;
+    border-radius:  10px;
+    cursor: pointer;
     margin-bottom:10px;
-    transition: background-color  0.3s ease; /* Match the transition of .submitButton in login.module.css */
+    transition: background-color  0.3s ease;
 }
 
-/* Styles for the submit button on hover */
+
 .submitButton:hover {
-    background-color: #0d1821; /* Darken the button color on hover */
+    background-color: #0d1821;
 }
 
-/* Styles for the submit buttons */
+
 .submitButtonUpload {
-    width:  200px; /* Match the width of .submitButton in login.module.css */
-    padding:  10px; /* Match the padding of .submitButton in login.module.css */
-    background-color: #344966; /* Match the background color of .submitButton in login.module.css */
-    color: #eff8e2; /* Match the text color of .submitButton in login.module.css */
-    border: none; /* Match the border of .submitButton in login.module.css */
-    border-radius:  10px; /* Match the border-radius of .submitButton in login.module.css */
-    cursor: pointer; /* Match the cursor of .submitButton in login.module.css */
-    transition: background-color  0.3s ease; /* Match the transition of .submitButton in login.module.css */
+    width:  200px;
+    padding:  10px;
+    background-color: #344966;
+    color: #eff8e2;
+    border: none;
+    border-radius:  10px;
+    cursor: pointer;
+    transition: background-color  0.3s ease;
 }
 
-/* Styles for the submit button on hover */
+
 .submitButtonUpload:hover {
-    background-color: #0d1821; /* Darken the button color on hover */
+    background-color: #0d1821;
 }
 
 .submitButtonContainer {
@@ -162,18 +162,18 @@
    }
  }
 
-/* Styles for the submit button */
+
 .SignOutButton {
     width:  100px;
     padding:  10px;
-    background-color: #344966; /* Match the button color of page.module.css */
-    color: #eff8e2; /* Match the button text color of page.module.css */
+    background-color: #344966;
+    color: #eff8e2;
     border: none;
     border-radius:  10px;
     cursor: pointer;
     margin-top: 25px;
     margin-bottom: 10px;
-    transition: background-color  0.3s ease; /* Add a transition for hover effect */
+    transition: background-color  0.3s ease;
 }
 
 .button{
@@ -182,9 +182,9 @@
     padding-top: 50px;
 }
 
-/* Styles for the submit button on hover */
+
 .SignOutButton:hover {
-    background-color: #0d1821; /* Darken the button color on hover */
+    background-color: #0d1821;
 }
 
 [data-theme='dark'] .submitButton, .submitButtonUpload, .SignOutButton {
@@ -196,24 +196,24 @@
         align-items: center;
     }
     .load {
-        font-size:  22px; /* Increased font size */
-        width:  220px; /* Increased width */
+        font-size:  22px;
+        width:  220px;
     }
 
     .container {
         padding:  0;
-        margin-top:  3dvh; /* Increased margin-top */
-        height:  95dvh; /* Increased height */
+        margin-top:  3dvh;
+        height:  95dvh;
     }
 
     .headerContainer {
-        margin:  2.5rem; /* Increased margin */
+        margin:  2.5rem;
         flex-direction: column-reverse;
     }
 
     .header {
-        font-size:  1.7rem; /* Increased font size */
-        margin-top:  45px; /* Increased margin-top */
+        font-size:  1.7rem;
+        margin-top:  45px;
         text-align: center;
     }
 
@@ -222,31 +222,31 @@
     }
 
     .formContainer {
-        height:  80px; /* Increased height */
-        margin-right:  30px; /* Increased margin-right */
+        height:  80px;
+        margin-right:  30px;
     }
 
     .propic {
-        width:  170px; /* Increased width */
-        height:  170px; /* Increased height */
-        margin-left:  85px; /* Increased margin-left */
-        margin-top:  30px; /* Increased margin-top */
+        width:  170px;
+        height:  170px;
+        margin-left:  85px;
+        margin-top:  30px;
     }
 
     .inputField {
-        width:  270px; /* Increased width */
-        padding:  7px; /* Increased padding */
-        margin-bottom:  20px; /* Increased margin-bottom */
-        margin-top:  10px; /* Increased margin-top */
+        width:  270px;
+        padding:  7px;
+        margin-bottom:  20px;
+        margin-top:  10px;
     }
 
     .submitButton, .submitButtonUpload, .SignOutButton {
-        width:  170px; /* Increased width */
-        padding:  7px; /* Increased padding */
-        margin-bottom:  7px; /* Increased margin-bottom */
+        width:  170px;
+        padding:  7px;
+        margin-bottom:  7px;
     }
 
     .submitButtonContainer {
-        margin-top:  15px; /* Increased margin-top */
+        margin-top:  15px;
     }
 }

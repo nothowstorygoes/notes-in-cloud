@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import app from "../../firebase"; // Adjust the import path as necessary
+import app from "../../firebase"; 
 import styles from "./home.module.css";
 import Navbar from "../subComponents/Navbar/navbar";
 import Preview from "../subComponents/Preview/preview";
@@ -29,24 +29,29 @@ const Home = () => {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [showEditOverlay, setShowEditOverlay] = useState(false);
 
+
+  // ask permission to user for notification
   useNotificationPermission();
 
+
+  //checks user auth state
   useEffect(() => {
     const auth = getAuth(app);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        setLoading(false); // Set loading to false after user is authenticated
+        setLoading(false); 
       } else {
         setUser(null);
-        router.push("./login"); // Redirect to login if user is not authenticated
+        router.push("./login"); 
       }
     });
 
-    // Clean up the subscription on unmount
+    
     return () => unsubscribe();
   }, [router]);
 
+  //Function to load all files from user personal storage
   const fetchFiles = async () => {
     if (!user) return;
 
@@ -63,8 +68,10 @@ const Home = () => {
 
   useEffect(() => {
     fetchFiles();
-  }, [user]); // Depend on the 'user' state to re-fetch files when the user changes
+  }, [user]); 
 
+
+  //function that sets the necessary vars for handling upload
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -74,6 +81,7 @@ const Home = () => {
     }
   };
 
+  //function to handle upload file. Uploads file, update match.json with the new file uploaded, sends notification
   const handleUpload = async (event) => {
     event.preventDefault();
     if (!user || !uploadingFile) return;
@@ -85,31 +93,31 @@ const Home = () => {
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        // Handle the upload progress here
+        
       },
       (error) => {
-        // Handle unsuccessful uploads here
+        
       },
       async () => {
-        // Handle successful uploads on complete
+        
         const downloadURL = await getDownloadURL(storageRef);
         console.log("File available at", downloadURL);
 
-        // Download the match.json file
+        
         const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
         const matchJsonURL = await getDownloadURL(matchJsonRef);
         const response = await fetch(matchJsonURL);
         let matchJson = await response.json();
 
-        // Ensure matchJson is an array
+        
         if (!Array.isArray(matchJson)) {
           matchJson = [];
         }
 
-        // Add the new object to the JSON content
+        
         matchJson.push({ pdf: uploadingFile.name, cover: "null" });
 
-        // Upload the updated match.json file
+        
         const updatedMatchJsonRef = ref(
           storage,
           `Userdata/${user.uid}/match.json`
@@ -128,11 +136,11 @@ const Home = () => {
 
           },
           (error) => {
-            // Handle unsuccessful uploads here
+            
           },
           async () => {
             setUploadProgress(false);
-            // Handle successful uploads on complete
+            
             fetchFiles();
             console.log("match.json updated successfully");
             const registration = await navigator.serviceWorker.ready;
@@ -142,12 +150,12 @@ const Home = () => {
                 title: "Slide uploaded!",
                 options: {
                   body: "Your upload has been completed successfully. Yay!",
-                  // Add any other notification options here
+                  
                 },
               },
             });
             setShowUploadPopup(false);
-            // Refresh the list of files
+            
           }
         );
       }
@@ -155,19 +163,22 @@ const Home = () => {
     setUploadingFile(null);
   };
 
+
+// function to delete file from storage
   const onDelete = async (file) => {
     if (!user) return;
 
     const storageRef = ref(storage, `PDFs/${user.uid}/${file.name}`);
     try {
       await deleteObject(storageRef);
-      // Refresh the list of files after deletion
+      
       fetchFiles();
     } catch (error) {
       console.error("Error deleting file:", error);
     }
   };
 
+  //React functional component to render a confirmation modal
   const Modal = () => {
     if (!showUploadPopup) return null;
     return (
@@ -206,7 +217,7 @@ const Home = () => {
   };
 
   if (loading) {
-    return <div className={styles.load}>Loading...</div>; // Or any loading indicator you prefer
+    return <div className={styles.load}>Loading...</div>; 
   }
 
   return (

@@ -1,4 +1,4 @@
-// Additional service worker code...
+
 
 self.addEventListener('push', (event) => {
   const data = event.data.json();
@@ -15,7 +15,7 @@ self.addEventListener('notificationclick', (event) => {
   event.waitUntil(clients.openWindow(event.notification.data.url));
 });
 
-// Listen for messages from the client
+
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'NOTIFICATION') {
     const { title, options } = event.data.payload;

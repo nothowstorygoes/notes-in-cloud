@@ -1,15 +1,15 @@
-/* Styles for the container */
+
 .container {
     display: flex !important;
     flex-direction: column;
     justify-content: center;
     padding:0;
     align-items: center;
-    height:  100vh; /* Full viewport height */
+    height:  100vh;
     text-align: center;
 }
 
-/* Styles for the title */
+
 .title {
     font-size:  4rem;
     color: #344966;
@@ -26,29 +26,29 @@
     text-decoration: none !important;
 }
 
-/* Styles for the form container */
+
 .formContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width:  100%;
-    max-width:  350px; /* Adjust as needed */
+    max-width:  350px;
     margin:  0 auto;
     padding:  20px;
-    border-radius:  10px; /* Add a border radius for a softer look */
+    border-radius:  10px;
 }
 
-/* Styles for the input fields */
+
 .inputField {
     width:  300px;
     padding:  10px;
     margin-bottom:  25px;
     margin-top:15px;
-    border:  1px solid #344966; /* Match the border color of page.module.css */
+    border:  1px solid #344966;
     border-radius:  4px;
-    background-color: #eff8e2; /* Match the background color of page.module.css */
-    color: #344966; /* Match the text color of page.module.css */
+    background-color: #eff8e2;
+    color: #344966;
 }
 
 .formComplete{
@@ -56,35 +56,35 @@
   flex-direction: column;
 }
 
-/* Styles for the submit button */
+
 .submitButton {
     width:  200px;
     padding:  10px;
-    background-color: #344966; /* Match the button color of page.module.css */
-    color: #eff8e2; /* Match the button text color of page.module.css */
+    background-color: #344966;
+    color: #eff8e2;
     border: none;
     border-radius:  10px;
     cursor: pointer;
-    transition: background-color  0.3s ease; /* Add a transition for hover effect */
+    transition: background-color  0.3s ease;
 }
 
-/* Styles for the submit button on hover */
+
 .submitButton:hover {
-    background-color: #0d1821; /* Darken the button color on hover */
+    background-color: #0d1821;
 }
 
 [data-theme='dark'] .submitButton {
   border: 2px solid #344966;
 }
 
-/* Styles for the error message */
+
 .errorMessage {
     color: red;
     margin-top:  10px;
-    text-align: center; /* Center the error message */
+    text-align: center;
 }
 
-/* Styles for the paragraph */
+
 .paragraph {
     text-align: center;
     width:  350px;

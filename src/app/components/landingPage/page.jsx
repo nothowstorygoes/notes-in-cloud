@@ -7,10 +7,10 @@ const LandingPage = () => {
 
   const router=useRouter();
   useEffect(() => {
-    // Apply styles to the body element
+    
     document.body.style.overflowY = "hidden";
 
-    // Clean up the style when the component unmounts
+    
     return () => {
       document.body.style.overflowY = "";
     };

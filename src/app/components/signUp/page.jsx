@@ -46,14 +46,14 @@ const Signup = () => {
       await uploadBytes(usernameRef, usernameBlob);
 
       const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
-      const matchJsonData = JSON.stringify({}); // Blank JSON object
+      const matchJsonData = JSON.stringify({}); 
       const matchJsonBlob = new Blob([matchJsonData], {
         type: "application/json",
       });
       await uploadBytes(matchJsonRef, matchJsonBlob);
 
       const coversRef = ref(storage, `PDFs/${user.uid}/covers/placeholder.txt`);
-      await uploadString(coversRef, ""); // Upload an empty string to create the directory
+      await uploadString(coversRef, ""); 
 
       console.log(user);
       router.push("./login");
@@ -65,10 +65,10 @@ const Signup = () => {
   };
 
   useEffect(() => {
-    // Apply styles to the body element
+    
     document.body.style.overflowY = "hidden";
 
-    // Clean up the style when the component unmounts
+    
     return () => {
       document.body.style.overflowY = "";
     };
