@@ -314,7 +314,7 @@
 
 .plusBlank {
   font-size: 48px;
-  z-index: 1000;
+  z-index: 900;
   font-weight: normal;
 }
 
