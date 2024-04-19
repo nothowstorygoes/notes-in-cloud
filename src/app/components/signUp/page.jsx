@@ -2,7 +2,7 @@
 import Link from "next/link";
 import styles from "./signup.module.css";
 import { useState } from "react";
-import { createUserWithEmailAndPassword, getAuth } from "fire.base/auth";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useRouter } from "next/navigation";
 import app from "../../firebase";
