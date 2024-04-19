@@ -205,13 +205,12 @@
 
 @media (max-width: 480px) {
     .googleSignInButton {
-        width: 100%; /* Make the button full width for better tappability */
+        font-weight: 600;
         padding: 10px;
-        font-size: 1rem; /* Adjust font size if necessary */
     }
 
     .googleIcon {
-        width: 20px; /* Adjust icon size for better visibility */
+        width: 20px;
         height: 20px;
     }
 }

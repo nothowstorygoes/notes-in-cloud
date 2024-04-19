@@ -31,11 +31,3 @@ a {
 }
 
 /*-----------------------------------*/
-
-/* GLOBAL MEDIA QUERIES */
-
-@media (max-width: 767px) {
-  .bm-menu-wrap {
-    top: 85px;
-  }
-}

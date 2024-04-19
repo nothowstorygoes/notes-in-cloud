@@ -316,6 +316,12 @@
     margin: 25px;
     margin-right: 0;
  }
+
+ .outerPDFs{
+   width: auto;
+   margin-left: 50px;
+   margin-right: 50px;
+ }
 }
 
 @media (min-width: 481px) and (max-width: 1240px) {
@@ -325,6 +331,12 @@
     border-radius: 50px;
     margin: 25px;
     margin-right: 24px;
+ }
+
+ .outerPDFs{
+   width: auto;
+   margin-left: 80px;
+   margin-right: 80px;
  }
 }
 
@@ -339,7 +351,43 @@
     display: none;
  }
 
- .headerSmartphone {
-    top: 0;
+ .outerPDFs{
+   width: auto;
+   margin-left: 50px;
+   margin-right: 50px;
+ }
+
+ .headerSmartphone{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   width: 100%;
+   height: 10vh;
+ }
+
+ .headerTitleSmartphone{
+   display: block;
+   font-weight: bolder;
+   font-size: 2rem;
+   letter-spacing: 0.4rem;
+   text-align: right;
+   margin-left: 50px;
+
+ }
+
+ .editButtonSmartphone{
+   display: block;
+   border-radius: 50%;
+   margin-right: 20px;
+   margin-top: 20px;
+   padding: 20px;
+ }
+ .editImgSmartphone{
+   display: block;
+   width: 30px;
+   height: 30px;
+   cursor: pointer;
+   
+
  }
 }
