@@ -1,243 +1,239 @@
+/* GENERAL STYLING */
+
 .document {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 50px;
-  overflow: hidden;
-  margin: 25px;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+ width: 250px;
+ height: 250px;
+ object-fit: cover;
+ border-radius: 50px;
+ overflow: hidden;
+ margin: 25px;
+ background-color: white;
+ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .load {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  justify-content: center;
-  font-size: 25px;
-  width: 250px;
-  color: #344966;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ text-align: center;
+ justify-content: center;
+ font-size: 25px;
+ width: 250px;
+ color: #344966;
 }
 
-[data-theme="dark"] .load {
-  color: white;
-}
-
-.buttonContainer{
-  display: flex;
-  flex-direction: column;
+.buttonContainer {
+ display: flex;
+ flex-direction: column;
 }
 
 .spinnerContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height:  100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100%;
 }
 
 .spinner {
-  margin-top:40% ;
-  border:  4px solid rgba(0,  0,  0,  0.1);
-  width:  36px;
-  height:  36px;
-  border-radius:  50%;
-  border-left-color: #000;
-  animation: spin  1s linear infinite;
+ margin-top: 40%;
+ border: 4px solid rgba(0, 0, 0, 0.1);
+ width: 36px;
+ height: 36px;
+ border-radius: 50%;
+ border-left-color: #000;
+ animation: spin 1s linear infinite;
 }
 
-.deleteContainer{
-  display: flex;
-  justify-content: center;
+.deleteContainer {
+ display: flex;
+ justify-content: center;
 }
 
-.deleteContainerRow{
-  display: flex;
-  flex-direction: column;
+.deleteContainerRow {
+ display: flex;
+ flex-direction: column;
 }
 
 .buttonDelete {
-  width:  150px;
-  margin-bottom:15px;
-  padding:  10px;
-  border-radius:  10px;
-  background-color: red;
-  color: white;
-  border: 2px solid red;
-  cursor: pointer;
-  transition: background-color  0.3s ease;
+ width: 150px;
+ margin-bottom: 15px;
+ padding: 10px;
+ border-radius: 10px;
+ background-color: red;
+ color: white;
+ border: 2px solid red;
+ cursor: pointer;
+ transition: background-color 0.3s ease;
 }
-
 
 .buttonDelete:hover {
-  background-color: rgb(103, 14, 14);
-}
-
-[data-theme='dark'] .buttonDelete {
-  border: 2px solid red;
-}
-
-@keyframes spin {
-   0% {
-    transform: rotate(0deg);
-  }
-   100% {
-    transform: rotate(360deg);
-  }
+ background-color: rgb(103, 14, 14);
 }
 
 .page {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
+ width: 250px;
+ height: 250px;
+ object-fit: cover;
 }
 
 .documentWrapper {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  display: inline-block;
+ position: relative;
+ width: 300px;
+ height: 300px;
+ display: inline-block;
 }
 
 .deleteIcon {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  cursor: pointer;
-  display: none;
-  z-index: 2;
+ position: absolute;
+ top: 5px;
+ right: 5px;
+ cursor: pointer;
+ display: none;
+ z-index: 2;
 }
 
 .cross {
-  height: 70px;
-  width: 70px;
+ height: 70px;
+ width: 70px;
 }
 
 .showDeleteIcon {
-  display: block !important;
-  z-index:15;
+ display: block !important;
+ z-index: 15;
 }
 
 .overlay {
-  position: absolute;
-  width: 250px;
-  height: 250px;
-  border-radius: 50px;
-  overflow: hidden;
-  margin: 25px;
-  top:  0;
-  left:  0;
-  right:  0;
-  bottom:  0;
-  background-color: rgba(255,  255,  255,  0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index:  10;
+ position: absolute;
+ width: 250px;
+ height: 250px;
+ border-radius: 50px;
+ overflow: hidden;
+ margin: 25px;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background-color: rgba(255, 255, 255, 0.8);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ z-index: 10;
 }
-
 
 .button {
-  width:  150px;
-  margin-bottom:15px;
-  padding:  10px;
-  background-color: #344966;
-  color: #eff8e2;
-  border: 2px solid #344966;
-  border-radius:  10px;
-  cursor: pointer;
-  transition: background-color  0.3s ease;
+ width: 150px;
+ margin-bottom: 15px;
+ padding: 10px;
+ background-color: #344966;
+ color: #eff8e2;
+ border: 2px solid #344966;
+ border-radius: 10px;
+ cursor: pointer;
+ transition: background-color 0.3s ease;
 }
-
 
 .button:hover {
-  background-color: #0d1821;
+ background-color: #0d1821;
 }
 
+/*-----------------------------------------------------*/
 
+/* DARK MODE STYLES */
 
-@media (max-width:   480px) {
-  .document {
-    width:   120px;
-    height:   120px;
+[data-theme="dark"] .load {
+ color: white;
+}
+
+[data-theme='dark'] .buttonDelete {
+ border: 2px solid red;
+}
+
+/*---------------------------------------------------*/
+
+/* MEDIA QUERIES */
+
+@media (max-width: 480px) {
+ .document {
+    width: 120px;
+    height: 120px;
     border-radius: 30px;
-  }
+ }
 
-  .page {
-    width:   120px;
-    height:   120px;
-  }
+ .page {
+    width: 120px;
+    height: 120px;
+ }
 
-  .documentWrapper {
-    width:   150px;
-    height:   150px;
-  }
+ .documentWrapper {
+    width: 150px;
+    height: 150px;
+ }
 
-  .spinner {
-    width:   24px;
-    height:   24px;
-  }
+ .spinner {
+    width: 24px;
+    height: 24px;
+ }
 
-  .button {
-    width:   100px;
-    margin-bottom:   10px;
-    padding:   5px;
-  }
-
-  .buttonDelete{
+ .button {
     width: 100px;
     margin-bottom: 10px;
-    padding:5px;
-  }
+    padding: 5px;
+ }
 
-  .overlay {
-    width:   120px;
-    height:   120px;
+ .buttonDelete {
+    width: 100px;
+    margin-bottom: 10px;
+    padding: 5px;
+ }
+
+ .overlay {
+    width: 120px;
+    height: 120px;
     border-radius: 30px;
-  }
+ }
 
-  .cross{
+ .cross {
     height: 50px;
     width: 50px;
-  }
+ }
 }
 
+@media (min-width: 481px) and (max-width: 1240) {
+ .document {
+    width: 150px;
+    height: 150px;
+ }
 
-@media (min-width:   481px) and (max-width:   1240) {
-  .document {
-    width:   150px;
-    height:   150px;
-  }
+ .page {
+    width: 150px;
+    height: 150px;
+ }
 
-  .page {
-    width:   150px;
-    height:   150px;
-  }
+ .documentWrapper {
+    width: 180px;
+    height: 180px;
+ }
 
-  .documentWrapper {
-    width:   180px;
-    height:   180px;
-  }
+ .spinner {
+    width: 30px;
+    height: 30px;
+ }
 
-  .spinner {
-    width:   30px;
-    height:   30px;
-  }
-
-  .button {
-    width:   120px;
-    margin-bottom:   12px;
-    padding:   6px;
-  }
-
-  .buttonDelete{
+ .button {
     width: 120px;
     margin-bottom: 12px;
     padding: 6px;
-  }
-  .overlay {
-    width:   150px;
-    height:   10px;
-  }
+ }
+
+ .buttonDelete {
+    width: 120px;
+    margin-bottom: 12px;
+    padding: 6px;
+ }
+
+ .overlay {
+  width:   150px;
+  height:   10px;
+ }
 }

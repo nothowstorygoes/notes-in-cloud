@@ -5,6 +5,8 @@ import React from "react";
 import styles from "./navbar.module.css";
 import Image from "next/image";
 
+// Navbar component used in all of the app's pages.
+
 const Navbar = () => {
   const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
 

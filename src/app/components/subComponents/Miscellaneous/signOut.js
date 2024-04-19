@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { auth } from '../../../firebase'; 
 import { useRouter } from 'next/navigation';
 
+//function to signOut of the session
+
 const SignOutButton = ({ className }) => {
   const router = useRouter();
 

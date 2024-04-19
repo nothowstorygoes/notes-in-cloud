@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import app from "../../firebase"; 
+import app from "../../firebase";
 import styles from "./home.module.css";
 import Navbar from "../subComponents/Navbar/navbar";
 import Preview from "../subComponents/Preview/preview";
@@ -29,10 +29,8 @@ const Home = () => {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [showEditOverlay, setShowEditOverlay] = useState(false);
 
-
   // ask permission to user for notification
   useNotificationPermission();
-
 
   //checks user auth state
   useEffect(() => {
@@ -40,14 +38,13 @@ const Home = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        setLoading(false); 
+        setLoading(false);
       } else {
         setUser(null);
-        router.push("./login"); 
+        router.push("./login");
       }
     });
 
-    
     return () => unsubscribe();
   }, [router]);
 
@@ -68,10 +65,9 @@ const Home = () => {
 
   useEffect(() => {
     fetchFiles();
-  }, [user]); 
+  }, [user]);
 
-
-  //function that sets the necessary vars for handling upload
+  //function that sets the necessary variables for handling upload
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -86,38 +82,29 @@ const Home = () => {
     event.preventDefault();
     if (!user || !uploadingFile) return;
 
-    setUploadProgress(true)
+    setUploadProgress(true);
 
     const storageRef = ref(storage, `PDFs/${user.uid}/${uploadingFile.name}`);
     const uploadTask = uploadBytesResumable(storageRef, uploadingFile);
     uploadTask.on(
       "state_changed",
-      (snapshot) => {
-        
-      },
-      (error) => {
-        
-      },
+      (snapshot) => {},
+      (error) => {},
       async () => {
-        
         const downloadURL = await getDownloadURL(storageRef);
         console.log("File available at", downloadURL);
 
-        
         const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
         const matchJsonURL = await getDownloadURL(matchJsonRef);
         const response = await fetch(matchJsonURL);
         let matchJson = await response.json();
 
-        
         if (!Array.isArray(matchJson)) {
           matchJson = [];
         }
 
-        
         matchJson.push({ pdf: uploadingFile.name, cover: "null" });
 
-        
         const updatedMatchJsonRef = ref(
           storage,
           `Userdata/${user.uid}/match.json`
@@ -132,15 +119,11 @@ const Home = () => {
 
         uploadTask2.on(
           "state_changed",
-          (snapshot) => {
-
-          },
-          (error) => {
-            
-          },
+          (snapshot) => {},
+          (error) => {},
           async () => {
             setUploadProgress(false);
-            
+
             fetchFiles();
             console.log("match.json updated successfully");
             const registration = await navigator.serviceWorker.ready;
@@ -149,13 +132,11 @@ const Home = () => {
               payload: {
                 title: "Slide uploaded!",
                 options: {
-                  body: "Your upload has been completed successfully. Yay!",
-                  
+                body: "Your upload has been completed successfully. Yay!",
                 },
               },
             });
             setShowUploadPopup(false);
-            
           }
         );
       }
@@ -163,15 +144,14 @@ const Home = () => {
     setUploadingFile(null);
   };
 
-
-// function to delete file from storage
+  // function to delete file from storage
   const onDelete = async (file) => {
     if (!user) return;
 
     const storageRef = ref(storage, `PDFs/${user.uid}/${file.name}`);
     try {
       await deleteObject(storageRef);
-      
+
       fetchFiles();
     } catch (error) {
       console.error("Error deleting file:", error);
@@ -187,10 +167,10 @@ const Home = () => {
           <div className={styles.fileName}>{fileName}</div>
           {uploadProgress && (
             <div className={styles.spinnerContainer}>
-            <div className={styles.spinner}>
-              <div />
+              <div className={styles.spinner}>
+                <div />
+              </div>
             </div>
-          </div>
           )}
           <div className={styles.buttonContainerUpload}>
             <button
@@ -208,6 +188,8 @@ const Home = () => {
     );
   };
 
+
+  // Sets the overlay for edit mode 
   const onClickShowEditOverlay = () => {
     setShowEditOverlay(!showEditOverlay);
   };
@@ -216,8 +198,10 @@ const Home = () => {
     document.getElementById("fileInput").click();
   };
 
+
+// loading screen
   if (loading) {
-    return <div className={styles.load}>Loading...</div>; 
+    return <div className={styles.load}>Loading...</div>;
   }
 
   return (

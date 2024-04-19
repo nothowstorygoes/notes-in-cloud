@@ -44,6 +44,8 @@ const SettingsPage = () => {
 
   const [showDeleteAccountPopup, setShowDeleteAccountPopup] = useState(false);
 
+
+//popup set to true for insert user credentials in order to delete accoutn
   const handleCredentialSubmission = (email, password) =>
   {
     deleteAccount (email,password);
@@ -51,6 +53,7 @@ const SettingsPage = () => {
   }
 
 
+  // Popup for credentials submission
   const DeleteAccountPopup = ({ onSubmit, onClose }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

@@ -1,6 +1,8 @@
 import { useTheme } from "next-themes";
 import styles from "./darkModeToggle.module.css";
 
+// External component that changes the theme used in all of the application. 
+
 const ThemeChanger = () => {
   const { theme, setTheme } = useTheme();
 

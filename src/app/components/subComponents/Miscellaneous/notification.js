@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 
+//function that checks for user's notification permission.
+
 function useNotificationPermission() {
   useEffect(() => {
     

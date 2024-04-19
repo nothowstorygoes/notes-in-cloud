@@ -1,423 +1,345 @@
+/* GENERAL STYLING */
+
 .load {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  justify-content: center;
-  font-size: 25px;
-  width: 250px;
-  color: #344966;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ text-align: center;
+ justify-content: center;
+ font-size: 25px;
+ width: 250px;
+ color: #344966;
 }
 
 .spinnerContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height:  100%; 
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100%; 
 }
 
 .spinner {
-  margin-top: 2px;
-  border:  4px solid rgba(255,  255,  255,  0.8);
-  width:  20px;
-  height:  20px;
-  border-radius:  50%;
-  border-left-color: #000;
-  animation: spin  1s linear infinite;
+ margin-top: 2px;
+ border: 4px solid rgba(255, 255, 255, 0.8);
+ width: 20px;
+ height: 20px;
+ border-radius: 50%;
+ border-left-color: #000;
+ animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
   0% {
-   transform: rotate(0deg);
+    transform: rotate(0deg);
  }
   100% {
-   transform: rotate(360deg);
+    transform: rotate(360deg);
  }
-}
-
-
-[data-theme="dark"] .load {
-  color: white;
 }
 
 .container {
-  padding: 0;
-  display: flex !important;
-  flex-direction: column;
-  align-items: center;
-  height: 100dvh; 
-  text-align: center;
-  border-radius: 10px; 
+ padding: 0;
+ display: flex !important;
+ flex-direction: column;
+ align-items: center;
+ height: 100dvh; 
+ text-align: center;
+ border-radius: 10px; 
 }
 
 .header {
-  display: flex;
-  margin-top: 15px;
-  flex-direction: row;
-  align-items: center;
+ display: flex;
+ margin-top: 15px;
+ flex-direction: row;
+ align-items: center;
 }
 
 .headerTitle {
-  font-size: 2rem; 
-  color: #344966; 
-  margin-bottom: 6rem; 
-  font-weight: bolder; 
-  letter-spacing: 0.2em; 
-  text-align: left;
-  margin-top: 100px;
-}
-
-[data-theme="dark"] .headerTitle {
-  color: white;
+ font-size: 2rem; 
+ color: #344966; 
+ margin-bottom: 6rem; 
+ font-weight: bolder; 
+ letter-spacing: 0.2em; 
+ text-align: left;
+ margin-top: 100px;
 }
 
 .button {
-  width: 50px;
-  height: 50px;
-  font-size: 40px;
-  margin-left: 50px;
-  background-color: #344966;
-  color: #eff8e2;
-  text-align: center;
-  border: none;
-  border-radius: 50%; 
+ width: 50px;
+ height: 50px;
+ font-size: 40px;
+ margin-left: 50px;
+ background-color: #344966;
+ color: #eff8e2;
+ text-align: center;
+ border: none;
+ border-radius: 50%; 
 }
 
 .button:hover {
-  background-color: #0d1821;
+ background-color: #0d1821;
 }
 
 .submitButton {
-  width: 100px; 
-  padding: 10px; 
-  background-color: #344966; 
-  color: #eff8e2; 
-  border: none;
-  border-radius: 10px; 
-  margin-left: 20px;
+ width: 100px; 
+ padding: 10px; 
+ background-color: #344966; 
+ color: #eff8e2; 
+ border: none;
+ border-radius: 10px; 
+ margin-left: 20px;
 }
 
 .submitButton:hover {
-  background-color: #0d1821;
+ background-color: #0d1821;
 }
 
 .submitButtonContainer {
-  margin-left: 50px;
-  animation: slideInFromLeft 0.5s ease-out forwards;
+ margin-left: 50px;
+ animation: slideInFromLeft 0.5s ease-out forwards;
 }
 
 .PDFsContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
 }
 
 .outerPDFs {
-  width: 1500px;
-  display: flex;
-  justify-content: center;
+ width: 1500px;
+ display: flex;
+ justify-content: center;
 }
 
 @keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);
     opacity: 0;
-  }
+ }
 
   50% {
     opacity: 0;
-  }
+ }
 
   100% {
     transform: translateX(0);
     opacity: 1;
-  }
+ }
 }
 
 .headerSmartphone {
-  display: none;
+ display: none;
 }
 
 .headerTitleSmartphone {
-  display: none;
+ display: none;
 }
 
 .editButton {
-  background-color: #344966;
-  border: 3px solid #344966;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  padding: 0;
-  margin-left: 15px;
-  margin-top: 10px;
+ background-color: #344966;
+ border: 3px solid #344966;
+ border-radius: 50%;
+ width: 50px;
+ height: 50px;
+ cursor: pointer;
+ padding: 0;
+ margin-left: 15px;
+ margin-top: 10px;
 }
 
 .editImg {
-  margin-top: 10px;
-  width: 30px;
-  height: 30px;
+ margin-top: 10px;
+ width: 30px;
+ height: 30px;
 }
 
 .editDisclaimer {
-  letter-spacing: 0.3rem;
-  display: flex;
-  text-align: center;
-  margin-bottom: 15px;
-  font-size: 15px;
+ letter-spacing: 0.3rem;
+ display: flex;
+ text-align: center;
+ margin-bottom: 15px;
+ font-size: 15px;
 }
 
 .editButtonSmartphone {
-  display: none;
+ display: none;
 }
 
 .editImgSmartphone {
-  display: none;
+ display: none;
 }
 
 .editButton:hover {
-  background-color: #0d1821 !important;
-  transition: background-color 0.3s ease-in-out;
-}
-
-[data-theme="dark"] .editButton {
-  background-color: #344966;
-}
-
-[data-theme="dark"] .editButtonSmartphone {
-  background-color: #344966;
+ background-color: #0d1821 !important;
+ transition: background-color 0.3s ease-in-out;
 }
 
 .fileName {
-  margin-top: 15px;
-  line-height: 180%;
+ margin-top: 15px;
+ line-height: 180%;
 }
 
 .buttonDelete {
-    margin: 20px;
-    width:  200px;
-    padding:  7px;
-    background-color: red;
-    color: white;
-    border: 2px solid red;
-    border-radius:  10px;
-    cursor: pointer;
-    transition: background-color  0.3s ease;
+ margin: 20px;
+ width: 200px;
+ padding: 7px;
+ background-color: red;
+ color: white;
+ border: 2px solid red;
+ border-radius: 10px;
+ cursor: pointer;
+ transition: background-color 0.3s ease;
 }
-
 
 .buttonDelete:hover {
-    background-color: rgb(103, 14, 14);
+ background-color: rgb(103, 14, 14);
 }
 
-[data-theme='dark'] .buttonDelete {
-    border: 2px solid red;
-  }
-
 .addSlideBlank {
-  width: 245px;
-  height: 245px;
-  border: 3px dashed #fff;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 25px;
- }
- 
-
- @media (max-width: 480px) {
-  .addSlideBlank {
-     width: 115px;
-     height: 115px;
-     border-radius: 50px;
-     margin: 25px;
-     margin-right: 0;
-  }
- }
- 
-
- @media (min-width: 481px) and (max-width: 1240px) {
-  .addSlideBlank {
-     width: 245px;
-     height: 245px;
-     border-radius: 50px;
-     margin: 25px;
-     margin-right: 24px;
-
-  }
- }
+ width: 245px;
+ height: 245px;
+ border: 3px dashed #fff;
+ border-radius: 50px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin: 25px;
+}
 
 .addAnchorTag {
-  text-decoration: none;
+ text-decoration: none;
 }
 
 .modalBackdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(0, 0, 0, 0.7);
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ z-index: 1000;
 }
 
 .buttonUpload {
-  margin: 20px;
-  width: 200px;
-  padding: 7px;
-  background-color: #344966;
-  color: white;
-  border: 2px solid #344966;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+ margin: 20px;
+ width: 200px;
+ padding: 7px;
+ background-color: #344966;
+ color: white;
+ border: 2px solid #344966;
+ border-radius: 10px;
+ cursor: pointer;
+ transition: background-color 0.3s ease;
 }
 
-
 .buttonUpload:hover {
-  background-color: #0d1821;
+ background-color: #0d1821;
 }
 
 .buttonContainerUpload {
-  display: flex;
-  flex-direction: row;
+ display: flex;
+ flex-direction: row;
 }
 
 .modalContent {
-  background-color: #eff8e2;
-  padding: 20px;
-  border: 3px solid #344966;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 300px;
-  max-width: 90%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="dark"] .modalContent {
-  background-color: #0d1821;
+ background-color: #eff8e2;
+ padding: 20px;
+ border: 3px solid #344966;
+ border-radius: 15px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ width: 300px;
+ max-width: 90%;
+ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .addSlideBlank:hover {
-  background-color: rgba(0, 0, 0, 0.4);
-  transition: background-color 0.3s ease-in-out;
+ background-color: rgba(0, 0, 0, 0.4);
+ transition: background-color 0.3s ease-in-out;
 }
 
 .plusBlank {
-  font-size: 48px;
-  z-index: 900;
-  font-weight: normal;
+ font-size: 48px;
+ z-index: 900;
+ font-weight: normal;
+}
+/*-------------------------------------------------------------------*/
+
+
+
+
+/* DARK MODE STYLES */
+
+[data-theme="dark"] .load {
+ color: white;
 }
 
-
-@media (max-width: 767px) {
-  .container {
-    margin-top: 3dvh;
-    margin-bottom: 2dvh;
-    z-index: 1000 !important;
-  }
-
-  .header {
-    display: none;
-  }
-
-  .headerSmartphone {
-    top: 0;
-    display: flex;
-    background-color: #0d1821;
-    z-index: 1200 !important;
-    width: 100%;
-  }
-
-  .headerTitleSmartphone {
-    display: block;
-    padding-left: 5px;
-    z-index: 1200 !important;
-    letter-spacing: 0.5em;
-    font-size: 1.5rem;
-    margin-left: 50px;
-    margin-bottom: 3rem;
-    margin-top: 57px;
-    text-align: center;
-  }
-
-  .editButtonSmartphone {
-    display: flex;
-    justify-content: center;
-    background-color: #eff8e2;
-    border: 3px solid #344966;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    padding: 0;
-    margin-top: 50px;
-    margin-left: 20px;
-  }
-
-  .editImgSmartphone {
-    display: block;
-    margin-top: 10px;
-    width: 15px;
-    height: 15px;
-  }
-  .button {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    margin-left: 25px;
-    border-radius: 50%;
-    margin-top: 0;
-    padding-top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .submitButton {
-    width: 80px;
-    padding: 5px;
-  }
-
-  .submitButtonContainer {
-    margin-left: 25px;
-  }
-
-  .PDFsContainer {
-    flex-wrap: wrap;
-    z-index: 1000 !important;
-  }
-
-  .outerPDFs {
-    width: 300px;
-    z-index: 1000 !important;
-  }
+[data-theme="dark"] .headerTitle {
+ color: white;
 }
 
-@media (min-width: 481px) and (max-width: 900px) {
-  .outerPDFs {
-    width: 600px;
-  }
+[data-theme="dark"] .editButton {
+ background-color: #344966;
 }
 
-@media (min-width: 901px) and (max-width: 1240px) {
-  .outerPDFs {
-    width: 900px;
-  }
+[data-theme="dark"] .editButtonSmartphone {
+ background-color: #344966;
 }
 
 [data-theme="dark"] .button,
-.submitButton {
-  border: 2px solid #344966;
+[data-theme="dark"] .submitButton {
+ border: 2px solid #344966;
 }
 
+[data-theme="dark"] .modalContent {
+ background-color: #0d1821;
+}
 
+/* -----------------------------------------------*/
+
+
+
+
+
+/* MEDIA QUERIES */
+@media (max-width: 480px) {
+ .addSlideBlank {
+    width: 115px;
+    height: 115px;
+    border-radius: 50px;
+    margin: 25px;
+    margin-right: 0;
+ }
+}
+
+@media (min-width: 481px) and (max-width: 1240px) {
+ .addSlideBlank {
+    width: 245px;
+    height: 245px;
+    border-radius: 50px;
+    margin: 25px;
+    margin-right: 24px;
+ }
+}
+
+@media (max-width: 767px) {
+ .container {
+    margin-top: 3dvh;
+    margin-bottom: 2dvh;
+    z-index: 1000 !important;
+ }
+
+ .header {
+    display: none;
+ }
+
+ .headerSmartphone {
+    top: 0;
+ }
+}

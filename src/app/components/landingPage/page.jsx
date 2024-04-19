@@ -17,8 +17,9 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <main>
+    <main className={styles.main}>
       <section>
+        <div className={styles.verticalSpacing}></div>
         <div className={styles.container}>
           <p className={styles.title}>Notes in Cloud</p>
           <div className={styles.buttonContainer}>
@@ -37,7 +38,7 @@ const LandingPage = () => {
           </div>
           <p className={styles.paragraph}>
             Notes in Cloud is a PWA that uses Firebase Web API to store your
-            notes in PDFs, letting you bring your classes &apos notes on every device
+            notes in PDFs, letting you bring your classes&apos; notes on every device
             you need.
             <br />
           </p>

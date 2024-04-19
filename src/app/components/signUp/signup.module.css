@@ -1,140 +1,134 @@
-
+/* GENERAL STYLING */
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding:0;
+    padding: 0;
     align-items: center;
-    height:  100vh;
+    height: 100vh;
     text-align: center;
 }
 
-
 .title {
-    font-size:  4rem;
+    font-size: 4rem;
     color: #344966;
-    margin-bottom:  5rem;
+    margin-bottom: 5rem;
     font-weight: bolder;
-    letter-spacing:  0.2em;
+    letter-spacing: 0.2em;
 }
 
-.titleLink{
+.titleLink {
     text-decoration: none !important;
 }
-
 
 .formContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width:  100%;
-    width:  340px;
-    margin:  0 auto;
-    padding:  20px;
-    border-radius:  10px;
+    width: 340px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-
 .inputField {
-    width:  300px;
-    padding:  10px;
-    margin-bottom:  25px;
-    margin-top:15px;
-    border:  1px solid #344966;
-    border-radius:  4px;
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    border: 1px solid #344966;
+    border-radius: 4px;
     background-color: #eff8e2;
     color: #344966;
 }
 
-
 .submitButton {
-    width:  200px;
-    padding:  10px;
+    width: 200px;
+    padding: 10px;
     background-color: #344966;
     color: #eff8e2;
     border: none;
-    border-radius:  10px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color  0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
-.formComplete{
-  display: flex;
-  flex-direction: column;
+.formComplete {
+    display: flex;
+    flex-direction: column;
 }
-
-
-
-.submitButton:hover {
-    background-color: #0d1821;
-}
-
-[data-theme='dark'] .submitButton {
-  border: 2px solid #344966;
-}
-
 
 .errorMessage {
     color: red;
-    margin-top:  10px;
+    margin-top: 10px;
     text-align: center;
 }
-
 
 .paragraph {
     text-align: center;
-    width:  350px;
-    line-height:  180%;
+    width: 350px;
+    line-height: 180%;
     color: #344966;
-    margin-top:  5rem;
+    margin-top: 5rem;
 }
 
-@media (max-width:   480px) {
+/*---------------------------------------------*/
+/* DARK MODE STYLES */
+
+[data-theme='dark'] .submitButton {
+    border: 2px solid #344966;
+}
+
+[data-theme='dark'] .title {
+    color: white;
+}
+
+[data-theme='dark'] .paragraph {
+    color: white;
+}
+
+/*----------------------------------------------*/
+
+/* MEDIA QUERIES */
+
+@media (max-width: 480px) {
     .container {
-      padding:   0.5rem;
-      height:   90vh;
+        padding: 0.5rem;
+        height: 90vh;
     }
-  
-    .label{
-      font-size:1.2rem;
+
+    .label {
+        font-size: 1.2rem;
     }
-  
+
     .title {
-      font-size:   3rem;
-      margin-bottom:   2rem;
+        font-size: 3rem;
+        margin-bottom: 2rem;
     }
-  
+
     .formContainer {
-      width:   100%;
-      max-width:   300px;
-      padding:   10px;
+        width: 100%;
+        max-width: 300px;
+        padding: 10px;
     }
-  
+
     .inputField {
-      padding:   13px;
-      margin-bottom:   15px;
-      margin-top:   7.5px;
+        padding: 13px;
+        margin-bottom: 15px;
+        margin-top: 7.5px;
     }
-  
+
     .submitButton {
-      font-size:   0.9rem;
+        font-size: 0.9rem;
     }
-  
+
     .errorMessage {
-      font-size:   0.8rem;
+        font-size: 0.8rem;
     }
-  
+
     .paragraph {
-      width:   100%;
-      margin-top:   2.5rem;
+        width: 100%;
+        margin-top: 2.5rem;
     }
-  }
-
-  [data-theme='dark'] .title {
-    color:white;
-  }
-
-  [data-theme='dark'] .paragraph {
-    color:white;
-  }
+}

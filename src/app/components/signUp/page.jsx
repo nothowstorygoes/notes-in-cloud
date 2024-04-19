@@ -2,7 +2,7 @@
 import Link from "next/link";
 import styles from "./signup.module.css";
 import { useState } from "react";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth } from "fire.base/auth";
 import { auth } from "../../firebase";
 import { useRouter } from "next/navigation";
 import app from "../../firebase";
@@ -16,6 +16,9 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const router = useRouter();
 
+
+// function for signup. Creates user in firebase auth and creates needed dependencies in firebase cloud storage.
+// Uploads a blank profile picture as default profile picture. If set, it creates dependencies for propic and files in match.json
   const onSubmit = async (e) => {
     e.preventDefault();
 

@@ -164,7 +164,7 @@
 
 
 .SignOutButton {
-    width:  100px;
+    width:  200px;
     padding:  10px;
     background-color: #344966;
     color: #eff8e2;
@@ -177,6 +177,7 @@
 }
 
 .button{
+    margin-top:100px;
     display: flex;
     flex-direction: column;
     padding-top: 50px;

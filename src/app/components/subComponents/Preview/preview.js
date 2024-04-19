@@ -17,6 +17,8 @@ import { useRef, useEffect } from "react";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
+//component used for displaying the preview of the pdf file.
+
 export default function Preview({
   file: initialFile,
   onDelete,
@@ -55,6 +57,7 @@ export default function Preview({
     return <div className={styles.load}>Loading...</div>; 
   }
 
+  // function to fetch files from the database
   const fetchFile = async (fileName) => {
     
     const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
@@ -89,6 +92,8 @@ export default function Preview({
     }
   };
 
+
+// function to delete a preexisting pdf from the user directory
   const handleDelete = async () => {
     onDelete(file);
     const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
@@ -146,6 +151,8 @@ export default function Preview({
     fetchFile(file.name);
   };
 
+
+// function to delete the previously uploaded cover image for a chosen pdf in the user directory
   const deleteCover = async () => {
     
     const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
@@ -195,6 +202,8 @@ export default function Preview({
     }
   };
 
+
+  // function to upload a cover image for a specific pdf in the user directory 
   const handleCoverUpload = async (event) => {
     const image = event.target.files[0]; 
     if (!image) return;
@@ -257,6 +266,8 @@ export default function Preview({
     }
   };
 
+
+  // loading screen
   const loading = () => {
     return (
       <div className={styles.spinnerContainer}>
