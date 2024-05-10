@@ -1,21 +1,30 @@
-<h1>Notes in Cloud</h1>
+Per eseguire l'app in locale:
 
-<p>
-  <img src='https://github.com/nothowstorygoes/notes-in-cloud/assets/159369503/632f48c6-d89f-4f8d-990d-2b0b42d52d1c' width='180'/>
-</p>
+    - npm i
+    - npm run dev
 
-  <p align="center">
-  <p align="justify">
-    Notes in Cloud is a Progressive Web App (PWA) that leverages the Firebase Web API to store your notes in PDF format. This allows you to access your class notes on any device you need.
-The application is developed using React.js, with the Next.js framework serving as the foundation for the front-end. For authentication, it utilizes Firebase Authentication, and for storage, it relies on Firebase Cloud Storage.
-  </p>
-</p>
+Collegarsi a:  localhost:3000/notes-in-cloud/
 
-## Features
+Credenziali di test:
 
-- **PDF Storage**: Store your notes in PDF format for easy access and sharing.
-- **Cross-Device Access**: Access your notes on any device with an internet connection.
-- **React.js and Next.js**: Built with modern web technologies for a seamless user experience.
-- **Firebase Authentication**: Secure user authentication with Firebase.
-- **Firebase Cloud Storage**: Reliable storage for your notes.
+progettosaw@unipi.it
+000000
+
+Home Page -> Cliccare sull'icona matita per aprire l'interfaccia di modifica e upload.
+             E' consentito caricare un solo file alla volta e solo in formato PDF.
+             Dall'interfaccia di modifica è possibile caricare o eliminare, se precedentemente 
+             aggiunta, un'immagine di copertina per un file. E' possibile inoltre eliminare dal
+             Cloud i PDF caricati. 
+             Se consentito dall'utente, ad ogni caricamento di file l'utente riceverà una notifica di 
+             caricamento riuscito.
+
+
+Profile ->  E' possibile caricare un'immagine che servirà da immagine di profilo o sovrascrivere quella presente. 
+            Si può effettuare il sign out o richiedere una mail per recuperare la password in caso di smarrimento della stessa.
+
+
+Settings -> E' possibile scegliere il tema dell'app tra modalità chiara e scura. Sono presenti due pulsanti che
+            permettono: 1) la cancellazione di tutti i file, 2) la cancellazione dell'account previa riconferma delle credenziali d'accesso.
+
+
 

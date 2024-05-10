@@ -18,6 +18,7 @@ import { useRef, useEffect } from "react";
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 //component used for displaying the preview of the pdf file.
+//External module for handling the PDF file and displaying the first page as preview.
 
 export default function Preview({
   file: initialFile,
@@ -28,14 +29,14 @@ export default function Preview({
   const storage = getStorage(app);
   const auth = getAuth(app);
   const user = auth.currentUser;
-  const fileInputRef = useRef(null); 
+  const fileInputRef = useRef(null);
   const [coverImageURL, setCoverImageURL] = useState(null);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  const [isLoading, setIsLoading] = useState(true); 
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const checkForCoverImage = async () => {
-      setIsLoading(true); 
+      setIsLoading(true);
       const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
       const matchJsonURL = await getDownloadURL(matchJsonRef);
       const response = await fetch(matchJsonURL);
@@ -54,23 +55,19 @@ export default function Preview({
   }, [file, user.uid, storage]);
 
   if (isLoading) {
-    return <div className={styles.load}>Loading...</div>; 
+    return <div className={styles.load}>Loading...</div>;
   }
 
   // function to fetch files from the database
   const fetchFile = async (fileName) => {
-    
     const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
     const matchJsonURL = await getDownloadURL(matchJsonRef);
     const response = await fetch(matchJsonURL);
-    let matchJson = await response.json(); 
+    let matchJson = await response.json();
 
-    
     if (Array.isArray(matchJson)) {
-      
       const match = matchJson.find((item) => item.pdf === fileName);
       if (match) {
-        
         setFile((prevFile) => {
           if (prevFile.name === fileName) {
             return { ...prevFile, cover: match.cover };
@@ -78,8 +75,6 @@ export default function Preview({
           return prevFile;
         });
       } else {
-        
-        
         setFile((prevFile) => {
           if (prevFile.name === fileName) {
             return { ...prevFile, cover: "null" };
@@ -92,8 +87,7 @@ export default function Preview({
     }
   };
 
-
-// function to delete a preexisting pdf from the user directory
+  // function to delete a preexisting pdf from the user directory
   const handleDelete = async () => {
     onDelete(file);
     const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
@@ -101,20 +95,17 @@ export default function Preview({
     const response = await fetch(matchJsonURL);
     let matchJson = await response.json();
 
-    
     const matchIndex = matchJson.findIndex((item) => item.pdf === file.name);
     if (matchIndex !== -1) {
       const match = matchJson[matchIndex];
-      
+
       if (match.cover !== "null") {
         const imageRef = ref(storage, `PDFs/${user.uid}/covers/${match.cover}`);
         await deleteObject(imageRef);
       }
 
-      
       matchJson.splice(matchIndex, 1);
 
-      
       const updatedMatchJsonRef = ref(
         storage,
         `Userdata/${user.uid}/match.json`
@@ -128,18 +119,13 @@ export default function Preview({
       );
       uploadTask.on(
         "state_changed",
-        (snapshot) => {
-          
-        },
-        (error) => {
-          
-        },
+        (snapshot) => {},
+        (error) => {},
         async () => {
-          
           console.log(
             "Deleted match, associated image (if present), and updated match.json successfully"
           );
-          
+
           fetchFile(file.name);
         }
       );
@@ -147,14 +133,12 @@ export default function Preview({
       console.log("No match found for deletion.");
     }
     console.log("Deleted match and updated match.json successfully");
-    
+
     fetchFile(file.name);
   };
 
-
-// function to delete the previously uploaded cover image for a chosen pdf in the user directory
+  // function to delete the previously uploaded cover image for a chosen pdf in the user directory
   const deleteCover = async () => {
-    
     const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
     const matchJsonURL = await getDownloadURL(matchJsonRef);
     const response = await fetch(matchJsonURL);
@@ -162,14 +146,11 @@ export default function Preview({
 
     const match = matchJson.find((item) => item.pdf === file.name);
     if (match && match.cover !== "null") {
-      
       const imageRef = ref(storage, `PDFs/${user.uid}/covers/${match.cover}`);
       await deleteObject(imageRef);
 
-      
       match.cover = "null";
 
-      
       const updatedMatchJsonRef = ref(
         storage,
         `Userdata/${user.uid}/match.json`
@@ -183,58 +164,43 @@ export default function Preview({
       );
       uploadTask.on(
         "state_changed",
-        (snapshot) => {
-          
-        },
-        (error) => {
-          
-        },
+        (snapshot) => {},
+        (error) => {},
         async () => {
-          
           console.log(
             "Cover image deleted and match.json updated successfully"
           );
           setCoverImageURL(null);
-          
+
           fetchFile(file.name);
         }
       );
     }
   };
 
-
-  // function to upload a cover image for a specific pdf in the user directory 
+  // function to upload a cover image for a specific pdf in the user directory
   const handleCoverUpload = async (event) => {
-    const image = event.target.files[0]; 
+    const image = event.target.files[0];
     if (!image) return;
 
-    
     const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
     const matchJsonURL = await getDownloadURL(matchJsonRef);
     const response = await fetch(matchJsonURL);
     let matchJson = await response.json();
 
-    
-    const match = matchJson.find((item) => item.pdf === file.name); 
+    const match = matchJson.find((item) => item.pdf === file.name);
     if (match) {
-      match.cover = image.name; 
+      match.cover = image.name;
 
-      
       const imageRef = ref(storage, `PDFs/${user.uid}/covers/${image.name}`);
       const uploadTask = uploadBytesResumable(imageRef, image);
       uploadTask.on(
         "state_changed",
-        (snapshot) => {
-          
-        },
-        (error) => {
-          
-        },
+        (snapshot) => {},
+        (error) => {},
         async () => {
-          
           console.log("Image uploaded successfully");
 
-          
           const updatedMatchJsonRef = ref(
             storage,
             `Userdata/${user.uid}/match.json`
@@ -248,16 +214,11 @@ export default function Preview({
           );
           uploadTask2.on(
             "state_changed",
-            (snapshot) => {
-              
-            },
-            (error) => {
-              
-            },
+            (snapshot) => {},
+            (error) => {},
             async () => {
-              
               console.log("match.json updated successfully");
-              
+
               fetchFile(file.name);
             }
           );
@@ -265,7 +226,6 @@ export default function Preview({
       );
     }
   };
-
 
   // loading screen
   const loading = () => {
@@ -279,10 +239,9 @@ export default function Preview({
   };
 
   const triggerFileSelection = () => {
-    fileInputRef.current.click(); 
+    fileInputRef.current.click();
   };
 
-  
   return (
     <div className={styles.documentWrapper}>
       {showEditOverlay && (

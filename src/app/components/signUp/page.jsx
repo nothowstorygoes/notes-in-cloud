@@ -7,7 +7,13 @@ import { auth } from "../../firebase";
 import { useRouter } from "next/navigation";
 import app from "../../firebase";
 import { useEffect } from "react";
-import { deleteObject, getStorage, ref, uploadBytes, uploadString } from "firebase/storage";
+import {
+  deleteObject,
+  getStorage,
+  ref,
+  uploadBytes,
+  uploadString,
+} from "firebase/storage";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -16,9 +22,10 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const router = useRouter();
 
+  // function for signup. Creates user in firebase auth and creates needed dependencies in firebase cloud storage.
+  // Uploads a blank profile picture as default profile picture.
+  //If set, it creates dependencies for propic and files in match.json
 
-// function for signup. Creates user in firebase auth and creates needed dependencies in firebase cloud storage.
-// Uploads a blank profile picture as default profile picture. If set, it creates dependencies for propic and files in match.json
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -33,6 +40,7 @@ const Signup = () => {
       );
       const user = userCredential.user;
 
+      //Uploads default blank profile picture
       const defaultPicRef = ref(storage, `profilePics/default/${user.uid}`);
       const defaultPicPath = "/notes-in-cloud/icons/blank.png";
       const defaultPicBlob = new Blob(
@@ -40,6 +48,8 @@ const Signup = () => {
         { type: "image/png" }
       );
       await uploadBytes(defaultPicRef, defaultPicBlob);
+
+      //Set username in match.json file for dependencies
       const userUsername = username || `user${user.uid}`;
       const usernameRef = ref(storage, `Userdata/${user.uid}/${user.uid}.json`);
       const usernameData = JSON.stringify({ username: userUsername });
@@ -47,16 +57,16 @@ const Signup = () => {
         type: "application/json",
       });
       await uploadBytes(usernameRef, usernameBlob);
-
       const matchJsonRef = ref(storage, `Userdata/${user.uid}/match.json`);
-      const matchJsonData = JSON.stringify({}); 
+      const matchJsonData = JSON.stringify({});
       const matchJsonBlob = new Blob([matchJsonData], {
         type: "application/json",
       });
       await uploadBytes(matchJsonRef, matchJsonBlob);
 
+      //Creates a placeholder for setting up the private folder
       const coversRef = ref(storage, `PDFs/${user.uid}/covers/placeholder.txt`);
-      await uploadString(coversRef, ""); 
+      await uploadString(coversRef, "");
 
       console.log(user);
       router.push("./login");
@@ -68,10 +78,8 @@ const Signup = () => {
   };
 
   useEffect(() => {
-    
     document.body.style.overflowY = "hidden";
 
-    
     return () => {
       document.body.style.overflowY = "";
     };

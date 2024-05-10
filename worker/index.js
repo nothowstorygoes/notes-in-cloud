@@ -1,3 +1,8 @@
+//Custom worker logic
+
+
+//listens to event "push", extracts the payload and,
+// using .showNotification, displays the push notification to the user.
 
 
 self.addEventListener('push', (event) => {
@@ -10,11 +15,14 @@ self.addEventListener('push', (event) => {
   event.waitUntil(self.registration.showNotification(data.title, options));
 });
 
+//Closes the notification once the user clicked on it
+
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
   event.waitUntil(clients.openWindow(event.notification.data.url));
 });
 
+//listen to event "message" sent to service worker and displays a notification
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'NOTIFICATION') {

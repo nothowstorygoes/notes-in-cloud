@@ -6,7 +6,8 @@ import app from "../../firebase";
 import styles from "./home.module.css";
 import Navbar from "../subComponents/Navbar/navbar";
 import Preview from "../subComponents/Preview/preview";
-import useNotificationPermission from "../subComponents/Miscellaneous/notification";
+import useNotificationPermission from "../subComponents/Miscellaneous/notificationPermission";
+import sendNotification from "../subComponents/Miscellaneous/sendNotification";
 
 import {
   getStorage,
@@ -91,6 +92,11 @@ const Home = () => {
       (snapshot) => {},
       (error) => {},
       async () => {
+        
+        //After the upload of the desidered PDF is complete, handleUpload downloads
+        //the corrisponding match.json file for the user and updates it with
+        //the new file following the pattern <name:cover> and after re uploads the file
+
         const downloadURL = await getDownloadURL(storageRef);
         console.log("File available at", downloadURL);
 
@@ -116,6 +122,10 @@ const Home = () => {
           updatedMatchJsonRef,
           updatedMatchJsonBlob
         );
+        // After the uplaod of the newer version of match.json, handleUpload sends 
+        //"message" event to the service worker, which, using the implemented custom logic
+        //listens to the event and sends a push notification to the user 
+        //that confirms that the upload has been completed
 
         uploadTask2.on(
           "state_changed",
@@ -126,16 +136,7 @@ const Home = () => {
 
             fetchFiles();
             console.log("match.json updated successfully");
-            const registration = await navigator.serviceWorker.ready;
-            registration.active.postMessage({
-              type: "NOTIFICATION",
-              payload: {
-                title: "Slide uploaded!",
-                options: {
-                body: "Your upload has been completed successfully. Yay!",
-                },
-              },
-            });
+            sendNotification();
             setShowUploadPopup(false);
           }
         );
@@ -158,7 +159,7 @@ const Home = () => {
     }
   };
 
-  //React functional component to render a confirmation modal
+  //Confirmation modal for upload
   const Modal = () => {
     if (!showUploadPopup) return null;
     return (
@@ -188,8 +189,7 @@ const Home = () => {
     );
   };
 
-
-  // Sets the overlay for edit mode 
+  // Sets the overlay for edit mode
   const onClickShowEditOverlay = () => {
     setShowEditOverlay(!showEditOverlay);
   };
@@ -198,8 +198,7 @@ const Home = () => {
     document.getElementById("fileInput").click();
   };
 
-
-// loading screen
+  // loading screen
   if (loading) {
     return <div className={styles.load}>Loading...</div>;
   }

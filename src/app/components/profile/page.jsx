@@ -13,7 +13,7 @@ import {
   deleteObject,
   ref,
 } from "firebase/storage";
-import app from "../../firebase"; 
+import app from "../../firebase";
 import Navbar from "../subComponents/Navbar/navbar";
 import styles from "./profile.module.css";
 import SignOutButton from "../subComponents/Miscellaneous/signOut";
@@ -27,7 +27,7 @@ const ProfilePage = () => {
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const router = useRouter();
 
-//check for user auth state and if logged in loads the user's username and propic
+  //check for user auth state and if logged in loads the user's username and propic
 
   useEffect(() => {
     const auth = getAuth(app);
@@ -36,14 +36,13 @@ const ProfilePage = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        
+
         const profilePicRef = ref(storage, `profilePics/${user.uid}`);
         getDownloadURL(profilePicRef)
           .then((url) => {
             setProfilePicUrl(url);
           })
           .catch(() => {
-            
             const defaultPicRef = ref(
               storage,
               `profilePics/default/${user.uid}`
@@ -52,7 +51,7 @@ const ProfilePage = () => {
               setProfilePicUrl(url);
             });
           });
-        
+
         const usernameRef = ref(
           storage,
           `Userdata/${user.uid}/${user.uid}.json`
@@ -71,25 +70,22 @@ const ProfilePage = () => {
       }
     });
 
-    
     return () => {
       unsubscribe();
       document.body.style.overflowY = "";
     };
   }, []);
 
-
-
   const [showUploadPopup, setShowUploadPopup] = useState(false);
 
   const handleFileChange = (e) => {
     if (e.target.files[0]) {
       setSelectedFile(e.target.files[0]);
-      setShowUploadPopup(true); 
+      setShowUploadPopup(true);
     }
   };
 
-//function to handle the upload of a profile picture, and if present deletes the default one
+  //function to handle the upload of a profile picture, and if present deletes the default one
   const handleUpload = async () => {
     const storage = getStorage(app);
     if (!selectedFile) {
@@ -100,24 +96,17 @@ const ProfilePage = () => {
     await uploadBytes(storageRef, selectedFile);
     setProfilePicUrl(await getDownloadURL(storageRef));
 
-    
     const defaultPicRef = ref(storage, `profilePics/default/${user.uid}`);
     try {
-      
       await getDownloadURL(defaultPicRef);
-      
-      
+
       await deleteObject(defaultPicRef);
-    } catch (error) {
-      
-      
-    }
+    } catch (error) {}
 
     setShowUploadPopup(false);
   };
 
-  if(!isDataLoaded) 
-  {
+  if (!isDataLoaded) {
     return <div className={styles.load}>Loading...</div>;
   }
 
@@ -125,13 +114,12 @@ const ProfilePage = () => {
     return <div className={styles.load}>Loading...</div>;
   }
 
-
   //sends user email to reset password using firebase auth
   const handlePasswordReset = async (email) => {
     const auth = getAuth(app);
     try {
       await sendPasswordResetEmail(auth, email);
-      alert("Password reset email sent!"); 
+      alert("Password reset email sent!");
     } catch (error) {
       console.error("Error sending password reset email:", error);
       alert("Error sending password reset email:", error.message);
@@ -156,42 +144,43 @@ const ProfilePage = () => {
                 Reset Password
               </button>
               <div className={styles.formPopup}>
-            <button
-              onClick={() =>
-                document.getElementById("profile-picture-upload").click()
-              }
-              className={styles.submitButtonUpload}
-            >
-              Upload Profile Picture
-            </button>
-            <input
-              type="file"
-              accept="image/png, image/jpeg, image/webp"
-              onChange={handleFileChange}
-              id="profile-picture-upload"
-              style={{ display: "none" }}
-            />
-            {showUploadPopup && (
-              <div className={styles.submitButtonContainer}>
-                <button onClick={handleUpload} className={styles.submitButton}>
-                  Confirm Upload
-                </button>
                 <button
-                  onClick={() => setShowUploadPopup(false)}
-                  className={styles.submitButton}
+                  onClick={() =>
+                    document.getElementById("profile-picture-upload").click()
+                  }
+                  className={styles.submitButtonUpload}
                 >
-                  Cancel
+                  Upload Profile Picture
                 </button>
+                <input
+                  type="file"
+                  accept="image/png, image/jpeg, image/webp"
+                  onChange={handleFileChange}
+                  id="profile-picture-upload"
+                  style={{ display: "none" }}
+                />
+                {showUploadPopup && (
+                  <div className={styles.submitButtonContainer}>
+                    <button
+                      onClick={handleUpload}
+                      className={styles.submitButton}
+                    >
+                      Confirm Upload
+                    </button>
+                    <button
+                      onClick={() => setShowUploadPopup(false)}
+                      className={styles.submitButton}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
             </div>
           </div>
           <img src={profilePicUrl} alt="Profile" className={styles.propic} />
         </div>
-        <div className={styles.formContainer}>
-          
-        </div>
+        <div className={styles.formContainer}></div>
       </div>
     </main>
   );

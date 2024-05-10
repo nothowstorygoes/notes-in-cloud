@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-//function that checks for user's notification permission.
+//Custom react Hook, checks the for notification support and asks permission if possible.
 
 function useNotificationPermission() {
   useEffect(() => {

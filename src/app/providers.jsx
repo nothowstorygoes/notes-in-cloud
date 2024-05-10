@@ -1,4 +1,5 @@
 
+//configs for dark theme module
 
 'use client'
 
