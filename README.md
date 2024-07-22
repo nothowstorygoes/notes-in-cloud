@@ -1,30 +1,28 @@
-Per eseguire l'app in locale:
+<h3 align="center"><img alt="logo" src="https://github.com/user-attachments/assets/372caa16-fd84-4681-ab3e-ea865ea37882" align="center" width="80px" heigth="80px"></h3>
+<h1 align="center">Welcome to Notes in Cloud.👋
+</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.3-blue.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
 
-    - npm i
-    - npm run dev
+> Notes in Cloud is a PWA designed for students struggling with sharing their classes' notes on their devices. This app aims to simply the process, creating a unique cloud accessible from all of your devices where you can share, edit and customise your notes.
 
-Collegarsi a:  localhost:3000/notes-in-cloud/
+## Preview
 
-Credenziali di test:
-
-progettosaw@unipi.it
-000000
-
-Home Page -> Cliccare sull'icona matita per aprire l'interfaccia di modifica e upload.
-             E' consentito caricare un solo file alla volta e solo in formato PDF.
-             Dall'interfaccia di modifica è possibile caricare o eliminare, se precedentemente 
-             aggiunta, un'immagine di copertina per un file. E' possibile inoltre eliminare dal
-             Cloud i PDF caricati. 
-             Se consentito dall'utente, ad ogni caricamento di file l'utente riceverà una notifica di 
-             caricamento riuscito.
-
-
-Profile ->  E' possibile caricare un'immagine che servirà da immagine di profilo o sovrascrivere quella presente. 
-            Si può effettuare il sign out o richiedere una mail per recuperare la password in caso di smarrimento della stessa.
-
-
-Settings -> E' possibile scegliere il tema dell'app tra modalità chiara e scura. Sono presenti due pulsanti che
-            permettono: 1) la cancellazione di tutti i file, 2) la cancellazione dell'account previa riconferma delle credenziali d'accesso.
+<img alt="Preview" src="https://github.com/user-attachments/assets/596d7a68-0ad9-4186-bfb2-43305dfd0414" align="center">
 
 
 
+## Author
+
+👤 **Pio Alessandro Esposito**
+
+* Website: https://nothowstorygoes.github.io/nhsg.dev
+* Github: [@nothowstorygoes](https://github.com/nothowstorygoes)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
