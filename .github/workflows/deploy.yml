@@ -75,12 +75,12 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
         env: 
-          GOOGLEAPIKEY : ${{secrets.GOOGLEAPIKEY}}
-          GOOGLEAUTHDOMAIN : ${{secrets.GOOGLEAUTHDOMAIN}}
-          GOOGLEPROJECTID : ${{secrets.GOOGLEPROJECTID}}
-          GOOGLESTORAGEBUCKET : ${{secrets.GOOGLESTORAGEBUCKET}}
-          GOOGLEMESSAGINGSENDERID : ${{secrets.GOOGLEMESSAGINGSENDERID}}
-          GOOGLEAPPID : ${{secrets.GOOGLEAPPID}}
+          GOOGLEAPIKEY : ${{secrets.NEXT_PUBLIC_GOOGLEAPIKEY}}
+          GOOGLEAUTHDOMAIN : ${{secrets.NEXT_PUBLIC_GOOGLEAUTHDOMAIN}}
+          GOOGLEPROJECTID : ${{secrets.NEXT_PUBLIC_GOOGLEPROJECTID}}
+          GOOGLESTORAGEBUCKET : ${{secrets.NEXT_PUBLIC_GOOGLESTORAGEBUCKET}}
+          GOOGLEMESSAGINGSENDERID : ${{secrets.NEXT_PUBLIC_GOOGLEMESSAGINGSENDERID}}
+          GOOGLEAPPID : ${{secrets.NEXT_PUBLIC_GOOGLEAPPID}}
         
 
       - name: Upload artifact
