@@ -73,7 +73,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
       - name: Build with Next.js
-      env: 
+        env: 
           GOOGLEAPIKEY : ${{secrets.GOOGLEAPIKEY}}
           GOOGLEAUTHDOMAIN : ${{secrets.GOOGLEAUTHDOMAIN}}
           GOOGLEPROJECTID : ${{secrets.GOOGLEPROJECTID}}
