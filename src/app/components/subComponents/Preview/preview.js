@@ -15,7 +15,7 @@ import { getAuth } from "firebase/auth";
 import app from "../../../firebase";
 import { useRef, useEffect } from "react";
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 //component used for displaying the preview of the pdf file.
 //External module for handling the PDF file and displaying the first page as preview.
