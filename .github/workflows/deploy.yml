@@ -27,6 +27,13 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    env: 
+          GOOGLEAPIKEY : ${{secrets.GOOGLEAPIKEY}}
+          GOOGLEAUTHDOMAIN : ${{secrets.GOOGLEAUTHDOMAIN}}
+          GOOGLEPROJECTID : ${{secrets.GOOGLEPROJECTID}}
+          GOOGLESTORAGEBUCKET : ${{secrets.GOOGLESTORAGEBUCKET}}
+          GOOGLEMESSAGINGSENDERID : ${{secrets.GOOGLEMESSAGINGSENDERID}}
+          GOOGLEAPPID : ${{secrets.GOOGLEAPPID}}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -73,13 +80,7 @@ jobs:
 
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
-        env: 
-          GOOGLEAPIKEY : ${{secrets.GOOGLEAPIKEY}}
-          GOOGLEAUTHDOMAIN : ${{secrets.GOOGLEAUTHDOMAIN}}
-          GOOGLEPROJECTID : ${{secrets.GOOGLEPROJECTID}}
-          GOOGLESTORAGEBUCKET : ${{secrets.GOOGLESTORAGEBUCKET}}
-          GOOGLEMESSAGINGSENDERID : ${{secrets.GOOGLEMESSAGINGSENDERID}}
-          GOOGLEAPPID : ${{secrets.GOOGLEAPPID}}
+        
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
