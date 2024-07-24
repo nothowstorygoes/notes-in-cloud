@@ -29,6 +29,6 @@
     "eslint": "^9",
     "eslint-config-next": "14.2.3",
     "typescript": "^5",
-    "webpack": "^5.90.3"
+    "webpack": "^5.93.0"
   }
 }
