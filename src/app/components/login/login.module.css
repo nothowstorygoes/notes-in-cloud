@@ -11,7 +11,7 @@
 
 .title {
     font-size: 4rem;
-    color: #344966;
+    color: var(--secondary-color);
     margin-bottom: 10rem;
     font-weight: bolder;
     letter-spacing: 0.2em;
@@ -38,10 +38,10 @@
     padding: 10px;
     margin-bottom: 25px;
     margin-top: 15px;
-    border: 1px solid #344966;
+    border: 1px solid var(--secondary-color);
     border-radius: 4px;
-    background-color: #eff8e2;
-    color: #344966;
+    background-color: var(--ternary-color);
+    color: var(--secondary-color);
 }
 
 .formComplete {
@@ -52,8 +52,8 @@
 .submitButton {
     width: 200px;
     padding: 10px;
-    background-color: #344966;
-    color: #eff8e2;
+    background-color: var(--secondary-color);
+    color: var(--ternary-color);
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -61,7 +61,7 @@
 }
 
 .submitButton:hover {
-    background-color: #0d1821;
+    background-color: var(--primary-color);
 }
 
 .errorMessage {
@@ -74,7 +74,7 @@
     text-align: center;
     width: 350px;
     line-height: 180%;
-    color: #344966;
+    color: var(--secondary-color);
     margin-top: 5rem;
 }
 
@@ -103,21 +103,7 @@
 
 /* ------------------------------------------------- */
 
-/* DARK MODE STYLES */
 
-[data-theme='dark'] .title {
-    color: white;
-}
-
-[data-theme='dark'] .submitButton {
-    border: 2px solid #344966;
-}
-
-[data-theme='dark'] .paragraph {
-    color: white;
-}
-
-/*------------------------------------------------*/
 
 /* MEDIA QUERIES */
 

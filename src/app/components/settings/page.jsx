@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import packageJson from "../../../../package.json";
 import {
   getAuth,
   deleteUser,
@@ -19,9 +20,29 @@ const SettingsPage = () => {
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const versionNumber = packageJson.version;
+
 
   //check for user auth
   useEffect(() => {
+    const root = document.documentElement;
+      const theme = localStorage.getItem('theme') || 'default';
+  
+      if(theme === "default") {
+        root.style.setProperty("--primary-color", "#0d1821");
+        root.style.setProperty("--secondary-color", "#344966");
+        root.style.setProperty("--ternary-color", "#ffffff");
+      }
+      if(theme === "violet"){
+        root.style.setProperty("--primary-color", "#231942");
+        root.style.setProperty("--secondary-color", "#5e548e");
+        root.style.setProperty("--ternary-color", "#ffffff");
+      }
+      if(theme === "green"){
+        root.style.setProperty("--primary-color", "#344e41");
+        root.style.setProperty("--secondary-color", "#588157");
+        root.style.setProperty("--ternary-color", "#dad7cd");
+      }
     const auth = getAuth(app);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -166,7 +187,10 @@ const SettingsPage = () => {
             )}
           </div>
         </div>
+        <div className={styles.versionContainer}>
+          <p className={styles.version}>v.{versionNumber}</p>
       </div>
+    </div>
     </main>
   );
 };

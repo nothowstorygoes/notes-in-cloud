@@ -9,7 +9,7 @@
  justify-content: center;
  font-size: 25px;
  width: 250px;
- color: #344966;
+ color: var(--secondary-color);
 }
 
 .spinnerContainer {
@@ -57,7 +57,7 @@
 
 .headerTitle {
  font-size: 2rem; 
- color: #344966; 
+ color: var(--secondary-color); 
  margin-bottom: 6rem; 
  font-weight: bolder; 
  letter-spacing: 0.2em; 
@@ -70,29 +70,29 @@
  height: 50px;
  font-size: 40px;
  margin-left: 50px;
- background-color: #344966;
- color: #eff8e2;
+ background-color: var(--secondary-color);
+ color: var(--ternary-color);
  text-align: center;
  border: none;
  border-radius: 50%; 
 }
 
 .button:hover {
- background-color: #0d1821;
+ background-color: var(--primary-color);
 }
 
 .submitButton {
  width: 100px; 
  padding: 10px; 
- background-color: #344966; 
- color: #eff8e2; 
+ background-color: var(--secondary-color); 
+ color: var(--ternary-color); 
  border: none;
  border-radius: 10px; 
  margin-left: 20px;
 }
 
 .submitButton:hover {
- background-color: #0d1821;
+ background-color: var(--primary-color);
 }
 
 .submitButtonContainer {
@@ -137,8 +137,8 @@
 }
 
 .editButton {
- background-color: #344966;
- border: 3px solid #344966;
+ background-color: var(--secondary-color);
+ border: 3px solid var(--secondary-color);
  border-radius: 50%;
  width: 50px;
  height: 50px;
@@ -171,7 +171,7 @@
 }
 
 .editButton:hover {
- background-color: #0d1821 !important;
+ background-color: var(--primary-color) !important;
  transition: background-color 0.3s ease-in-out;
 }
 
@@ -229,16 +229,16 @@
  margin: 20px;
  width: 200px;
  padding: 7px;
- background-color: #344966;
+ background-color: var(--secondary-color);
  color: white;
- border: 2px solid #344966;
+ border: 2px solid var(--secondary-color);
  border-radius: 10px;
  cursor: pointer;
  transition: background-color 0.3s ease;
 }
 
 .buttonUpload:hover {
- background-color: #0d1821;
+ background-color: var(--primary-color);
 }
 
 .buttonContainerUpload {
@@ -247,9 +247,9 @@
 }
 
 .modalContent {
- background-color: #eff8e2;
+ background-color: var(--ternary-color);
  padding: 20px;
- border: 3px solid #344966;
+ border: 3px solid var(--secondary-color);
  border-radius: 15px;
  display: flex;
  flex-direction: column;
@@ -268,41 +268,9 @@
  font-size: 48px;
  z-index: 900;
  font-weight: normal;
+  color: var(--secondary-color);
 }
 /*-------------------------------------------------------------------*/
-
-
-
-
-/* DARK MODE STYLES */
-
-[data-theme="dark"] .load {
- color: white;
-}
-
-[data-theme="dark"] .headerTitle {
- color: white;
-}
-
-[data-theme="dark"] .editButton {
- background-color: #344966;
-}
-
-[data-theme="dark"] .editButtonSmartphone {
- background-color: #344966;
-}
-
-[data-theme="dark"] .button,
-[data-theme="dark"] .submitButton {
- border: 2px solid #344966;
-}
-
-[data-theme="dark"] .modalContent {
- background-color: #0d1821;
-}
-
-/* -----------------------------------------------*/
-
 
 
 
@@ -368,6 +336,7 @@
  .headerTitleSmartphone{
    display: block;
    font-weight: bolder;
+   color: var(--secondary-color);
    font-size: 2rem;
    letter-spacing: 0.4rem;
    text-align: right;

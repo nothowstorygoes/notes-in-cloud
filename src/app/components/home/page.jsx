@@ -35,6 +35,25 @@ const Home = () => {
 
   //checks user auth state
   useEffect(() => {
+      const root = document.documentElement;
+      const theme = localStorage.getItem('theme') || 'default';
+  
+      if(theme === "default") {
+        root.style.setProperty("--primary-color", "#0d1821");
+        root.style.setProperty("--secondary-color", "#344966");
+        root.style.setProperty("--ternary-color", "#eff8e2");
+      }
+      if(theme === "violet"){
+        root.style.setProperty("--primary-color", "#231942");
+        root.style.setProperty("--secondary-color", "#5e548e");
+        root.style.setProperty("--ternary-color", "#ffffff");
+      }
+      if(theme === "green"){
+        root.style.setProperty("--primary-color", "#344e41");
+        root.style.setProperty("--secondary-color", "#588157");
+        root.style.setProperty("--ternary-color", "#dad7cd");
+      }
+
     const auth = getAuth(app);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -198,10 +217,6 @@ const Home = () => {
     document.getElementById("fileInput").click();
   };
 
-  // loading screen
-  if (loading) {
-    return <div className={styles.load}>Loading...</div>;
-  }
 
   return (
     <main>
@@ -243,9 +258,6 @@ const Home = () => {
             onChange={handleFileSelect}
           />
         </div>
-        {showEditOverlay && (
-          <div className={styles.editDisclaimer}>Edit mode - Enabled</div>
-        )}
         <div className={styles.outerPDFs}>
           <div className={styles.PDFsContainer}>
             {showEditOverlay && (

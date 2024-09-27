@@ -30,6 +30,25 @@ const ProfilePage = () => {
   //check for user auth state and if logged in loads the user's username and propic
 
   useEffect(() => {
+    const root = document.documentElement;
+      const theme = localStorage.getItem('theme') || 'default';
+  
+      if(theme === "default") {
+        root.style.setProperty("--primary-color", "#0d1821");
+        root.style.setProperty("--secondary-color", "#344966");
+        root.style.setProperty("--ternary-color", "#eff8e2");
+      }
+      if(theme === "violet"){
+        root.style.setProperty("--primary-color", "#231942");
+        root.style.setProperty("--secondary-color", "#5e548e");
+        root.style.setProperty("--ternary-color", "#ffffff");
+      }
+      if(theme === "green"){
+        root.style.setProperty("--primary-color", "#344e41");
+        root.style.setProperty("--secondary-color", "#588157");
+        root.style.setProperty("--ternary-color", "#dad7cd");
+      }
+
     const auth = getAuth(app);
     const storage = getStorage(app);
     document.body.style.overflowY = "hidden";

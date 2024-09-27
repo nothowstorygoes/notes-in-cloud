@@ -7,7 +7,7 @@
     justify-content: center;
     font-size: 25px;
     width: 250px;
-    color: #344966;
+    color: var(--secondary-color);
   }
 
   [data-theme='dark'] .load{
@@ -41,7 +41,7 @@
 
 .header {
     font-size:  2rem;
-    color: #344966;
+    color: var(--secondary-color);
     margin-bottom:  0rem;
     font-weight: bolder;
     letter-spacing:  0.2em;
@@ -92,10 +92,10 @@
     padding:  10px;
     margin-bottom:  25px;
     margin-top:15px;
-    border:  1px solid #344966;
+    border:  1px solid var(--secondary-color);
     border-radius:  4px;
-    background-color: #eff8e2;
-    color: #344966;
+    background-color: var(--ternary-color);
+    color: var(--secondary-color);
 }
 
 [data-theme='dark'] .inputField{
@@ -107,8 +107,8 @@
 .submitButton {
     width:  200px;
     padding:  10px;
-    background-color: #344966;
-    color: #eff8e2;
+    background-color: var(--secondary-color);
+    color: var(--ternary-color);
     border: none;
     border-radius:  10px;
     cursor: pointer;
@@ -118,15 +118,15 @@
 
 
 .submitButton:hover {
-    background-color: #0d1821;
+    background-color: var(--primary-color);
 }
 
 
 .submitButtonUpload {
     width:  200px;
     padding:  10px;
-    background-color: #344966;
-    color: #eff8e2;
+    background-color: var(--secondary-color);
+    color: var(--ternary-color);
     border: none;
     border-radius:  10px;
     cursor: pointer;
@@ -135,7 +135,7 @@
 
 
 .submitButtonUpload:hover {
-    background-color: #0d1821;
+    background-color: var(--primary-color);
 }
 
 .submitButtonContainer {
@@ -166,8 +166,8 @@
 .SignOutButton {
     width:  200px;
     padding:  10px;
-    background-color: #344966;
-    color: #eff8e2;
+    background-color: var(--secondary-color);
+    color: var(--ternary-color);
     border: none;
     border-radius:  10px;
     cursor: pointer;
@@ -185,11 +185,11 @@
 
 
 .SignOutButton:hover {
-    background-color: #0d1821;
+    background-color: var(--primary-color);
 }
 
 [data-theme='dark'] .submitButton, .submitButtonUpload, .SignOutButton {
-    border: 2px solid #344966;
+    border: 2px solid var(--secondary-color);
 }
 
 @media (max-width:  768px) {

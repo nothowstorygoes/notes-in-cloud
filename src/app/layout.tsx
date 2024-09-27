@@ -14,6 +14,30 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+      <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const theme = localStorage.getItem('theme');
+                const root = document.documentElement;
+                } else if (theme === 'green') {
+                  root.style.setProperty('--primary-color', '#344e41');
+                  root.style.setProperty('--secondary-color', '#588157');
+                  root.style.setProperty('--ternary-color' , '#ffffff');
+                } else if (theme === 'violet') {
+                  root.style.setProperty('--primary-color', '#231942');
+                  root.style.setProperty('--secondary-color', '#5e548e');
+                  root.style.setProperty('--ternary-color' , '#ffffff');
+                } else if(theme==="default"){
+                  root.style.setProperty('--primary-color', '#0d1821');
+                  root.style.setProperty('--secondary-color', '#344966');
+                  root.style.setProperty('--ternary-color' , '#ffffff');
+                }
+              })();
+            `,
+          }}
+        />
       <link rel="manifest" href="/notes-in-cloud/manifest.json" />
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -62,7 +86,7 @@ export default function RootLayout({
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
       <meta name="viewport" content="viewport-fit=cover" />
-
+          </head>
       <body className={inter.className}>
         <Providers>{children}</Providers>
       </body>

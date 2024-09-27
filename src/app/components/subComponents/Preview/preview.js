@@ -54,9 +54,6 @@ export default function Preview({
     checkForCoverImage();
   }, [file, user.uid, storage]);
 
-  if (isLoading) {
-    return <div className={styles.load}>Loading...</div>;
-  }
 
   // function to fetch files from the database
   const fetchFile = async (fileName) => {

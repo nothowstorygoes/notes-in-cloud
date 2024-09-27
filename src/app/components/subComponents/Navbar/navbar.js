@@ -14,7 +14,7 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <ul className={styles.icons}>
         <li className={styles.listIcon}>
-          <a href="/notes-in-cloud/components/home">
+          <a href="/notes-in-cloud/components/home" style={{textDecoration: "none"}}>
             <Image
               src="/notes-in-cloud/icons/home.png"
               className={styles.icoItem}
@@ -22,10 +22,11 @@ const Navbar = () => {
               height={30}
               alt=""
             />
+            <p className={styles.iconText}>Home</p>
           </a>
         </li>
         <li className={styles.listIcon}>
-          <a href="/notes-in-cloud/components/profile">
+          <a href="/notes-in-cloud/components/profile" style={{textDecoration: "none"}}>
             <Image
               src="/notes-in-cloud/icons/profile.png"
               className={styles.icoItem}
@@ -33,10 +34,11 @@ const Navbar = () => {
               height={30}
               alt=""
             />
+            <p className={styles.iconText}>Profile</p>
           </a>
         </li>
         <li className={styles.listIcon}>
-          <a href="/notes-in-cloud/components/settings">
+          <a href="/notes-in-cloud/components/settings" style={{textDecoration: "none"}}>
             <Image
               src="/notes-in-cloud/icons/settings.png"
               className={styles.icoItem}
@@ -44,6 +46,7 @@ const Navbar = () => {
               height={30}
               alt=""
             />
+            <p className={styles.iconText}>Settings</p>
           </a>
         </li>
       </ul>

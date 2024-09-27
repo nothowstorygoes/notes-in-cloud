@@ -12,13 +12,20 @@
     margin-right: 20px;
 }
 
+.iconText{
+    text-decoration: none;
+    margin-bottom: 0;
+    text-align: center;
+    color: var(--ternary-color);
+}
+
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: #344966;
-    color: #eff8e2;
+    background-color: var(--secondary-color);
+    color: var(--ternary-color);
     padding: 10px 0;
     z-index: 1000;
 }
@@ -47,7 +54,7 @@
 }
 
 .active {
-    background-color: #0d1821;
+    background-color: var(--primary-color);
     color: white;
 }
 
@@ -59,28 +66,17 @@
 }
 
 .navbarLink {
-    color: #eff8e2;
+    color: var(--ternary-color);
     text-decoration: none;
     padding: 100%;
 }
 
 .navbarItem:hover {
-    background-color: #0d1821;
+    background-color: var(--primary-color);
     color: white;
 }
 
-/* --------------------------------------------------*/
 
-/* DARK MODE STYLES*/
-
-[data-theme="dark"] .navbar {
-    color: white;
-    background-color: #2A3A51;
-}
-
-[data-theme="dark"] .navbarLink {
-    color: white;
-}
 
 /*-------------------------------------------*/
 
