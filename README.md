@@ -1,4 +1,4 @@
-<h3 align="center"><img alt="logo" src="https://github.com/user-attachments/assets/372caa16-fd84-4681-ab3e-ea865ea37882" align="center" width="80px" heigth="80px"></h3>
+<h3 align="center"><img alt="logo" src="https://github.com/user-attachments/assets/a1c22b77-f875-43ce-9e2d-7a0d1f4a00be" align="center" width="100px" heigth="100px"></h3>
 <h1 align="center">Welcome to Notes in Cloud.👋
 </h1>
 <p>
@@ -12,7 +12,7 @@
 
 ## Preview
 
-<img alt="Preview" src="https://github.com/user-attachments/assets/596d7a68-0ad9-4186-bfb2-43305dfd0414" align="center">
+<img alt="Preview" src="https://github.com/user-attachments/assets/ec41a1a3-631e-4747-bf33-1979b8c1de61" align="center">
 
 
 
