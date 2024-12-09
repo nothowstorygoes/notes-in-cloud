@@ -12,7 +12,7 @@
     "@ducanh2912/next-pwa": "^10.2.5",
     "@serwist/next": "^8.4.4",
     "@serwist/precaching": "^9.0.5",
-    "@serwist/sw": "^9.0.7",
+    "@serwist/sw": "^9.0.11",
     "@types/firebase": "^3.2.1",
     "@types/react-burger-menu": "^2.8.7",
     "eslint": "^8.57.0",
