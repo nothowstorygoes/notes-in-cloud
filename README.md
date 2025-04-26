@@ -20,7 +20,7 @@
 
 👤 **Pio Alessandro Esposito**
 
-* Website: https://nothowstorygoes.github.io/nhsg.dev
+* Website: [nhsg](https://nhsg.vercel.app)
 * Github: [@nothowstorygoes](https://github.com/nothowstorygoes)
 
 ## Show your support
