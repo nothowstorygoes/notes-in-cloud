@@ -1,4 +1,4 @@
-## Notes in Cloud has been discontinued in favor of [Notes In](https://github.com/nothowstorygoes/Notes-In). While it will no longer receive updates, you can still continue using it as usual.
+## Notes in Cloud has been discontinued in favor of [ExamShelf](https://github.com/nothowstorygoes/ExamShelf). While it will no longer receive updates, you can still continue using it as usual.
 
 ><h3 align="center"><img alt="logo" src="https://github.com/user-attachments/assets/a1c22b77-f875-43ce-9e2d-7a0d1f4a00be" align="center" width="100px" heigth="100px"></h3>
 ><h1 align="center">Welcome to Notes in Cloud.👋
